@@ -1,8 +1,7 @@
 <!-- HEADER START -->
-<div id="head">
-	<div id="header">IMMAGINE HEAD</div>
-	<div id="topmenu">
-	<div id='jqxMenu' style='visibility: hidden; margin-left: 60px;'>
+<div id="header">
+	<div id="headImage">IMMAGINE HEAD</div>
+	<div id='jqxMenu' style='visibility: hidden;margin-left: auto;margin-right: auto;'>
 	<ul>
 		<li><a href="/">Home</a></li>
 		<li>Progetti
@@ -42,14 +41,13 @@
 		<li><a href="#">Crea un progetto</a></li>
 	</ul>
 	</div>
-	</div>
 </div>
 <script type="text/javascript">
-            $(document).ready(function () {
-                // Create a jqxMenu
-                $("#jqxMenu").jqxMenu({ width: '1000', height: '30px', theme: 'base' });
-                $("#jqxMenu").css('visibility', 'visible');
-                $("#jqxMenu").jqxMenu('disable', 'fin', true);
-            });
-        </script>
+$(document).ready(function () {
+    // Create a jqxMenu
+    $("#jqxMenu").jqxMenu({ width: '1000', height: '30px', theme: 'base' });
+    $("#jqxMenu").css('visibility', 'visible');
+    $("#jqxMenu").jqxMenu('disable', 'fin', true);
+});
+</script>
 <!-- HEADER END -->

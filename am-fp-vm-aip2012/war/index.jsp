@@ -3,23 +3,33 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="f" uri="http://www.slim3.org/functions"%>
 
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <jsp:include page="common/meta-head.jsp" />
 <title>Home - EU Projects</title>
 </head>
 <body>
-<div id="container">
 <jsp:include page="common/header.jsp" />
+<section id="middle">
+	<div id="container">
+		<div id="content">
 <!-- CONTENT START -->
-<div id="middle">
-	<div id="leftmenu">Menu LEFT (possibilmente dinamico e automatico?)</div>
-	<div id="content">
+
 <h1>CONTENT</h1>
-	</div>
-</div>
+<p>Qui è necessario inserire un po' di contenuto!</p>
+<p>Piace questo stile?</p>
+
 <!-- CONTENT END -->
+		</div>
+	</div>
+<aside id="sideLeft">
+<!-- LEFT MENU START -->
+	Menu Laterale
+<!-- LEFT MENU END -->
+</aside>
+</section>
 <jsp:include page="common/footer.jsp" />
-</div>
+
 </body>
 </html>
