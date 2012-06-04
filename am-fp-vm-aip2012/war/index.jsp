@@ -5,11 +5,16 @@
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<jsp:include page="common/meta-head.jsp" />
 <title>Index</title>
 </head>
 <body>
+<div id="container">
+<jsp:include page="common/header.jsp" />
+<!-- CONTENT START -->
 <p>Site under construction...</p>
-<p>Hola mundo!</p>
+<!-- CONTENT END -->
+<jsp:include page="common/footer.jsp" />
+</div>
 </body>
 </html>
