@@ -9,7 +9,6 @@
 <title>Index</title>
 </head>
 <body>
-<p>Hello Index !!!</p>
 <p>Site under construction...</p>
 <p>Hola mundo!</p>
 </body>
