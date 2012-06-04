@@ -12,9 +12,12 @@
 <div id="container">
 <jsp:include page="common/header.jsp" />
 <!-- CONTENT START -->
-
+<div id="middle">
+	<div id="leftmenu">Menu LEFT</div>
+	<div id="content">
 <h1>CONTENT</h1>
-
+	</div>
+</div>
 <!-- CONTENT END -->
 <jsp:include page="common/footer.jsp" />
 </div>

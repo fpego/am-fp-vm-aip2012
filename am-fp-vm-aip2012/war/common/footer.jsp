@@ -1,5 +1,3 @@
 <!-- FOOTER START -->
-	</div><!-- Chiusura di "content" -->
-</div><!-- Chiusura di "middle" -->
-<div id="footer">Footer</div>
+<div id="footer">Sviluppato da Maccioni, Melendez & Pegoraro</div>
 <!-- FOOTER START -->

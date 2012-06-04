@@ -6,15 +6,18 @@
 <html>
 <head>
 <jsp:include page="common/meta-head.jsp" />
-<title>PAGE_TITLE</title>
+<title>Home - EU Projects</title>
 </head>
 <body>
 <div id="container">
 <jsp:include page="common/header.jsp" />
 <!-- CONTENT START -->
-
+<div id="middle">
+	<div id="leftmenu">Menu LEFT (possibilmente dinamico e automatico?)</div>
+	<div id="content">
 <h1>CONTENT</h1>
-
+	</div>
+</div>
 <!-- CONTENT END -->
 <jsp:include page="common/footer.jsp" />
 </div>
