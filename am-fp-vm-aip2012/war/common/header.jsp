@@ -9,21 +9,21 @@
 				<li><a href="#">Tutti i progetti</a></li>
 				<li><a href="#">Per anno d'inizio</a></li>
 				<li><a href="#">Per anno di fine</a></li>
-				<li><a href="#">Tutti i temi</a></li>
+				<li><a href="#">Progetti per tema</a></li>
 			</ul>
 		</li>
 		<li>Partners
 			<ul>
 				<li><a href="#">Tutti i partners</a></li>
-				<li><a href="#">Tutti i leader di progetto</a></li>
+				<li><a href="#">Partners leader di progetto</a></li>
 			</ul>		
 		</li>
 		<li>Eventi
 			<ul>
 				<li><a href="#">Tutti gli eventi</a></li>
-				<li><a href="#">Tutti i temi</a></li>
-				<li><a href="#">Tutti i tipi</a></li>
-				<li><a href="#">Tutti i mesi</a></li>
+				<li><a href="#">Eventi per temi</a></li>
+				<li><a href="#">Eventi per tipo</a></li>
+				<li><a href="#">Eventi per mese</a></li>
 			</ul>
 		</li>
 		<li>Ricercatori
@@ -34,7 +34,12 @@
 				<li><a href="#">Aree di ricerca</a></li>
 			</ul>
 		</li>
-		<li><a href="#">Attività</a></li>
+		<li>Attività
+			<ul>
+				<li><a href="#">Tutte le attività</a></li>
+				<li><a href="#">Attività per mese</a></li>
+			</ul>
+		</li>
 		<li><a href="#">Eventi Pubblici</a></li>
 		<li><a href="#">La Commissione Europea</a></li>
 		<li><a href="#">Regole d'iscrizione</a></li>
