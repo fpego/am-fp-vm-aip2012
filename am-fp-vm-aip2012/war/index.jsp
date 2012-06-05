@@ -25,7 +25,6 @@
 	</div>
 <aside id="sideLeft">
 <!-- LEFT MENU START -->
-	Menu Laterale
 <!-- LEFT MENU END -->
 </aside>
 </section>
