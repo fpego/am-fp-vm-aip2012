@@ -5,13 +5,11 @@ import java.io.Serializable;
 import com.google.appengine.api.datastore.Key;
 
 import org.slim3.datastore.Attribute;
-import org.slim3.datastore.InverseModelListRef;
 import org.slim3.datastore.Model;
-
-import project.meta.PartnerProgettoMeta;
+import org.slim3.datastore.ModelRef;
 
 @Model(schemaVersion = 1)
-public class Progetto implements Serializable {
+public class PartnerProgetto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -21,13 +19,8 @@ public class Progetto implements Serializable {
     @Attribute(version = true)
     private Long version;
     
-    private String titoloProgetto;
-    private String nomePartnerLeader;
-    
-    @Attribute(persistent=false)
-    private InverseModelListRef<PartnerProgetto, Progetto> partnerProgettoListRef =
-            new InverseModelListRef<PartnerProgetto, Progetto>
-    (PartnerProgetto.class, PartnerProgettoMeta.get().progettoRef.getName(), this);
+    private ModelRef<Partner> partnerRef = new ModelRef<Partner>(Partner.class);
+    private ModelRef<Progetto> progettoRef = new ModelRef<Progetto>(Progetto.class);
 
     /**
      * Returns the key.
@@ -86,7 +79,7 @@ public class Progetto implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        Progetto other = (Progetto) obj;
+        PartnerProgetto other = (PartnerProgetto) obj;
         if (key == null) {
             if (other.key != null) {
                 return false;
@@ -97,23 +90,13 @@ public class Progetto implements Serializable {
         return true;
     }
 
-    public String getTitoloProgetto() {
-        return titoloProgetto;
+    public ModelRef<Partner> getPartnerRef() {
+        return partnerRef;
     }
 
-    public void setTitoloProgetto(String titoloProgetto) {
-        this.titoloProgetto = titoloProgetto;
+    public ModelRef<Progetto> getProgettoRef() {
+        return progettoRef;
     }
 
-    public String getNomePartnerLeader() {
-        return nomePartnerLeader;
-    }
 
-    public void setNomePartnerLeader(String nomePartnerLeader) {
-        this.nomePartnerLeader = nomePartnerLeader;
-    }
-    
-    public InverseModelListRef<PartnerProgetto, Progetto> getPartnerProgettoListRef(){
-        return partnerProgettoListRef;
-    }
 }

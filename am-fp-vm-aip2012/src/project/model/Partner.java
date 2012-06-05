@@ -5,7 +5,10 @@ import java.io.Serializable;
 import com.google.appengine.api.datastore.Key;
 
 import org.slim3.datastore.Attribute;
+import org.slim3.datastore.InverseModelListRef;
 import org.slim3.datastore.Model;
+
+import project.meta.PartnerProgettoMeta;
 
 @Model(schemaVersion = 1)
 public class Partner implements Serializable {
@@ -19,6 +22,11 @@ public class Partner implements Serializable {
     private Long version;
     
     private String nome;
+    
+    @Attribute(persistent=false)
+    private InverseModelListRef<PartnerProgetto, Partner> partnerProgettoListRef
+    = new InverseModelListRef<PartnerProgetto, Partner>
+    (PartnerProgetto.class, PartnerProgettoMeta.get().partnerRef.getName(), this);
 
     /**
      * Returns the key.
@@ -95,4 +103,9 @@ public class Partner implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public InverseModelListRef<PartnerProgetto, Partner> getPartnerProgettoListRef() {
+        return partnerProgettoListRef;
+    }
+
 }
