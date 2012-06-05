@@ -5,33 +5,25 @@ import java.io.Serializable;
 import com.google.appengine.api.datastore.Key;
 
 import org.slim3.datastore.Attribute;
-import org.slim3.datastore.InverseModelListRef;
 import org.slim3.datastore.Model;
 import org.slim3.datastore.ModelRef;
 
-import project.meta.RicercatoreProgettoMeta;
-
 @Model(schemaVersion = 1)
-public class Ricercatore implements Serializable {
+public class RicercatoreProgetto implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     @Attribute(primaryKey = true)
     private Key key;
 
     @Attribute(version = true)
     private Long version;
     
-    private String nome;
-    private String cognome;
-    private ModelRef<Partner> partnerRef  =
-            new ModelRef<Partner>(Partner.class);
-    @Attribute(persistent=false)
-    private InverseModelListRef<RicercatoreProgetto, Ricercatore> ricercatoreProgettoListRef =
-            new InverseModelListRef<RicercatoreProgetto, Ricercatore>
-    (RicercatoreProgetto.class, RicercatoreProgettoMeta.get().ricercatoreRef.getName(),this);
-    
-    
+    private ModelRef<Progetto> progettoRef =
+            new ModelRef<Progetto>(Progetto.class);
+    private ModelRef<Ricercatore> ricercatoreRef =
+            new ModelRef<Ricercatore>(Ricercatore.class);
+
     /**
      * Returns the key.
      *
@@ -89,7 +81,7 @@ public class Ricercatore implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        Ricercatore other = (Ricercatore) obj;
+        RicercatoreProgetto other = (RicercatoreProgetto) obj;
         if (key == null) {
             if (other.key != null) {
                 return false;
@@ -100,29 +92,13 @@ public class Ricercatore implements Serializable {
         return true;
     }
 
-    public String getNome() {
-        return nome;
+    public ModelRef<Progetto> getProgettoRef() {
+        return progettoRef;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+
+    public ModelRef<Ricercatore> getRicercatoreRef() {
+        return ricercatoreRef;
     }
 
-    public String getCognome() {
-        return cognome;
-    }
-
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
-    }
-
-    public ModelRef<Partner> getPartnerRef() {
-        return partnerRef;
-    }
-
-    public InverseModelListRef<RicercatoreProgetto, Ricercatore> getRicercatoreProgettoListRef() {
-        return ricercatoreProgettoListRef;
-    }
-
-    
 }
