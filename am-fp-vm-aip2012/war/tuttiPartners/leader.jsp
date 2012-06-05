@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <jsp:include page="/common/meta-head.jsp" />
-<title>Home - EU Projects</title>
+<title>Progetti UE - Partners leader</title>
 </head>
 <body>
 <jsp:include page="/common/header.jsp" />
@@ -16,10 +16,10 @@
 		<div id="content">
 <!-- CONTENT START -->
 
-<h1>Tutti i progetti per anno di fine</h1>
+<h1>Elenco dei partners leader di progetto</h1>
 
 <%
-//TODO stampare la lista dei progetti!
+//TODO stampo l'elenco dei partners leader del progetto dato
 %>
 
 <!-- CONTENT END -->

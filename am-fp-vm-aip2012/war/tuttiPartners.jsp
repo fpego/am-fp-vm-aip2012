@@ -3,12 +3,35 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="f" uri="http://www.slim3.org/functions"%>
 
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>TuttiPartners</title>
+<jsp:include page="/common/meta-head.jsp" />
+<title>Progetti UE - Tutti i partners</title>
 </head>
 <body>
-<p>Hello TuttiPartners !!!</p>
+<jsp:include page="/common/header.jsp" />
+<section id="middle">
+	<div id="container">
+		<div id="content">
+<!-- CONTENT START -->
+
+<h1>Elenco dei partners registrati sul sito</h1>
+
+<%
+//TODO stampo l'elenco dei partners registrati sul sito
+%>
+
+<!-- CONTENT END -->
+		</div>
+	</div>
+<aside id="sideLeft">
+<!-- LEFT MENU START -->
+	Menu Laterale
+<!-- LEFT MENU END -->
+</aside>
+</section>
+<jsp:include page="/common/footer.jsp" />
+
 </body>
 </html>

@@ -6,11 +6,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<jsp:include page="common/meta-head.jsp" />
-<title>Home - EU Projects</title>
+<jsp:include page="/common/meta-head.jsp" />
+<title>Progetti UE - PAGINA</title>
 </head>
 <body>
-<jsp:include page="common/header.jsp" />
+<jsp:include page="/common/header.jsp" />
 <section id="middle">
 	<div id="container">
 		<div id="content">
@@ -27,7 +27,7 @@
 <!-- LEFT MENU END -->
 </aside>
 </section>
-<jsp:include page="common/footer.jsp" />
+<jsp:include page="/common/footer.jsp" />
 
 </body>
 </html>

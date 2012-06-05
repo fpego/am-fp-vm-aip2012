@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <jsp:include page="/common/meta-head.jsp" />
-<title>Home - EU Projects</title>
+<title>Progetti UE - Commissione Europea - Chi siamo</title>
 </head>
 <body>
 <jsp:include page="/common/header.jsp" />
@@ -16,18 +16,24 @@
 		<div id="content">
 <!-- CONTENT START -->
 
-<h1>Tutti i progetti per anno di fine</h1>
+<h1>La Commissione Europea</h1>
 
-<%
-//TODO stampare la lista dei progetti!
-%>
+<h2>Chi siamo</h2>
 
 <!-- CONTENT END -->
 		</div>
 	</div>
 <aside id="sideLeft">
 <!-- LEFT MENU START -->
-	Menu Laterale
+	<div id='jqxMenuLeft' style='visibility: hidden; margin-left:auto; margin-right:auto'>
+	<ul>
+		<li><a href="/commissioneEuropea">Chi siamo</a></li>
+		<li><a href="/commissioneEuropea/visione">La nostra visione</a></li>
+		<li><a href="/commissioneEuropea/storia">La nostra storia</a></li>
+		<li><a href="/commissioneEuropea/contatti">Contatti</a></li>
+	</ul>
+	</div>
+	
 <!-- LEFT MENU END -->
 </aside>
 </section>

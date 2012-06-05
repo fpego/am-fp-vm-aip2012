@@ -7,15 +7,15 @@
 		<li>Progetti
 			<ul>
 				<li><a href="/tuttiProgetti">Tutti i progetti</a></li>
-				<li><a href="/tuttiProgetti/perAnno">Per anno d'inizio</a></li>
-				<li><a href="#">Per anno di fine</a></li>
-				<li><a href="#">Progetti per tema</a></li>
+				<li><a href="/tuttiProgetti/perAnnoInizio">Per anno d'inizio</a></li>
+				<li><a href="/tuttiProgetti/perAnnoFine">Per anno di fine</a></li>
+				<li><a href="/tuttiProgetti/perTema">Progetti per tema</a></li>
 			</ul>
 		</li>
 		<li>Partners
 			<ul>
 				<li><a href="/tuttiPartners">Tutti i partners</a></li>
-				<li><a href="#">Partners leader di progetto</a></li>
+				<li><a href="/tuttiPartners/leader">Partners leader di progetto</a></li>
 			</ul>		
 		</li>
 		<li>Eventi
@@ -41,18 +41,10 @@
 			</ul>
 		</li>
 		<li><a href="#">Eventi Pubblici</a></li>
-		<li><a href="#">La Commissione Europea</a></li>
-		<li><a href="#">Regole d'iscrizione</a></li>
-		<li><a href="#">Crea un progetto</a></li>
+		<li><a href="/commissioneEuropea">La Commissione Europea</a></li>
+		<li><a href="/regoleIscrizione">Regole d'iscrizione</a></li>
+		<li><a href="/creaProgetto">Crea un progetto</a></li>
 	</ul>
 	</div>
 </div>
-<script type="text/javascript">
-$(document).ready(function () {
-    // Create a jqxMenu
-    $("#jqxMenu").jqxMenu({ width: '1000', height: '30px', theme: 'base' });
-    $("#jqxMenu").css('visibility', 'visible');
-    $("#jqxMenu").jqxMenu('disable', 'fin', true);
-});
-</script>
 <!-- HEADER END -->

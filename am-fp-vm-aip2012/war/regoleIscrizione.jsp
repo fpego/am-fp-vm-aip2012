@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <jsp:include page="/common/meta-head.jsp" />
-<title>Home - EU Projects</title>
+<title>Progetti UE - Regole d'iscrizione</title>
 </head>
 <body>
 <jsp:include page="/common/header.jsp" />
@@ -16,11 +16,7 @@
 		<div id="content">
 <!-- CONTENT START -->
 
-<h1>Tutti i progetti per anno di fine</h1>
-
-<%
-//TODO stampare la lista dei progetti!
-%>
+<h1>Regole d'iscrizione</h1>
 
 <!-- CONTENT END -->
 		</div>
