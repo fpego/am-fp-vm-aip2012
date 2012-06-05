@@ -6,15 +6,15 @@
 		<li><a href="/">Home</a></li>
 		<li>Progetti
 			<ul>
-				<li><a href="#">Tutti i progetti</a></li>
-				<li><a href="#">Per anno d'inizio</a></li>
+				<li><a href="/tuttiProgetti">Tutti i progetti</a></li>
+				<li><a href="/tuttiProgetti/perAnno">Per anno d'inizio</a></li>
 				<li><a href="#">Per anno di fine</a></li>
 				<li><a href="#">Progetti per tema</a></li>
 			</ul>
 		</li>
 		<li>Partners
 			<ul>
-				<li><a href="#">Tutti i partners</a></li>
+				<li><a href="/tuttiPartners">Tutti i partners</a></li>
 				<li><a href="#">Partners leader di progetto</a></li>
 			</ul>		
 		</li>
