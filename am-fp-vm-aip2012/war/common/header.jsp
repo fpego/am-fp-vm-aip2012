@@ -42,7 +42,12 @@
 		</li>
 		<li><a href="#">Eventi Pubblici</a></li>
 		<li><a href="/commissioneEuropea">La Commissione Europea</a></li>
-		<li><a href="/regoleIscrizione">Regole d'iscrizione</a></li>
+		<li><a href="/regoleIscrizione">Regole d'iscrizione</a>
+			<ul>
+				<li><a href="/regoleIscrizione/bandi">Bandi</a></li>
+				<li><a href="/regoleIscrizione/faq">FAQ</a></li>
+			</ul>
+		</li>
 		<li><a href="/creaProgetto">Crea un progetto</a></li>
 	</ul>
 	</div>

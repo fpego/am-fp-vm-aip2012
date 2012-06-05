@@ -19,7 +19,7 @@
 <h1>Progetti fondati dall'Unione Europea</h1>
 <p>Benvenuto sul sito che raccoglie tutti i progetti di durata di almeno 2 anni finanziati dall'Unione Europea nel campo dell'IT.</p>
 <p>Lo scopo primario di questo sito è divulgare i risultati dei progetti e promuovere lo scambio di informazioni tra i diversi consorzi.</p>
-
+<p>Nuovo paragrafo</p>
 <!-- CONTENT END -->
 		</div>
 	</div>

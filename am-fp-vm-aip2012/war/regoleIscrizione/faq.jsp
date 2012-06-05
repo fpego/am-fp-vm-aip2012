@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <jsp:include page="/common/meta-head.jsp" />
-<title>Progetti UE - Regole d'iscrizione</title>
+<title>Progetti UE - Regole d'iscrizione - FAQ</title>
 </head>
 <body>
 <jsp:include page="/common/header.jsp" />
@@ -17,6 +17,8 @@
 <!-- CONTENT START -->
 
 <h1>Regole d'iscrizione</h1>
+
+<h3>FAQ</h3>
 
 <!-- CONTENT END -->
 		</div>
