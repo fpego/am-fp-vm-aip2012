@@ -1,10 +1,13 @@
 package project.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.slim3.datastore.Datastore;
+import org.slim3.util.BeanUtil;
 
 import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.Transaction;
 
 import project.meta.ProgettoMeta;
 import project.model.Progetto;
@@ -42,5 +45,31 @@ public class ProgettoService {
      */
     public List<Progetto> getProgettoList() {
         return Datastore.query(p).sort(p.key.asc).asList();
+    }
+    
+    /**
+     * Inserisco il progetto con i parametri dati stile MAP
+     * @param input mappa contenente tutti i dati del progetto
+     * @return restituisce il progetto appena inserito
+     */
+    public Progetto insertProgetto(Map<String, Object> input) {
+        Progetto progetto = new Progetto();
+        BeanUtil.copy(input, progetto);
+        Transaction tx = Datastore.beginTransaction();
+        Datastore.put(progetto);
+        tx.commit();
+        return progetto;
+    }
+    
+    /**
+     * Inserisco il progetto passato per parametro nel db
+     * @param il progetto da inserire
+     * @return il progetto inserito
+     */
+    public Progetto insertProgetto(Progetto p){
+        Transaction tx = Datastore.beginTransaction();
+        Datastore.put(p);
+        tx.commit();
+        return p;
     }
 }

@@ -1,15 +1,40 @@
 package project.controller;
 
+import java.util.List;
+
 import org.slim3.controller.Controller;
 import org.slim3.controller.Navigation;
 import org.slim3.util.RequestMap;
 
+import project.model.Progetto;
+import project.service.ProgettoService;
+
+
+/**
+ * Da questa pagina si può raffinare la ricerca del progetto al quale si è interessati 
+ *
+ */
 public class TuttiProgettiController extends Controller {
 
+    private ProgettoService service = new ProgettoService();
+    
+    private void insertProgettoTest(){
+        Progetto p = new Progetto();
+        p.setNomePartnerLeader("Team Rocket");
+        p.setTitoloProgetto("Conquistiamo il mondo!");
+        service.insertProgetto(p);
+    }
+    
     @Override
     public Navigation run() throws Exception {
+        
+        //insertProgettoTest();
+        
         RequestMap input = new RequestMap(request);
         String page = (String) input.get("page");
+        List<Progetto> projectList = service.getProgettoList();
+        requestScope("projectList", projectList);
+
         if (page != null){
             if(page.equals("perAnnoInizio")){
                 return forward("tuttiProgetti/perAnnoInizio.jsp");

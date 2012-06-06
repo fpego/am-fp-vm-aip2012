@@ -9,7 +9,7 @@
 	<div id="headImage">IMMAGINE HEAD</div>
 	<div id='jqxMenu' style='visibility: hidden;margin-left: auto;margin-right: auto;'>
 	<ul>
-		<li><a href="${f:url('/')}">Home</a></li>
+		<li><a href="${f:url(index)}">Home</a></li>
 		<li>Progetti
 			<ul>
 				<li><a href="${f:url('tuttiProgetti')}">Tutti i progetti</a></li>
@@ -47,14 +47,14 @@
 			</ul>
 		</li>
 		<li><a href="#">Eventi Pubblici</a></li>
-		<li><a href="/commissioneEuropea">La Commissione Europea</a></li>
-		<li><a href="/regoleIscrizione">Regole d'iscrizione</a>
+		<li><a href="${f:url('commissioneEuropea')}">La Commissione Europea</a></li>
+		<li><a href="${f:url('regoleIscrizione')}">Regole d'iscrizione</a>
 			<ul>
-				<li><a href="/regoleIscrizione/bandi">Bandi</a></li>
-				<li><a href="/regoleIscrizione/faq">FAQ</a></li>
+				<li><a href="${f:url('regoleIscrizione?page=bandi')}">Bandi</a></li>
+				<li><a href="${f:url('regoleIscrizione?page=faq')}">FAQ</a></li>
 			</ul>
 		</li>
-		<li><a href="/creaProgetto">Crea un progetto</a></li>
+		<li><a href="${f:url('creaProgetto')}">Crea un progetto</a></li>
 	</ul>
 	</div>
 </div>

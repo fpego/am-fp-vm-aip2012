@@ -16,7 +16,7 @@
 		<div id="content">
 <!-- CONTENT START -->
 
-<h1>Pagina di un SINGOLO PROGETTO (identificato in qualche modo!)</h1>
+<h1>Progetto ${f:h(p.titoloProgetto)}</h1>
 
 <!-- CONTENT END -->
 		</div>
