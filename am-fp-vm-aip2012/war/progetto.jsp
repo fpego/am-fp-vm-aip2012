@@ -25,11 +25,10 @@
 <!-- LEFT MENU START -->
 	<div id='jqxMenuLeft' style='visibility: hidden; margin-left:auto; margin-right:auto'>
 	<ul>
-	<%//TODO occhio a questi link! il progetto è dinamico, quindi dovrei fare il menu passando il parametro di QUALE progetto %>
-		<li><a href="/progetto">Presentazione</a></li>
-		<li><a href="/progetto/risultati">Risultati</a></li>
-		<li><a href="/progetto/documentazione">Documentazione</a></li>
-		<li><a href="/progetto/esplora">Esplora</a></li>
+		<li><a href="${f:h(urlProgetto)}">Presentazione</a></li>
+		<li><a href="${f:h(urlRisultati)}">Risultati</a></li>
+		<li><a href="${f:h(urlDocumentazione)}">Documentazione</a></li>
+		<li><a href="${f:h(urlEsplora)}">Esplora</a></li>
 	</ul>
 	</div>
 <!-- LEFT MENU END -->
