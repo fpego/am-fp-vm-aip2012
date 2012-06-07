@@ -15,6 +15,7 @@ import project.model.Progetto;
 
 /**
  *  Classe di servizio per il progetto
+ *  @author Francesco
  *  
  */
 public class ProgettoService {
@@ -45,6 +46,28 @@ public class ProgettoService {
      */
     public List<Progetto> getProgettoList() {
         return Datastore.query(p).sort(p.key.asc).asList();
+    }
+    
+    /**
+     * Ritorna una lista di progetti ordinati in base all'anno d'inizio in ordine crescente
+     */
+    public List<Progetto> getProgettoListOrderByStartYearAsc() {
+        return Datastore.query(p).sort(p.annoInizio.asc).asList();
+    }
+    
+    /**
+     * Ritorna una lista di progetti ordinati in base all'anno d'inizio in ordine decrescente
+     */
+    public List<Progetto> getProgettoListOrderByStartYearDesc() {
+        return Datastore.query(p).sort(p.annoInizio.desc).asList();
+    }
+    
+    /**
+     * Ritorna una lista di progetti filtrati in base al tema
+     * @param la stringa che definisce il tema da cercare nel progetto
+     */
+    public List<Progetto> getProgettoListByTema(String tema) {
+        return (tema != null) ? Datastore.query(p).filter(p.tema.equal(tema)).sort(p.key.asc).asList() : null;
     }
     
     /**

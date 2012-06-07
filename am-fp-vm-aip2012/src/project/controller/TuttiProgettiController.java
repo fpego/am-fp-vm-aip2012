@@ -18,6 +18,7 @@ public class TuttiProgettiController extends Controller {
 
     private ProgettoService service = new ProgettoService();
     
+    @SuppressWarnings("unused")
     private void insertProgettoTest(){
         Progetto p = new Progetto();
         p.setNomePartnerLeader("Team Rocket");
@@ -37,9 +38,12 @@ public class TuttiProgettiController extends Controller {
 
         if (page != null){
             if(page.equals("perAnnoInizio")){
+                projectList = service.getProgettoListOrderByStartYearAsc();
+                //TODO decidere come passare la lista dei progetti ordinati per anno
                 return forward("tuttiProgetti/perAnnoInizio.jsp");
             }
             if(page.equals("perAnnoFine")){
+                projectList = service.getProgettoListOrderByStartYearDesc();
                 return forward("tuttiProgetti/perAnnoFine.jsp");
             }
             if(page.equals("perTema")){
