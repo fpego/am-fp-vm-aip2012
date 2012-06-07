@@ -19,7 +19,13 @@
 <h1>La Commissione Europea</h1>
 
 <h2>Contatti</h2>
+<img alt="img/europa.jpg" src="img/europa.jpg" id="presentazione">
 
+<p>ITALIA:</p>
+<p>Via IV Novembre, 149</p>
+<p>	00187 Roma</p>
+<p>	Tel.: 06 699991</p>
+<p>	Fax: 06 6791658 - 6793652</p>
 <!-- CONTENT END -->
 		</div>
 	</div>

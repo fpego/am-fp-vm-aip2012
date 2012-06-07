@@ -19,8 +19,11 @@ a:hover {
 	text-decoration: none;
 }
 p {
-	margin: 0 0 18px
+	margin: 10px 50px 10px 0px;
+	text-align: justify;
+	text-justify: newspaper;
 }
+
 img {
 	border: none;
 }
@@ -32,6 +35,18 @@ input {
 	min-width: 1000px;
 }
 
+
+#presentazione{
+	position: relative;
+	float:right;
+	margin:  0px 50px 50px 50px;
+	width: 500px;
+	height: 300px;
+}
+
+h1, h2{
+	text-align: center;
+}
 
 /* Header
 -----------------------------------------------------------------------------*/
@@ -63,7 +78,6 @@ input {
 #content {
 	padding: 0 0 0 270px;
 }
-
 
 /* Sidebar Left
 -----------------------------------------------------------------------------*/

@@ -19,6 +19,15 @@
 <h1>La Commissione Europea</h1>
 
 <h2>Chi siamo</h2>
+<img alt="img/commissione_europea.jpg" src="img/commissione_europea.jpg" id="presentazione">
+<p>Siamo una delle principali istituzioni dell'Unione europea, l'organo esecutivo e promotrice del processo legislativo. 
+Siamo composti da un delegato per stato membro: a ciascun delegato è tuttavia richiesta la massima indipendenza dal governo 
+nazionale che lo ha indicato.</p>
+
+<p>La Commissione rappresenta e tutela gli interessi dell'Unione europea nella sua interezza; avendo il monopolio del potere
+ di iniziativa legislativa, propone l'adozione degli atti normativi comunitari, la cui approvazione ultima spetta al 
+ Parlamento europeo e al Consiglio dell'Unione Europea; è responsabile inoltre dell'attuazione delle decisioni politiche 
+ da parte degli organi legislativi, gestisce i programmi UE e la spesa dei suoi fondi.</p>
 
 <!-- CONTENT END -->
 		</div>
