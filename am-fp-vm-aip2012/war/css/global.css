@@ -70,6 +70,7 @@ input {
 	width: 100%;
 	float: left;
 	overflow: hidden;
+	background:url(imgs/content-bg-top.png) top left repeat-x;
 }
 #content {
 	padding: 0 0 0 270px;
