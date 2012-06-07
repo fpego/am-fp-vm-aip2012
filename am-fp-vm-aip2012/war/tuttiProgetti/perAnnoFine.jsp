@@ -18,9 +18,10 @@
 
 <h1>Tutti i progetti per anno di fine</h1>
 
-<%
-//TODO stampare la lista dei progetti!
-%>
+<p>${f:h(myvar)}</p>
+
+<c:set var="ricettaGo" value="perAnnoFine?param=${f:h(p.nomePartnerLeader)}" />
+<p>${f:url(ricettaGo)}</p>
 
 <!-- CONTENT END -->
 		</div>

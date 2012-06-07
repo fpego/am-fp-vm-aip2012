@@ -24,6 +24,10 @@ public class Progetto implements Serializable {
     
     private String titoloProgetto;
     private String nomePartnerLeader;
+    private String tema;
+    private int annoInizio;
+    private int annoFine;
+    private int durata;
     
     @Attribute(persistent=false)
     private InverseModelListRef<PartnerProgetto, Progetto> partnerProgettoListRef =
@@ -125,6 +129,38 @@ public class Progetto implements Serializable {
 
     public InverseModelListRef<RicercatoreProgetto, Progetto> getRicercatoreProgettoListRef() {
         return ricercatoreProgettoListRef;
+    }
+
+    public String getTema() {
+        return tema;
+    }
+
+    public void setTema(String tema) {
+        this.tema = tema;
+    }
+
+    public int getAnnoInizio() {
+        return annoInizio;
+    }
+
+    public void setAnnoInizio(int annoInizio) {
+        this.annoInizio = annoInizio;
+    }
+
+    public int getAnnoFine() {
+        return annoFine;
+    }
+
+    public void setAnnoFine(int annoFine) {
+        this.annoFine = annoFine;
+    }
+
+    public int getDurata() {
+        return durata;
+    }
+
+    public void setDurata(int durata) {
+        this.durata = durata;
     }
 
 }

@@ -3,12 +3,41 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="f" uri="http://www.slim3.org/functions"%>
 
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>progetto Documentazione</title>
+<jsp:include page="/common/meta-head.jsp" />
+<title>Progetti UE - Progetto - Documentazione</title>
 </head>
 <body>
-<p>Hello progetto Documentazione !!!</p>
+<jsp:include page="/common/header.jsp" />
+<section id="middle">
+	<div id="container">
+		<div id="content">
+<!-- CONTENT START -->
+
+<h1>Progetto ${f:h(p.titoloProgetto)}</h1>
+
+<h3>Documentazione</h3>
+
+
+<!-- CONTENT END -->
+		</div>
+	</div>
+<aside id="sideLeft">
+<!-- LEFT MENU START -->
+	<div id='jqxMenuLeft' style='visibility: hidden; margin-left:auto; margin-right:auto'>
+	<ul>
+		<li><a href="${f:h(urlProgetto)}">Presentazione</a></li>
+		<li><a href="${f:h(urlRisultati)}">Risultati</a></li>
+		<li><a href="${f:h(urlDocumentazione)}">Documentazione</a></li>
+		<li><a href="${f:h(urlEsplora)}">Esplora</a></li>
+	</ul>
+	</div>
+<!-- LEFT MENU END -->
+</aside>
+</section>
+<jsp:include page="/common/footer.jsp" />
+
 </body>
 </html>

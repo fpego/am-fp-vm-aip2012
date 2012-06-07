@@ -18,9 +18,12 @@
 
 <h1>Tutti i progetti</h1>
 
-<%
-//TODO stampare la lista dei progetti!
-%>
+<c:forEach var="p" items="${projectList}">
+	<c:set var="projectLink" value="progetto?key=${f:h(p.key)}" />
+	<ul id="list">
+		<li><a href="${f:url(projectLink)}">${f:h(p.titoloProgetto)}</a></li>
+	</ul>
+</c:forEach>
 
 <!-- CONTENT END -->
 		</div>

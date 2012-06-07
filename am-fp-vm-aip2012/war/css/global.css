@@ -51,8 +51,19 @@ h1, h2{
 /* Header
 -----------------------------------------------------------------------------*/
 #header {
-	height: 110px;
+	height: 130px;
 	background: #FFE680;
+	background:url(imgs/header-bg.png) bottom left repeat-x;
+}
+
+#headImage {
+	background:#FFF url(imgs/EU_header2.png) no-repeat center;
+	height:80px;
+}
+#headImage h1 {
+	text-align:center;
+	top:20px;
+	position:relative;
 }
 
 
@@ -74,9 +85,11 @@ h1, h2{
 	width: 100%;
 	float: left;
 	overflow: hidden;
+	background:url(imgs/content-bg-top.png) top left repeat-x;
 }
 #content {
 	padding: 0 0 0 270px;
+	min-height:500px; /*temporaneo*/
 }
 
 /* Sidebar Left
@@ -87,14 +100,54 @@ h1, h2{
 	margin-left: -100%;
 	position: relative;
 	background: #B5E3FF;
+	margin-top:20px;
+}
+#sideLeft ul {
+	text-align:left;
+}
+#sideLeft ul h1#caption{
+	padding-left:15px;
+}
+#sideLeft #top {
+	background:url(imgs/sidebar-bg-top.png) no-repeat top left;
+	padding-top:10px;
+}
+
+#sideLeft #bottom {
+	background:url(imgs/sidebar-bg-bottom.png) no-repeat bottom left;
+	padding-bottom:10px;
+}
+
+#sideLeft li {
+	background:url(imgs/sidebar-bg.png) center left repeat-y;
+	list-style:none;
+	padding-left:20px;
+}
+
+#sideLeft li a {
+	text-decoration:none;
+	color:#000;
+	font-size:16px;
+}
+#sideLeft li a:hover {
+	text-decoration:underline;
+}
+#sideLeft li a:active {
+	color:#009;
 }
 
 
 /* Footer
 -----------------------------------------------------------------------------*/
 #footer {
-	background: #BFF08E;
+	background: #BFF08E url(imgs/footer-bg.png) bottom left repeat-x;
 	text-align: center;
-	padding-top: 15px;
-	padding-bottom: 15px;
+	/*padding-top: 15px;
+	padding-bottom: 15px;*/
+	height:50px;
+}
+
+#footer p {
+	padding-top:15px;
+	padding-bottom:15px;
 }

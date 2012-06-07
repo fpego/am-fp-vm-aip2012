@@ -1,3 +1,3 @@
 <!-- FOOTER START -->
-<div id="footer">Sviluppato da Maccioni, Melendez & Pegoraro</div>
+<div id="footer"><p>Sviluppato da Maccioni, Melendez & Pegoraro</p></div>
 <!-- FOOTER START -->

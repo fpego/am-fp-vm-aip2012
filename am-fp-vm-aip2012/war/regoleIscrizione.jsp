@@ -25,9 +25,9 @@
 <!-- LEFT MENU START -->
 	<div id='jqxMenuLeft' style='visibility: hidden; margin-left:auto; margin-right:auto'>
 	<ul>
-		<li><a href="/regoleIscrizione">Regole d'iscrizione</a></li>
-		<li><a href="/regoleIscrizione/bandi">Bandi</a></li>
-		<li><a href="/regoleIscrizione/faq">FAQ</a></li>
+		<li><a href="${f:url('regoleIscrizione')}">Regole d'iscrizione</a></li>
+		<li><a href="${f:url('regoleIscrizione?page=bandi')}">Bandi</a></li>
+		<li><a href="${f:url('regoleIscrizione?page=faq')}">FAQ</a></li>
 	</ul>
 	</div>
 <!-- LEFT MENU END -->

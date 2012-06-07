@@ -1,21 +1,27 @@
+<%@page pageEncoding="UTF-8" isELIgnored="false" session="false"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="f" uri="http://www.slim3.org/functions"%>
+
+
 <!-- HEADER START -->
 <div id="header">
-	<div id="headImage">IMMAGINE HEAD</div>
+	<div id="headImage"><h1>European Project Funding</h1></div>
 	<div id='jqxMenu' style='visibility: hidden;margin-left: auto;margin-right: auto;'>
 	<ul>
-		<li><a href="/">Home</a></li>
+		<li><a href="${f:url(index)}">Home</a></li>
 		<li>Progetti
 			<ul>
-				<li><a href="/tuttiProgetti">Tutti i progetti</a></li>
-				<li><a href="/tuttiProgetti/perAnnoInizio">Per anno d'inizio</a></li>
-				<li><a href="/tuttiProgetti/perAnnoFine">Per anno di fine</a></li>
-				<li><a href="/tuttiProgetti/perTema">Progetti per tema</a></li>
+				<li><a href="${f:url('tuttiProgetti')}">Tutti i progetti</a></li>
+				<li><a href="${f:url('tuttiProgetti?page=perAnnoInizio')}">Per anno d'inizio</a></li>
+				<li><a href="${f:url('tuttiProgetti?page=perAnnoFine')}">Per anno di fine</a></li>
+				<li><a href="${f:url('tuttiProgetti?page=perTema')}">Progetti per tema</a></li>
 			</ul>
 		</li>
 		<li>Partners
 			<ul>
-				<li><a href="/tuttiPartners">Tutti i partners</a></li>
-				<li><a href="/tuttiPartners/leader">Partners leader di progetto</a></li>
+				<li><a href="${f:url('tuttiPartners')}">Tutti i partners</a></li>
+				<li><a href="${f:url('tuttiPartners?page=leader')}">Partners leader di progetto</a></li>
 			</ul>		
 		</li>
 		<li>Eventi
@@ -34,21 +40,21 @@
 				<li><a href="#">Aree di ricerca</a></li>
 			</ul>
 		</li>
-		<li>Attivit‡
+		<li>Attivit√†
 			<ul>
-				<li><a href="#">Tutte le attivit‡</a></li>
-				<li><a href="#">Attivit‡ per mese</a></li>
+				<li><a href="#">Tutte le attivit√†</a></li>
+				<li><a href="#">Attivit√† per mese</a></li>
 			</ul>
 		</li>
 		<li><a href="#">Eventi Pubblici</a></li>
-		<li><a href="/commissioneEuropea">La Commissione Europea</a></li>
-		<li><a href="/regoleIscrizione">Regole d'iscrizione</a>
+		<li><a href="${f:url('commissioneEuropea')}">La Commissione Europea</a></li>
+		<li><a href="${f:url('regoleIscrizione')}">Regole d'iscrizione</a>
 			<ul>
-				<li><a href="/regoleIscrizione/bandi">Bandi</a></li>
-				<li><a href="/regoleIscrizione/faq">FAQ</a></li>
+				<li><a href="${f:url('regoleIscrizione?page=bandi')}">Bandi</a></li>
+				<li><a href="${f:url('regoleIscrizione?page=faq')}">FAQ</a></li>
 			</ul>
 		</li>
-		<li><a href="/creaProgetto">Crea un progetto</a></li>
+		<li><a href="${f:url('creaProgetto')}">Crea un progetto</a></li>
 	</ul>
 	</div>
 </div>
