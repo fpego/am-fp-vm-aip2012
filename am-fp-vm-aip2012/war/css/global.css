@@ -42,7 +42,7 @@ input {
 }
 
 #headImage {
-	background:#FFF url(imgs/EU_header2.png) no-repeat;
+	background:#FFF url(imgs/EU_header2.png) no-repeat center;
 	height:80px;
 }
 #headImage h1 {
