@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.slim3.controller.validator.Validators;
 import org.slim3.datastore.Datastore;
 import org.slim3.util.BeanUtil;
 
@@ -101,6 +104,7 @@ public class ProgettoService {
      */
     public Progetto insertProgetto(Map<String, Object> input) {
         Progetto progetto = new Progetto();
+        //TODO IMPLEMENTARE QUESTA PARTE!!!
         BeanUtil.copy(input, progetto);
         Transaction tx = Datastore.beginTransaction();
         Datastore.put(progetto);
@@ -119,4 +123,22 @@ public class ProgettoService {
         tx.commit();
         return p;
     }
+
+    
+    /**
+     * Valida il form di upload di un nuovo progetto.
+     * @param request
+     * @param meta
+     * @return
+     */
+    public boolean validate(HttpServletRequest request, ProgettoMeta meta) {
+        Validators v = new Validators(request);
+        v.add(p.tema, v.required());
+        v.add(p.titoloProgetto, v.required());
+        v.add(p.durata, v.integerType());
+        v.add(p.durata, v.required());
+
+        return v.validate();
+    }
+
 }
