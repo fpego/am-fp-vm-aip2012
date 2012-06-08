@@ -26,6 +26,7 @@ import project.model.Progetto;
 public class ProgettoService {
     private ProgettoMeta p = ProgettoMeta.get();
     private PartnerService pService = new PartnerService();
+    private PartnerProgettoService ppService = new PartnerProgettoService();
     
     /**
      *  Preleva il progetto
@@ -114,26 +115,25 @@ public class ProgettoService {
        
         progetto.setAnnoInizio(2012);
         progetto.setAnnoFine(2012 + durata);
-        progetto.setTitoloProgetto((String) input.get("titolo"));
+        progetto.setTitoloProgetto((String) input.get("titoloProgetto"));
         progetto.setPresentazione((String) input.get("presentazione"));
-        
-        String partnerName;
-        Partner partner;
-        for (int i = 1; i <= numPartner; i++){
-            partnerName = (String) input.get("partner"+ i);
-            partner = pService.getPartnerByName(partnerName);
-            if (partner != null){
-                
-            }else{
-                //devo prima aggiungere questo nuovo partner
-                partner = pService.createPartner(partnerName);
-            }
-        }
-        progetto.setNomePartnerLeader((String) input.get("partner1"));
         
         Transaction tx = Datastore.beginTransaction();
         Datastore.put(progetto);
         tx.commit();
+        // DOPO aver inserito il progetto faccio le relazioni con i vari partner, altrimenti non avrei la key del progetto per creare le relazioni
+        String partnerName;
+        Partner partner;
+        // sono già sicuro che i partner sono almeno 5, sono stati validati precedentemente
+        for (int i = 1; i <= numPartner; i++){
+            partnerName = (String) input.get("partner"+ i);
+            partner = pService.getPartnerByName(partnerName);
+            if (partner == null){
+                //devo prima aggiungere questo nuovo partner
+                partner = pService.createPartner(partnerName);
+            }
+            ppService.creaCollegamento(partner.getKey(), progetto.getKey());
+        }
         return progetto;
     }
     
@@ -157,7 +157,6 @@ public class ProgettoService {
      * @return
      */
     public boolean validate(HttpServletRequest request, ProgettoMeta meta) {
-        
         Validators v = new Validators(request);
         v.add(p.tema, v.required());
         v.add(p.titoloProgetto, v.required());
