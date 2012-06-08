@@ -5,6 +5,7 @@ import java.util.List;
 import org.slim3.datastore.Datastore;
 import org.slim3.datastore.ModelQuery;
 
+import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;
 import project.meta.PartnerMeta;
 import project.model.Partner;
@@ -34,6 +35,28 @@ public class PartnerService {
         Datastore.put(tx,p);
         tx.commit(); 
     }
+    
+    /**
+     * Inserisce nel datastore il partner passato per parametro
+     * @param p il Partner da inserire
+     * @return il partner inserito
+     */
+    public Partner insertPartner(Partner p){
+        Transaction tx = Datastore.beginTransaction();
+        Datastore.put(p);
+        tx.commit();
+        return p;
+    }
+    
+    /**
+     * Restituisce il partner identificato dalla chiave, oppure null
+     * @param la chiave del partner da cercare nel Datastore
+     * @return null oppure il Partner
+     */
+    public Partner getOrNull(Key key){
+        return (key != null) ? Datastore.getOrNull(metaP, key) : null;
+    }
+    
     /**
      * Restituisce una lista contenente tutti i partners
      * ordinata per nome.
@@ -43,6 +66,15 @@ public class PartnerService {
         ModelQuery<Partner> query = Datastore.query(metaP);
         query.sort(metaP.nome.asc);
         return query.asList();
+    }
+    
+    /**
+     * Ritorna la lista di tutti i partner che sono leader di qualche progetto
+     * @return
+     */
+    public List<Partner> getAllPartnersLeaderList() {
+        //TODO IMPLEMENT!
+        return null;
     }
     
     /**
@@ -62,4 +94,6 @@ public class PartnerService {
         Datastore.put(tx, partner, progetto,pp);
         tx.commit();
     }
+
+
 }

@@ -6,24 +6,19 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<jsp:include page="common/meta-head.jsp" />
-<title>Progetti UE - Home</title>
+<jsp:include page="/common/meta-head.jsp" />
+<title>Progetti UE - Partner</title>
 </head>
 <body>
-<jsp:include page="common/header.jsp" />
+<jsp:include page="/common/header.jsp" />
 <section id="middle">
 	<div id="container">
 		<div id="content">
 <!-- CONTENT START -->
 
-<h1>Progetti fondati dall'Unione Europea</h1>
-<p>Benvenuto sul sito che raccoglie tutti i progetti di durata di almeno 2 anni finanziati dall'Unione Europea nel campo dell'IT.</p>
-<p>Lo scopo primario di questo sito è divulgare i risultati dei progetti e promuovere lo scambio di informazioni tra i diversi consorzi.</p>
+<h1>Partner "${f:h(partner.nome)}"</h1>
 
-<p>${f:h(myvar)}</p>
-
-<p>${f:url(p.titoloProgetto)}</p>
-
+<p>Che dire di lui? E' un bravo partner!</p>
 <!-- CONTENT END -->
 		</div>
 	</div>
@@ -32,7 +27,7 @@
 <!-- LEFT MENU END -->
 </aside>
 </section>
-<jsp:include page="common/footer.jsp" />
+<jsp:include page="/common/footer.jsp" />
 
 </body>
 </html>

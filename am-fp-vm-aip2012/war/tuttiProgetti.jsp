@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <jsp:include page="common/meta-head.jsp" />
-<title>Home - EU Projects</title>
+<title>Progetti UE - Tutti i progetti</title>
 </head>
 <body>
 <jsp:include page="common/header.jsp" />
@@ -20,7 +20,7 @@
 
 <c:forEach var="p" items="${projectList}">
 	<c:set var="projectLink" value="progetto?key=${f:h(p.key)}" />
-	<ul id="list">
+	<ul id="projectList">
 		<li><a href="${f:url(projectLink)}">${f:h(p.titoloProgetto)}</a></li>
 	</ul>
 </c:forEach>
@@ -30,7 +30,6 @@
 	</div>
 <aside id="sideLeft">
 <!-- LEFT MENU START -->
-	Menu Laterale
 <!-- LEFT MENU END -->
 </aside>
 </section>
