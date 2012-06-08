@@ -15,7 +15,7 @@
 	<div id="container">
 		<div id="content">
 <!-- CONTENT START -->
-
+<script type="text/javascript">Autocomplete();</script>
 <h1>Crea un nuovo progetto</h1>
 <br/><br/>
 <p>Inserisci i dati per creare un nuovo progetto (se inserisci partner che non esistono, saranno aggiunti automaticamente al database).</p>
