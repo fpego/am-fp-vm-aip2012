@@ -7,6 +7,7 @@ import com.google.appengine.api.datastore.Key;
 import org.slim3.datastore.Attribute;
 import org.slim3.datastore.InverseModelListRef;
 import org.slim3.datastore.Model;
+import org.slim3.datastore.ModelRef;
 
 import project.meta.DocumentoMeta;
 import project.meta.PartnerProgettoMeta;
@@ -49,6 +50,9 @@ public class Progetto implements Serializable {
     private InverseModelListRef<Documento, Progetto> documentoListRef =
     new InverseModelListRef<Documento, Progetto>
     (Documento.class, DocumentoMeta.get().progettoRef.getName(), this);
+    
+    private ModelRef<Partner> leaderRef =
+            new ModelRef<Partner>(Partner.class);
 
     /**
      * Returns the key.
@@ -192,5 +196,10 @@ public class Progetto implements Serializable {
     public InverseModelListRef<Documento, Progetto> getDocumentoListRef() {
         return documentoListRef;
     }
+
+    public ModelRef<Partner> getLeaderRef() {
+        return leaderRef;
+    }
+
 
 }
