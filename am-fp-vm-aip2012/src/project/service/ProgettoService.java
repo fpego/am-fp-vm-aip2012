@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slim3.controller.validator.Validators;
 import org.slim3.datastore.Datastore;
-import org.slim3.util.BeanUtil;
 
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;
@@ -104,8 +103,16 @@ public class ProgettoService {
      */
     public Progetto insertProgetto(Map<String, Object> input) {
         Progetto progetto = new Progetto();
-        //TODO IMPLEMENTARE QUESTA PARTE!!!
-        BeanUtil.copy(input, progetto);
+        int durata = 2;
+        try{ durata = Integer.parseInt((String) input.get("durata"));
+        }catch (Exception e) { durata = 2;  }
+        progetto.setAnnoInizio(2012);
+        progetto.setAnnoFine(2012 + durata);
+        progetto.setTitoloProgetto((String) input.get("titolo"));
+        progetto.setPresentazione((String) input.get("presentazione"));
+        progetto.setNomePartnerLeader((String) input.get("partner1"));
+        //TODO aggiungere anche gli altri campi
+        
         Transaction tx = Datastore.beginTransaction();
         Datastore.put(progetto);
         tx.commit();
@@ -132,12 +139,12 @@ public class ProgettoService {
      * @return
      */
     public boolean validate(HttpServletRequest request, ProgettoMeta meta) {
+        
         Validators v = new Validators(request);
         v.add(p.tema, v.required());
         v.add(p.titoloProgetto, v.required());
         v.add(p.durata, v.integerType());
         v.add(p.durata, v.required());
-
         return v.validate();
     }
 

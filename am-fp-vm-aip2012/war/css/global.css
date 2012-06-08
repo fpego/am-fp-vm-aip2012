@@ -8,7 +8,7 @@ header, nav, section, article, aside, footer {
 	display: block;
 }
 body {
-	font: 12px Arial, Tahoma, Verdana, sans-serif;
+	font: 12px Times New Roman,Arial, Tahoma, Verdana, sans-serif;
 }
 a {
 	color: blue;
@@ -19,9 +19,10 @@ a:hover {
 	text-decoration: none;
 }
 p {
-	margin: 10px 50px 10px 0px;
+	margin: 0px 200px 15px 0px;
 	text-align: justify;
 	text-justify: newspaper;
+	font-size: 13px;
 }
 
 img {
@@ -39,13 +40,14 @@ input {
 #presentazione{
 	position: relative;
 	float:right;
-	margin:  0px 50px 50px 50px;
-	width: 500px;
-	height: 300px;
+	margin:  0px 200px 20px 0px;
+	width: 350px;
+	height: 250px;
+	padding-left: 20px;
 }
 
 h1, h2{
-	text-align: center;
+	text-shadow: blue;
 }
 
 /* Header
@@ -57,7 +59,7 @@ h1, h2{
 }
 
 #headImage {
-	background:#FFF url(imgs/EU_header2.png) no-repeat center;
+	background:#FFF url(imgs/EU_header3.png) no-repeat center;
 	height:80px;
 }
 #headImage h1 {
@@ -100,10 +102,9 @@ h1, h2{
 -----------------------------------------------------------------------------*/
 #sideLeft {
 	float: left;
-	width: 250px;
+	width: 200px;
 	margin-left: -100%;
 	position: relative;
-	background: #B5E3FF;
 	margin-top:20px;
 }
 #sideLeft ul {
@@ -125,13 +126,14 @@ h1, h2{
 #sideLeft li {
 	background:url(imgs/sidebar-bg.png) center left repeat-y;
 	list-style:none;
-	padding-left:20px;
+	padding-left:5px;
+	text-align: center;
 }
 
 #sideLeft li a {
 	text-decoration:none;
 	color:#000;
-	font-size:16px;
+	font-size:13px;
 }
 #sideLeft li a:hover {
 	text-decoration:underline;
