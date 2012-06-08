@@ -19,6 +19,10 @@
 <h1>Finanziamenti</h1>
 
 <h3>Regole d'iscrizione</h3>
+
+<p><a href="${f:url('regoleIscrizione?page=passo1')}">Passo 1 - Possiedo i requisiti per un dato programma o una data fonte di finanziamento?</a></p>
+<p><a href="${f:url('regoleIscrizione?page=passo2')}">Passo 2 - Chi altro è convolto nel progetto?</a></p>
+<p><a href="${f:url('regoleIscrizione?page=passo3')}">Passo 3 - Come candidarsi al programma di finanziamento?</a></p>
 <!-- CONTENT END -->
 		</div>
 	</div>
@@ -29,7 +33,6 @@
 		<li><a href="${f:url('finanziamenti')}">Finanziamenti</a></li>
 		<li><a href="${f:url('finanziamenti?page=regoleIscrizione')}">Regole d'iscrizione</a></li>
 		<li><a href="${f:url('finanziamenti?page=bandi')}">Bandi</a></li>
-		<li><a href="${f:url('finanziamenti?page=faq')}">FAQ</a></li>
 	</ul>
 	</div>
 <!-- LEFT MENU END -->

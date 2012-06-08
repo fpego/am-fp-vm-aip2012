@@ -19,7 +19,7 @@ a:hover {
 	text-decoration: none;
 }
 p {
-	margin: 0px 200px 15px 0px;
+	margin: 20px 200px 10px 0px;
 	text-align: justify;
 	text-justify: newspaper;
 	font-size: 13px;
@@ -46,8 +46,11 @@ input {
 	padding-left: 20px;
 }
 
-h1, h2{
-	text-shadow: blue;
+.titoloPasso{
+	font-weight: bold;
+}
+h1, h2, h3{
+	padding-top: 20px;
 }
 
 /* Header
@@ -90,7 +93,7 @@ h1, h2{
 	background:url(imgs/content-bg-top.png) top left repeat-x;
 }
 #content {
-	padding: 0 0 0 270px;
+	padding: 0 0 0 200px;
 	min-height:500px; /*temporaneo*/
 }
 

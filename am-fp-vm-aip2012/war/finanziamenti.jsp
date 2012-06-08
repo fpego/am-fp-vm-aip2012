@@ -70,7 +70,6 @@ il Fondo di coesione nell'ambito della politica di coesione, il Fondo europeo ag
 		<li><a href="${f:url('finanziamenti')}">Finanziamenti</a></li>
 		<li><a href="${f:url('finanziamenti?page=regoleIscrizione')}">Regole d'iscrizione</a></li>
 		<li><a href="${f:url('finanziamenti?page=bandi')}">Bandi</a></li>
-		<li><a href="${f:url('finanziamenti?page=faq')}">FAQ</a></li>
 	</ul>
 	</div>
 <!-- LEFT MENU END -->

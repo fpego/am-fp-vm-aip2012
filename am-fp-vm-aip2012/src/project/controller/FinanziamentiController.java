@@ -16,11 +16,7 @@ public class FinanziamentiController extends Controller {
             }
             if(page.equals("bandi")){
                 return forward("finanziamenti/bandi.jsp");
-            }
-            if(page.equals("faq")){
-                return forward("finanziamenti/faq.jsp");
-            }
-           
+            }           
         }
         return forward("finanziamenti.jsp");
     }

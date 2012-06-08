@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <jsp:include page="/common/meta-head.jsp" />
-<title>Progetti UE - Regole d'iscrizione - FAQ</title>
+<title>Progetti UE - Regole d'iscrizione - Bandi</title>
 </head>
 <body>
 <jsp:include page="/common/header.jsp" />
@@ -17,8 +17,12 @@
 <!-- CONTENT START -->
 
 <h1>Finanziamenti</h1>
+<h2><a href="${f:url('regoleIscrizione')}">Regole d'iscrizione</a></h2>
+<h3>Passo 3 - Come candidarsi al programma di finanziamento?</h3>
 
-<h3>FAQ</h3>
+<p>Iscrive il tuo progetto, vai a <a href="${f:url('/creaProgetto')}">Crea un progetto</a>, scrivi i tuoi dati, poi noi ti cotattaremo.
+Ricorda che devi avere almeno 5 partners.</p>
+
 
 <!-- CONTENT END -->
 		</div>
@@ -30,7 +34,6 @@
 		<li><a href="${f:url('finanziamenti')}">Finanziamenti</a></li>
 		<li><a href="${f:url('finanziamenti?page=regoleIscrizione')}">Regole d'iscrizione</a></li>
 		<li><a href="${f:url('finanziamenti?page=bandi')}">Bandi</a></li>
-		<li><a href="${f:url('finanziamenti?page=faq')}">FAQ</a></li>
 	</ul>
 	</div>
 <!-- LEFT MENU END -->
