@@ -193,10 +193,4 @@ public class Progetto implements Serializable {
         return documentoListRef;
     }
 
-
-    public InverseModelListRef<Documento, Progetto> getDocumentoListRef() {
-        return documentoListRef;
-    }
-
-
 }
