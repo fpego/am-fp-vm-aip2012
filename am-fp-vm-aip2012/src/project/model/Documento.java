@@ -6,6 +6,7 @@ import com.google.appengine.api.datastore.Key;
 
 import org.slim3.datastore.Attribute;
 import org.slim3.datastore.Model;
+import org.slim3.datastore.ModelRef;
 
 @Model(schemaVersion = 1)
 public class Documento implements Serializable {
@@ -20,6 +21,9 @@ public class Documento implements Serializable {
     
     @Attribute(lob = true)
     private DownloadableFile file;
+    
+    private ModelRef<Progetto> progettoRef = 
+            new ModelRef<Progetto>(Progetto.class);
 
     /**
      * Returns the key.
@@ -96,4 +100,9 @@ public class Documento implements Serializable {
     public void setFile(DownloadableFile file) {
         this.file = file;
     }
+
+    public ModelRef<Progetto> getProgettoRef() {
+        return progettoRef;
+    }
+
 }
