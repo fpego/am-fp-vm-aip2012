@@ -5,14 +5,14 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 
-public class RegoleIscrizioneControllerTest extends ControllerTestCase {
+public class FinanziamentiControllerTest extends ControllerTestCase {
 
     @Test
     public void run() throws Exception {
-        tester.start("/regoleIscrizione");
-        RegoleIscrizioneController controller = tester.getController();
+        tester.start("/finanziamenti");
+        FinanziamentiController controller = tester.getController();
         assertThat(controller, is(notNullValue()));
         assertThat(tester.isRedirect(), is(false));
-        assertThat(tester.getDestinationPath(), is("/regoleIscrizione.jsp"));
+        assertThat(tester.getDestinationPath(), is("/finanziamenti.jsp"));
     }
 }

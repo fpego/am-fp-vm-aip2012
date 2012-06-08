@@ -47,11 +47,19 @@
 			</ul>
 		</li>
 		<li><a href="#">Eventi Pubblici</a></li>
-		<li><a href="${f:url('commissioneEuropea')}">La Commissione Europea</a></li>
-		<li><a href="${f:url('regoleIscrizione')}">Regole d'iscrizione</a>
+		<li><a href="${f:url('commissioneEuropea')}">La Commissione Europea</a>
 			<ul>
-				<li><a href="${f:url('regoleIscrizione?page=bandi')}">Bandi</a></li>
-				<li><a href="${f:url('regoleIscrizione?page=faq')}">FAQ</a></li>
+				<li><a href="${f:url('commissioneEuropea')}">Chi siamo</a></li>
+				<li><a href="${f:url('commissioneEuropea?page=visione')}">La nostra visione</a></li>
+				<li><a href="${f:url('commissioneEuropea?page=storia')}">La nostra storia</a></li>
+				<li><a href="${f:url('commissioneEuropea?page=contatti')}">Contatti</a></li>
+			</ul>
+		</li>
+		<li><a href="${f:url('finanziamenti')}">Finanziamenti</a>
+			<ul>
+				<li><a href="${f:url('finanziamenti?page=regoleIscrizione')}">Regole d'iscrizione</a></li>
+				<li><a href="${f:url('finanziamenti?page=bandi')}">Bandi</a></li>
+				<li><a href="${f:url('finanziamenti?page=faq')}">FAQ</a></li>
 			</ul>
 		</li>
 		<li><a href="${f:url('creaProgetto')}">Crea un progetto</a></li>
