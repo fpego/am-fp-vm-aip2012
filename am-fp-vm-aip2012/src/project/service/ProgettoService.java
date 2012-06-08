@@ -14,6 +14,7 @@ import com.google.appengine.api.datastore.Transaction;
 
 import project.meta.ProgettoMeta;
 import project.model.Documento;
+import project.model.Partner;
 import project.model.Progetto;
 
 
@@ -24,6 +25,8 @@ import project.model.Progetto;
  */
 public class ProgettoService {
     private ProgettoMeta p = ProgettoMeta.get();
+    private PartnerService pService = new PartnerService();
+    private PartnerProgettoService ppService = new PartnerProgettoService();
     
     /**
      *  Preleva il progetto
@@ -104,18 +107,33 @@ public class ProgettoService {
     public Progetto insertProgetto(Map<String, Object> input) {
         Progetto progetto = new Progetto();
         int durata = 2;
+        int numPartner = 0;
         try{ durata = Integer.parseInt((String) input.get("durata"));
         }catch (Exception e) { durata = 2;  }
+        try{ numPartner = Integer.parseInt((String) input.get("numPartner"));
+        }catch (Exception e) { numPartner = 0;  }
+       
         progetto.setAnnoInizio(2012);
         progetto.setAnnoFine(2012 + durata);
-        progetto.setTitoloProgetto((String) input.get("titolo"));
+        progetto.setTitoloProgetto((String) input.get("titoloProgetto"));
         progetto.setPresentazione((String) input.get("presentazione"));
-        progetto.setNomePartnerLeader((String) input.get("partner1"));
-        //TODO aggiungere anche gli altri campi
         
         Transaction tx = Datastore.beginTransaction();
         Datastore.put(progetto);
         tx.commit();
+        // DOPO aver inserito il progetto faccio le relazioni con i vari partner, altrimenti non avrei la key del progetto per creare le relazioni
+        String partnerName;
+        Partner partner;
+        // sono già sicuro che i partner sono almeno 5, sono stati validati precedentemente
+        for (int i = 1; i <= numPartner; i++){
+            partnerName = (String) input.get("partner"+ i);
+            partner = pService.getPartnerByName(partnerName);
+            if (partner == null){
+                //devo prima aggiungere questo nuovo partner
+                partner = pService.createPartner(partnerName);
+            }
+            ppService.creaCollegamento(partner.getKey(), progetto.getKey());
+        }
         return progetto;
     }
     
@@ -139,13 +157,16 @@ public class ProgettoService {
      * @return
      */
     public boolean validate(HttpServletRequest request, ProgettoMeta meta) {
-        
         Validators v = new Validators(request);
         v.add(p.tema, v.required());
         v.add(p.titoloProgetto, v.required());
         v.add(p.durata, v.integerType());
         v.add(p.durata, v.required());
-        return v.validate();
+        int numPartner = 0;
+        try{ numPartner = Integer.parseInt((String) request.getParameter("numPartner"));
+        }catch (Exception e) { numPartner = 0;  }
+        
+        return v.validate() && numPartner >= 5;
     }
 
 }

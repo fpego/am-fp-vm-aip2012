@@ -46,7 +46,7 @@ il Fondo di coesione nell'ambito della politica di coesione, il Fondo europeo ag
  l'innovazione e Fondi strutturali) completata da informazioni sul Fondo europeo agricolo per lo sviluppo rurale 
  e sul Fondo europeo per la pesca. Inoltre, concentra l'attenzione su altre opportunità di finanziamento nel campo 
  della ricerca e dell'innovazione. Essa contiene informazioni sul programma di apprendimento permanente e sui 
- programmi di cooperazione internazionale nel campo dell'istruzione, nonché su LIFE+ nel campo dell'ambiente. 
+ programmi di cooperazione internazionale nel campo dell'istruzione.
  Descrive inoltre le opportunità di finanziamento in materia di ricerca e innovazione offerte ai paesi e territori 
  al di fuori dell'Unione europea, nel quadro dello strumento di assistenza preadesione e dello strumento europeo di 
  partenariato e vicinato.</p>

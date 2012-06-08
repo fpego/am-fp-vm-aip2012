@@ -7,6 +7,7 @@ import org.slim3.datastore.ModelQuery;
 
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;
+
 import project.meta.PartnerMeta;
 import project.model.Partner;
 import project.model.PartnerProgetto;
@@ -27,13 +28,15 @@ public class PartnerService {
      * Crea un nuovo Partner, col nome passato per parametro,
      * e lo inserisce nel Datastore tramite transazione.
      * @param nome Il nome del Partner
+     * @return il partner appena creato
      */
-    public void createPartner(String nome){
+    public Partner createPartner(String nome){
         Transaction tx = Datastore.beginTransaction();
         Partner p = new Partner();
         p.setNome(nome);
         Datastore.put(tx,p);
         tx.commit(); 
+        return p;
     }
     
     /**
@@ -93,6 +96,10 @@ public class PartnerService {
         progetto.getPartnerProgettoListRef().getModelList().add(pp);
         Datastore.put(tx, partner, progetto,pp);
         tx.commit();
+    }
+
+    public Partner getPartnerByName(String partnerName) {
+        return Datastore.query(metaP).filter(metaP.nome.equal(partnerName)).asSingle();
     }
 
 

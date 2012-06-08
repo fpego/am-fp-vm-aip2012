@@ -35,3 +35,36 @@ function AddPartnerToList(){
 	$("#addPartnersList").append(toInsert);
 	$("#numPartner").val(newNumPartners);
 }
+
+function Autocomplete(){
+	for (i = 1; i <= 5; i++){
+		setAutocomplete(i)
+	}
+}
+
+function setAutocomplete(i){
+	
+	jQuery(function () {
+		var onAutocompleteSelect = function(value, data) {
+            //$('#selection').html('<img src="\/global\/flags\/small\/' + data + '.png" alt="" \/> ' + value);
+			alert(value);
+			alert(data);
+        };
+
+        
+        var options = {
+            serviceUrl: 'partner.jsp?page=ajax',
+            width: 384,
+            // delimiter: /(,|;)\s*/,
+            onSelect: onAutocompleteSelect,
+            deferRequestBy: 0, //miliseconds
+            params: { country: 'Yes' },
+            noCache: false //set to true, to disable caching
+        };
+
+
+        auto[1] = $('#').autocomplete(options);
+
+    });
+
+}
