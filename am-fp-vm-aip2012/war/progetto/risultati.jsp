@@ -19,6 +19,8 @@
 <h1>Progetto ${f:h(p.titoloProgetto)}</h1>
 
 <h3>Risultati</h3>
+
+${f:h(p.risultati)}
 <!-- CONTENT END -->
 		</div>
 	</div>

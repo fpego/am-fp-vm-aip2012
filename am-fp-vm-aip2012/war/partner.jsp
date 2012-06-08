@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <jsp:include page="/common/meta-head.jsp" />
-<title>Home - EU Projects</title>
+<title>Progetti UE - Partner</title>
 </head>
 <body>
 <jsp:include page="/common/header.jsp" />
@@ -16,14 +16,9 @@
 		<div id="content">
 <!-- CONTENT START -->
 
-<h1>Tutti i progetti per anno di fine</h1>
+<h1>Partner "${f:h(partner.nome)}"</h1>
 
-<c:forEach var="p" items="${projectList}">
-	<c:set var="projectLink" value="progetto?key=${f:h(p.key)}" />
-	<ul id="projectList">
-		<li>Anno ${f:h(p.annoFine)} - <a href="${f:url(projectLink)}">${f:h(p.titoloProgetto)}</a></li>
-	</ul>
-</c:forEach>
+<p>Che dire di lui? E' un bravo partner!</p>
 <!-- CONTENT END -->
 		</div>
 	</div>

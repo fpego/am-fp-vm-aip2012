@@ -8,6 +8,7 @@ import org.slim3.datastore.Attribute;
 import org.slim3.datastore.InverseModelListRef;
 import org.slim3.datastore.Model;
 
+import project.meta.DocumentoMeta;
 import project.meta.PartnerProgettoMeta;
 import project.meta.RicercatoreProgettoMeta;
 
@@ -29,6 +30,11 @@ public class Progetto implements Serializable {
     private int annoFine;
     private int durata;
     
+    @Attribute(lob=true)
+    private String presentazione;
+    @Attribute(lob=true)
+    private String risultati;
+    
     @Attribute(persistent=false)
     private InverseModelListRef<PartnerProgetto, Progetto> partnerProgettoListRef =
             new InverseModelListRef<PartnerProgetto, Progetto>
@@ -38,6 +44,11 @@ public class Progetto implements Serializable {
     private InverseModelListRef<RicercatoreProgetto, Progetto> ricercatoreProgettoListRef =
         new InverseModelListRef<RicercatoreProgetto, Progetto>
     (RicercatoreProgetto.class, RicercatoreProgettoMeta.get().progettoRef.getName(), this);
+    
+    @Attribute(persistent=false)
+    private InverseModelListRef<Documento, Progetto> documentoListRef =
+    new InverseModelListRef<Documento, Progetto>
+    (Documento.class, DocumentoMeta.get().progettoRef.getName(), this);
 
     /**
      * Returns the key.
@@ -161,6 +172,25 @@ public class Progetto implements Serializable {
 
     public void setDurata(int durata) {
         this.durata = durata;
+    }
+
+    public String getRisultati() {
+        return risultati;
+    }
+
+    public void setRisultati(String risultati) {
+        this.risultati = risultati;
+    }
+
+    public String getPresentazione() {
+        return presentazione;
+    }
+
+    public void setPresentazione(String presentazione) {
+        this.presentazione = presentazione;
+    }
+    public InverseModelListRef<Documento, Progetto> getDocumentoListRef() {
+        return documentoListRef;
     }
 
 }

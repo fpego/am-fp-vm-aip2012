@@ -18,13 +18,12 @@
 
 <h1>Tutti i progetti per anno d'inizio</h1>
 
-<p>${f:h(myvar)}</p>
-
-<p>${f:h(p.titoloProgetto)}</p>
-
-<%
-//TODO stampare la lista dei progetti!
-%>
+<c:forEach var="p" items="${projectList}">
+	<c:set var="projectLink" value="progetto?key=${f:h(p.key)}" />
+	<ul id="projectList">
+		<li>Anno ${f:h(p.annoInizio)} - <a href="${f:url(projectLink)}">${f:h(p.titoloProgetto)}</a></li>
+	</ul>
+</c:forEach>
 
 <!-- CONTENT END -->
 		</div>
