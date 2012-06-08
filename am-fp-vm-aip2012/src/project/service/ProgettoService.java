@@ -1,5 +1,6 @@
 package project.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -56,10 +57,10 @@ public class ProgettoService {
     }
     
     /**
-     * Ritorna una lista di progetti ordinati in base all'anno d'inizio in ordine decrescente
+     * Ritorna una lista di progetti ordinati in base all'anno di fine in ordine crescente
      */
-    public List<Progetto> getProgettoListOrderByStartYearDesc() {
-        return Datastore.query(p).sort(p.annoInizio.desc).asList();
+    public List<Progetto> getProgettoListOrderByEndYearAsc() {
+        return Datastore.query(p).sort(p.annoFine.asc).asList();
     }
     
     /**
@@ -68,6 +69,19 @@ public class ProgettoService {
      */
     public List<Progetto> getProgettoListByTema(String tema) {
         return (tema != null) ? Datastore.query(p).filter(p.tema.equal(tema)).sort(p.key.asc).asList() : null;
+    }
+    
+    public List<String> getListOfTemaFromProjects(){
+        List<String> tema = new ArrayList<String>();
+        List<Progetto> p = this.getProgettoList();
+        String tmp;
+        for (int i = 0; i < p.size(); i++){
+            tmp = p.get(i).getTema();
+            if (!tema.contains(tmp)){
+                tema.add(tmp);
+            }
+        }
+        return tema;
     }
     
     /**

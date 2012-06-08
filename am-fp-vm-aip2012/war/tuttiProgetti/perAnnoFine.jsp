@@ -18,17 +18,17 @@
 
 <h1>Tutti i progetti per anno di fine</h1>
 
-<p>${f:h(myvar)}</p>
-
-<c:set var="ricettaGo" value="perAnnoFine?param=${f:h(p.nomePartnerLeader)}" />
-<p>${f:url(ricettaGo)}</p>
-
+<c:forEach var="p" items="${projectList}">
+	<c:set var="projectLink" value="progetto?key=${f:h(p.key)}" />
+	<ul id="projectList">
+		<li>Anno ${f:h(p.annoFine)} - <a href="${f:url(projectLink)}">${f:h(p.titoloProgetto)}</a></li>
+	</ul>
+</c:forEach>
 <!-- CONTENT END -->
 		</div>
 	</div>
 <aside id="sideLeft">
 <!-- LEFT MENU START -->
-	Menu Laterale
 <!-- LEFT MENU END -->
 </aside>
 </section>

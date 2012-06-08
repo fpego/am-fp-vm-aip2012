@@ -29,6 +29,11 @@ public class Progetto implements Serializable {
     private int annoFine;
     private int durata;
     
+    @Attribute(lob=true)
+    private String presentazione;
+    @Attribute(lob=true)
+    private String risultati;
+    
     @Attribute(persistent=false)
     private InverseModelListRef<PartnerProgetto, Progetto> partnerProgettoListRef =
             new InverseModelListRef<PartnerProgetto, Progetto>
@@ -161,6 +166,22 @@ public class Progetto implements Serializable {
 
     public void setDurata(int durata) {
         this.durata = durata;
+    }
+
+    public String getRisultati() {
+        return risultati;
+    }
+
+    public void setRisultati(String risultati) {
+        this.risultati = risultati;
+    }
+
+    public String getPresentazione() {
+        return presentazione;
+    }
+
+    public void setPresentazione(String presentazione) {
+        this.presentazione = presentazione;
     }
 
 }
