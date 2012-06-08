@@ -17,13 +17,53 @@
 <!-- CONTENT START -->
 
 <h1>Crea un nuovo progetto</h1>
+<br/><br/>
+<p>Inserisci i dati per creare un nuovo progetto (se inserisci partner che non esistono, saranno aggiunti automaticamente al database).</p>
+<br/><br/>
+<form action="${f:url('progettoInsert')}" method="post" id="creaProgetto">
+<table style="margin-left:auto;margin-right:auto;">
+<thead></thead>
+<tbody>
+<tr><td>Titolo</td><td>
+<input type="text" ${f:text("titoloProgetto")} class="${f:errorClass('titoloProgetto', 'err')}"/>${f:h(errors.titoloProgetto)}
+</td></tr>
+<tr><td>Tema</td><td>
+<input type="text" ${f:text("tema")} class="${f:errorClass('tema', 'err')}"/>${f:h(errors.tema)}
+</td></tr>
+<tr><td>Durata (anni)</td><td>
+<input type="text" ${f:text("durata")} class="${f:errorClass('durata', 'err')}"/>${f:h(durata.durata)}
+</td></tr>
+<tr><td>Presentazione</td><td>
+<textarea name="presentazione" class="${f:errorClass('presentazione', 'err')}">${f:h(presentazione)}</textarea>${f:h(errors.presentazione)}
+</td></tr>
+<tr>
+<td>Partners (almeno 5)</td>
+<td><div id="partnersAdd">
+<input type="hidden" name="numPartner" value="5" id="numPartner" />
+<ul id="addPartnersList">
+	<li><input type="text" name="partner1" value=""/></li>
+	<li><input type="text" name="partner2" value=""/></li>
+	<li><input type="text" name="partner3" value=""/></li>
+	<li><input type="text" name="partner4" value=""/></li>
+	<li><input type="text" name="partner5" value=""/></li>
+</ul>
+<a id="AddSingleParnerButton" onclick="AddPartnerToList()">Aggiungi Partner</a>
+</div></td>
+</tr>
+</tbody>
+<tfoot>
+<tr><td colspan="2">
+<input type="submit" value="Crea"/>
+</td></tr>
+</tfoot>
+</table>
 
+</form>
 <!-- CONTENT END -->
 		</div>
 	</div>
 <aside id="sideLeft">
 <!-- LEFT MENU START -->
-	Menu Laterale
 <!-- LEFT MENU END -->
 </aside>
 </section>

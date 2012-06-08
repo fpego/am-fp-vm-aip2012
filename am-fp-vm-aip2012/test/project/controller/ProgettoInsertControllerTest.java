@@ -1,18 +1,18 @@
-package project.controller.progetto;
+package project.controller;
 
 import org.slim3.tester.ControllerTestCase;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 
-public class RisultatiControllerTest extends ControllerTestCase {
+public class ProgettoInsertControllerTest extends ControllerTestCase {
 
     @Test
     public void run() throws Exception {
-        tester.start("/progetto/risultati");
-        RisultatiController controller = tester.getController();
+        tester.start("/progettoInsert");
+        ProgettoInsertController controller = tester.getController();
         assertThat(controller, is(notNullValue()));
         assertThat(tester.isRedirect(), is(false));
-        assertThat(tester.getDestinationPath(), is("/progetto/risultati.jsp"));
+        assertThat(tester.getDestinationPath(), is("/progettoInsert.jsp"));
     }
 }
