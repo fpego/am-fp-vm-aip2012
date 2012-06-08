@@ -16,7 +16,7 @@ public class ProgettoInsertController extends Controller {
     public Navigation run() throws Exception {
         if (service.validate(request,meta)) {
             service.insertProgetto(new RequestMap(request));
-            return redirect(basePath);
+            return redirect("tuttiProgetti");
         }else{
             return redirect("index");
         }

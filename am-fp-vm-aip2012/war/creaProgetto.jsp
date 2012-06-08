@@ -25,13 +25,13 @@
 <thead></thead>
 <tbody>
 <tr><td>Titolo</td><td>
-<input type="text" ${f:text("titolo")} class="${f:errorClass('titolo', 'err')}"/>${f:h(errors.titolo)}
+<input type="text" ${f:text("titoloProgetto")} class="${f:errorClass('titoloProgetto', 'err')}"/>${f:h(errors.titoloProgetto)}
 </td></tr>
 <tr><td>Tema</td><td>
-<input type="text" ${f:text("genere")} class="${f:errorClass('genere', 'err')}"/>${f:h(errors.genere)}
+<input type="text" ${f:text("tema")} class="${f:errorClass('tema', 'err')}"/>${f:h(errors.tema)}
 </td></tr>
 <tr><td>Durata (anni)</td><td>
-<input type="text" ${f:text("durata")} class="${f:errorClass('durata', 'err')}"/>${f:h(durata.genere)}
+<input type="text" ${f:text("durata")} class="${f:errorClass('durata', 'err')}"/>${f:h(durata.durata)}
 </td></tr>
 <tr><td>Presentazione</td><td>
 <textarea name="presentazione" class="${f:errorClass('presentazione', 'err')}">${f:h(presentazione)}</textarea>${f:h(errors.presentazione)}
