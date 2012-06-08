@@ -92,6 +92,10 @@ h1, h2{
 	min-height:500px; /*temporaneo*/
 }
 
+#addPartnersList{
+	list-style: none;
+}
+
 /* Sidebar Left
 -----------------------------------------------------------------------------*/
 #sideLeft {

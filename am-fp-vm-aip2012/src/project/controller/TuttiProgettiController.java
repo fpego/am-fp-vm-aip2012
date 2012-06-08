@@ -23,6 +23,7 @@ public class TuttiProgettiController extends Controller {
         Progetto p = new Progetto();
         p.setNomePartnerLeader("Team Rocket");
         p.setTitoloProgetto("Conquistiamo il mondo!");
+        p.setTema("Cloud");
         p.setAnnoInizio(2008);
         p.setAnnoFine(2013);
         service.insertProgetto(p);
