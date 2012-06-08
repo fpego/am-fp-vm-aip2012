@@ -11,6 +11,7 @@ import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;
 
 import project.meta.ProgettoMeta;
+import project.model.Documento;
 import project.model.Progetto;
 
 
@@ -47,6 +48,15 @@ public class ProgettoService {
      */
     public List<Progetto> getProgettoList() {
         return Datastore.query(p).sort(p.key.asc).asList();
+    }
+    
+    /**
+     * Ritorna la lista di documenti legati al progetto passato per chiave
+     * @param la chiave del progetto
+     * @return la lista di documenti associati
+     */
+    public List<Documento> getProjectFiles(Key key){
+        return Datastore.getOrNull(p, key).getDocumentoListRef().getModelList();
     }
     
     /**

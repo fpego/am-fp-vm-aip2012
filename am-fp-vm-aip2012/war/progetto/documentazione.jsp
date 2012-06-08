@@ -20,6 +20,12 @@
 
 <h3>Documentazione</h3>
 
+<c:forEach var="d" items="${documenti}">
+	<c:set var="docLink" value="downloadDoc?key=${f:h(d.key)}" />
+	<ul id="docList">
+		<li><a href="${f:url(docLink)}">${f:h(d.file.filename)} (size: ${f:h(d.file.size)} bytes)</a></li>
+	</ul>
+</c:forEach>
 
 <!-- CONTENT END -->
 		</div>
