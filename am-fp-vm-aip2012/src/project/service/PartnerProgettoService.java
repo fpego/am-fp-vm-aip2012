@@ -26,7 +26,8 @@ public class PartnerProgettoService {
     
     
     /**
-     * Collega i progetti con i partner
+     * Collega i progetti con i partner. Partner e Progetto devono
+     * già essere presenti nel Datastore!
      * @param partner
      * @param progetto
      */
