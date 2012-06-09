@@ -18,7 +18,7 @@ public class ProgettoInsertController extends Controller {
             service.insertProgetto(new RequestMap(request));
             return redirect("tuttiProgetti");
         }else{
-            return redirect("index");
+            return redirect("creaProgetto");
         }
     }
 }

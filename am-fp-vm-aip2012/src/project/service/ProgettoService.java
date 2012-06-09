@@ -127,6 +127,9 @@ public class ProgettoService {
         // sono già sicuro che i partner sono almeno 5, sono stati validati precedentemente
         for (int i = 1; i <= numPartner; i++){
             partnerName = (String) input.get("partner"+ i);
+            if (partnerName.equals("")){
+                continue;
+            }
             partner = pService.getPartnerByName(partnerName);
             if (partner == null){
                 //devo prima aggiungere questo nuovo partner
@@ -152,21 +155,45 @@ public class ProgettoService {
     
     /**
      * Valida il form di upload di un nuovo progetto.
+     * Sono richiesti TUTTI i campi, il numero di partner inseriti deve essere almeno 5 e la durata deve essere compresa tra 2 e 10 anni.
+     * 
      * @param request
      * @param meta
      * @return
      */
     public boolean validate(HttpServletRequest request, ProgettoMeta meta) {
+        boolean partnerOk = true;
+        boolean durataOk = false;
+        int durata = 0;
+        String partner = null;
         Validators v = new Validators(request);
+        
         v.add(p.tema, v.required());
         v.add(p.titoloProgetto, v.required());
         v.add(p.durata, v.integerType());
         v.add(p.durata, v.required());
-        int numPartner = 0;
-        try{ numPartner = Integer.parseInt((String) request.getParameter("numPartner"));
-        }catch (Exception e) { numPartner = 0;  }
         
-        return v.validate() && numPartner >= 5;
+        try{ 
+            durata = Integer.parseInt((String) request.getParameter("durata"));
+            if (durata >= 2 && durata <= 10)
+                durataOk = true;
+        }catch (Exception e) { 
+            durataOk = false; 
+        }
+        // controllo che tutti i 5 partner (almeno quelli obbligati) sono diversi da null, se mi aggiunge campi che non usa me ne frego altamente
+        try{
+            for (int i = 1; i <= 5; i++){
+                partner = (String) request.getParameter("partner"+i);
+                if (partner.equals("")){
+                    partnerOk = false;
+                    break;
+                }
+            }
+        }catch (Exception e) {
+            partnerOk = false;
+        }
+        
+        return v.validate() && partnerOk && durataOk;
     }
 
 }

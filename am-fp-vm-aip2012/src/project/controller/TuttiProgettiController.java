@@ -21,11 +21,14 @@ public class TuttiProgettiController extends Controller {
     @SuppressWarnings("unused")
     private void insertProgettoTest(){
         Progetto p = new Progetto();
-        p.setNomePartnerLeader("Team Rocket");
-        p.setTitoloProgetto("Conquistiamo il mondo!");
-        p.setTema("Cloud");
+        p.setNomePartnerLeader("Team Rocket2");
+        p.setTitoloProgetto("Pokemon");
+        p.setTema("NintendoGame");
         p.setAnnoInizio(2008);
         p.setAnnoFine(2013);
+        p.setDurata(5);
+        p.setPresentazione("Ciao a tutti");
+        p.setRisultati("Giocare a pokemon è bello!");
         service.insertProgetto(p);
     }
     
