@@ -101,6 +101,20 @@ public class ProgettoService {
     }
     
     /**
+     * Restituisce il Partner leader del progetto la cui
+     * chiave è passata come parametro.
+     * @param progettoKey La Key del progetto
+     * @return Il singolo Partner leader del progetto.
+     * Restituisce null se non viene trovato il Partner.
+     */
+    public Partner getLeaders(Key progettoKey){
+        Progetto progetto = Datastore.get(p,progettoKey);
+        if(progetto != null)
+            return progetto.getLeaderRef().getModel();
+        return null;
+    }
+    
+    /**
      * Inserisco il progetto con i parametri dati stile MAP
      * @param input mappa contenente tutti i dati del progetto
      * @return restituisce il progetto appena inserito

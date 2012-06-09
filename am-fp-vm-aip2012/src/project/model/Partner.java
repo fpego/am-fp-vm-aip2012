@@ -9,6 +9,7 @@ import org.slim3.datastore.InverseModelListRef;
 import org.slim3.datastore.Model;
 
 import project.meta.PartnerProgettoMeta;
+import project.meta.ProgettoMeta;
 import project.meta.RicercatoreMeta;
 
 @Model(schemaVersion = 1)
@@ -33,6 +34,11 @@ public class Partner implements Serializable {
     private InverseModelListRef<Ricercatore, Partner> ricercatoreListRef =
             new InverseModelListRef<Ricercatore, Partner>
     (Ricercatore.class, RicercatoreMeta.get().partnerRef.getName(), this);
+    
+    @Attribute(persistent=false)
+    private InverseModelListRef<Progetto, Partner> leaderOfListRef =
+            new InverseModelListRef<Progetto, Partner>
+    (Progetto.class, ProgettoMeta.get().leaderRef.getName(), this);
 
     /**
      * Returns the key.
@@ -117,5 +123,10 @@ public class Partner implements Serializable {
     public InverseModelListRef<Ricercatore, Partner> getRicercatoreListRef(){
         return ricercatoreListRef;
     }
+
+    public InverseModelListRef<Progetto, Partner> getLeaderOfListRef() {
+        return leaderOfListRef;
+    }
+
 
 }

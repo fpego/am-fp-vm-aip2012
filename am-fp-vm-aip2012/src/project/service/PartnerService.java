@@ -85,6 +85,37 @@ public class PartnerService {
     }
     
     /**
+     * Ritorna una lista di soli Partners che sono Leader di almeno un progetto
+     * (senza duplicati).
+     * @return Una List di leaders
+     */
+    public List<Partner> getLeaders(){
+        List<Partner> leaders = new ArrayList<Partner>();
+        for(Progetto prg: Datastore.query(metaPro).asList())
+            if(!leaders.contains(prg.getLeaderRef().getModel()))
+                leaders.add(prg.getLeaderRef().getModel());
+        return leaders;            
+    }
+
+    public Partner getPartnerByName(String partnerName) {
+        return Datastore.query(metaP).filter(metaP.nome.equal(partnerName)).asSingle();
+    }
+    
+    /**
+     * Restituisce la lista dei progetto dei quali è leader
+     * il partner la cui chiave è passata come parametro.
+     * @param partnerKey La Key del partner.
+     * @return la lista dei progetti dei quali il partner è leader.
+     * Ritorna null se il Partner non viene trovato.
+     */
+    public List<Progetto> getLeaded(Key partnerKey){
+        Partner partner = Datastore.get(metaP, partnerKey);
+        if(partner != null)
+            return partner.getLeaderOfListRef().getModelList();
+        return null;
+    }
+
+    /**
      * Associa progetto e partner creando una istanza della
      * entità PartnerProgetto (per la relazione M-M) e salva tutto
      * nel datastore tramite transazione.
@@ -102,34 +133,32 @@ public class PartnerService {
         tx.commit();
     }
 
-    public Partner getPartnerByName(String partnerName) {
-        return Datastore.query(metaP).filter(metaP.nome.equal(partnerName)).asSingle();
+    /**
+     * Rende il partner passato come primo parametro il leader del progetto
+     * passato come secondo parametro. Crea anche la relazione inversa
+     * progetto-->leader.
+     * @param leader il leader (classe Partner)
+     * @param progetto il progetto da assegnare al leader
+     * @see PartnerService#setLeader(Key, Key)
+     */
+    public void setLeader(Partner leader, Progetto progetto){
+        progetto.getLeaderRef().setModel(leader);
+        leader.getLeaderOfListRef().getModelList().add(progetto);
     }
     
     /**
-     * Ritorna una lista di soli Partners che sono Leader di almeno un progetto
-     * (senza duplicati).
-     * @return Una List di leaders
+     * Rende il partner passato come primo parametro il leader del progetto
+     * passato come secondo parametro. Crea anche la relazione inversa
+     * progetto-->leader.
+     * Utilizza il metodo {@link PartnerService#setLeader(Partner, Progetto)}
+     * @param leaderKey la Key del leader
+     * @param progettoKey la Key del progetto
+     * @see PartnerService#setLeader(Partner, Progetto)
      */
-    public List<Partner> getLeaders(){
-        List<Partner> leaders = new ArrayList<Partner>();
-        for(Progetto prg: Datastore.query(metaPro).asList())
-            if(!leaders.contains(prg.getLeaderRef().getModel()))
-                leaders.add(prg.getLeaderRef().getModel());
-        return leaders;            
+    public void setLeader(Key leaderKey, Key progettoKey){
+        this.setLeader(Datastore.get(metaP, leaderKey), Datastore.get(metaPro, progettoKey));
     }
-    
-    /**
-     * Elimina il partner la cui chiave è passata
-     * come paramentro.
-     * @see PartnerService#elimina(List)
-     * @param pKey La Key del Partner da eliminare
-     */
-    public void elimina(Key pKey){
-        if(Datastore.get(metaP,pKey) != null)
-            Datastore.delete(pKey);
-    }
-    
+
     /**
      * Elimina i partners le cui chiavi sono passate
      * come parametro.
@@ -144,6 +173,17 @@ public class PartnerService {
         }
         Datastore.delete(pKeys);
         return true;
+    }
+
+    /**
+     * Elimina il partner la cui chiave è passata
+     * come paramentro.
+     * @see PartnerService#elimina(List)
+     * @param pKey La Key del Partner da eliminare
+     */
+    public void elimina(Key pKey){
+        if(Datastore.get(metaP,pKey) != null)
+            Datastore.delete(pKey);
     }
 
 

@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.slim3.datastore.Datastore;
-import org.slim3.datastore.ModelQuery;
-
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;
 
@@ -48,9 +46,10 @@ public class PartnerProgettoService {
      * Collega il progetto con il partner LEADER
      * @param partner
      * @param progetto
+     * @deprecated Usare {@link PartnerService#setLeader(Key, Key)}
      */
     public PartnerProgetto creaCollegamentoLeader(Key partner, Key progetto){
-        //TODO RIFARE settandolo a leader!
+        
         Partner p = Datastore.get(mPartner, partner);
         Progetto pr = Datastore.get(mProgetto, progetto);
         PartnerProgetto collegamento = new PartnerProgetto();
