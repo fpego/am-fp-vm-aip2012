@@ -149,7 +149,9 @@ public class ProgettoService {
         if (partner == null){
             partner = pService.createPartner(partnerName);
         }
-        ppService.creaCollegamentoLeader(partner.getKey(), progetto.getKey());
+        // crea il collegamento tra partner e progetto e lo setta anche come leader.
+        pService.setLeader(partner, progetto);
+        //ppService.creaCollegamentoLeader(partner.getKey(), progetto.getKey());
         
         // sono già sicuro che i partner sono almeno 5, sono stati validati precedentemente
         for (int i = 2; i <= numPartner; i++){
