@@ -22,17 +22,29 @@ public class PartnerController extends Controller {
     public Navigation run() throws Exception {
         RequestMap input = new RequestMap(request);
         String page = (String) input.get("page");
-        if (page.equals("ajax")){
+        if (page != null && page.equals("ajax")){
             //TODO girare ad una pagina che mostra il json generato
             
             return null;
         }
+        
         Partner partner = service.getOrNull(asKey(meta.key));
         if (partner == null){
             return redirect("tuttiPartner.jsp");
         }
         
+        String origin = (String) input.get("origin");
+        String urlIndietro = "index";
+        if (origin != null){
+            if (origin.equals("tP")){
+                urlIndietro = "tuttiPartners";
+            }else if (origin.equals("pL")){
+                urlIndietro = "tuttiPartners?page=leader";
+            }
+        }
+        
         requestScope("partner", partner);
+        requestScope("urlIndietro", urlIndietro);
         return forward("partner.jsp");
     }
 }

@@ -18,12 +18,19 @@
 
 <h1>Partner "${f:h(partner.nome)}"</h1>
 
-<p>Che dire di lui? E' un bravo partner!</p>
+<%
+//TODO scrivere info sul partner
+%>
 <!-- CONTENT END -->
 		</div>
 	</div>
 <aside id="sideLeft">
 <!-- LEFT MENU START -->
+<div id='jqxMenuLeft' style='visibility: hidden; margin-left:auto; margin-right:auto'>
+<ul>
+	<li><a href="${f:url(urlIndietro)}">Indietro</a></li>
+</ul>
+</div>
 <!-- LEFT MENU END -->
 </aside>
 </section>

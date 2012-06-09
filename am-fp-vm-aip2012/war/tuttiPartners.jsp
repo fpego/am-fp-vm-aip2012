@@ -19,7 +19,7 @@
 <h1>Elenco dei partners registrati sul sito</h1>
 
 <c:forEach var="p" items="${partnerList}">
-	<c:set var="partnerLink" value="partner?key=${f:h(p.key)}" />
+	<c:set var="partnerLink" value="partner?key=${f:h(p.key)}&origin=tP" />
 	<ul id="projectList">
 		<li><a href="${f:url(partnerLink)}">${f:h(p.nome)}</a></li>
 	</ul>
@@ -30,7 +30,6 @@
 	</div>
 <aside id="sideLeft">
 <!-- LEFT MENU START -->
-	Menu Laterale
 <!-- LEFT MENU END -->
 </aside>
 </section>

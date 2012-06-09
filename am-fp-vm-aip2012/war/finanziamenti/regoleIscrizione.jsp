@@ -108,13 +108,7 @@ Ricorda che devi avere almeno 5 partners.</p>
 	</div>
 <aside id="sideLeft">
 <!-- LEFT MENU START -->
-	<div id='jqxMenuLeft' style='visibility: hidden; margin-left:auto; margin-right:auto'>
-	<ul>
-		<li><a href="${f:url('finanziamenti')}">Finanziamenti</a></li>
-		<li><a href="${f:url('finanziamenti?page=regoleIscrizione')}">Regole d'iscrizione</a></li>
-		<li><a href="${f:url('finanziamenti?page=bandi')}">Bandi</a></li>
-	</ul>
-	</div>
+<jsp:include page="/common/leftMenu_finanziamenti.jsp" />
 <!-- LEFT MENU END -->
 </aside>
 </section>
