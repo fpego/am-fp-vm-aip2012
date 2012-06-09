@@ -120,6 +120,7 @@ public class ProgettoService {
         progetto.setAnnoFine(year + durata);
         progetto.setTitoloProgetto((String) input.get("titoloProgetto"));
         progetto.setPresentazione((String) input.get("presentazione"));
+        progetto.setTema((String) input.get("tema"));
         
         Transaction tx = Datastore.beginTransaction();
         Datastore.put(progetto);
