@@ -24,6 +24,7 @@ public class PartnerController extends Controller {
         String page = (String) input.get("page");
         if (page.equals("ajax")){
             //TODO girare ad una pagina che mostra il json generato
+            
             return null;
         }
         Partner partner = service.getOrNull(asKey(meta.key));
