@@ -45,6 +45,24 @@ public class PartnerProgettoService {
     }
     
     /**
+     * Collega il progetto con il partner LEADER
+     * @param partner
+     * @param progetto
+     */
+    public PartnerProgetto creaCollegamentoLeader(Key partner, Key progetto){
+        //TODO RIFARE settandolo a leader!
+        Partner p = Datastore.get(mPartner, partner);
+        Progetto pr = Datastore.get(mProgetto, progetto);
+        PartnerProgetto collegamento = new PartnerProgetto();
+        collegamento.getPartnerRef().setModel(p);
+        collegamento.getProgettoRef().setModel(pr);
+        Transaction tx = Datastore.beginTransaction();
+        Datastore.put(collegamento);
+        tx.commit();
+        return collegamento;
+    }
+    
+    /**
      * Restituisce una lista di partners appartententi al
      * progetto dato.
      * @param progetto la Key del progetto

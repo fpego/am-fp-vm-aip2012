@@ -128,8 +128,17 @@ public class ProgettoService {
         // DOPO aver inserito il progetto faccio le relazioni con i vari partner, altrimenti non avrei la key del progetto per creare le relazioni
         String partnerName;
         Partner partner;
+        
+        //Prendo il partner leader
+        partnerName = (String) input.get("partner1");
+        partner = pService.getPartnerByName(partnerName);
+        if (partner == null){
+            partner = pService.createPartner(partnerName);
+        }
+        ppService.creaCollegamentoLeader(partner.getKey(), progetto.getKey());
+        
         // sono già sicuro che i partner sono almeno 5, sono stati validati precedentemente
-        for (int i = 1; i <= numPartner; i++){
+        for (int i = 2; i <= numPartner; i++){
             partnerName = (String) input.get("partner"+ i);
             if (partnerName.equals("")){
                 continue;

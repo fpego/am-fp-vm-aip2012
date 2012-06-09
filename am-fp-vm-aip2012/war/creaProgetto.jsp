@@ -21,6 +21,7 @@
 <p>
 Inserisci i dati per creare un nuovo progetto.<br/>
 Se i partner che devi inserire non sono presenti nel nostro database, basta scriverli e verranno automaticamente aggiunti. In ogni caso, i partner devono essere almeno 5.<br/>
+Il primo partner della lista diventa automaticamente il leader del progetto.<br/>
 La durata deve essere un numero di anni intero, compreso tra 2 e 10.<br/>
 </p>
 <br/><br/>
