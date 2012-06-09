@@ -21,7 +21,6 @@ public class TuttiProgettiController extends Controller {
     @SuppressWarnings("unused")
     private void insertProgettoTest(){
         Progetto p = new Progetto();
-        p.setNomePartnerLeader("Team Rocket2");
         p.setTitoloProgetto("Pokemon");
         p.setTema("NintendoGame");
         p.setAnnoInizio(2008);

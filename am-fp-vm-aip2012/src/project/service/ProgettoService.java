@@ -1,6 +1,7 @@
 package project.service;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
@@ -108,13 +109,15 @@ public class ProgettoService {
         Progetto progetto = new Progetto();
         int durata = 2;
         int numPartner = 0;
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        
         try{ durata = Integer.parseInt((String) input.get("durata"));
-        }catch (Exception e) { durata = 2;  }
+        }catch (Exception e) { return null;  }
         try{ numPartner = Integer.parseInt((String) input.get("numPartner"));
-        }catch (Exception e) { numPartner = 0;  }
+        }catch (Exception e) { return null;  }
        
-        progetto.setAnnoInizio(2012);
-        progetto.setAnnoFine(2012 + durata);
+        progetto.setAnnoInizio(year);
+        progetto.setAnnoFine(year + durata);
         progetto.setTitoloProgetto((String) input.get("titoloProgetto"));
         progetto.setPresentazione((String) input.get("presentazione"));
         

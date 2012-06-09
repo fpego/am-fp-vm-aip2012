@@ -25,7 +25,6 @@ public class Progetto implements Serializable {
     private Long version;
     
     private String titoloProgetto;
-    private String nomePartnerLeader;
     private String tema;
     private int annoInizio;
     private int annoFine;
@@ -130,14 +129,6 @@ public class Progetto implements Serializable {
         this.titoloProgetto = titoloProgetto;
     }
 
-    public String getNomePartnerLeader() {
-        return nomePartnerLeader;
-    }
-
-    public void setNomePartnerLeader(String nomePartnerLeader) {
-        this.nomePartnerLeader = nomePartnerLeader;
-    }
-    
     public InverseModelListRef<PartnerProgetto, Progetto> getPartnerProgettoListRef(){
         return partnerProgettoListRef;
     }
