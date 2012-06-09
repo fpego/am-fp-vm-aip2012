@@ -28,19 +28,23 @@ public class ProgettoController extends Controller {
         }
         String origin = (String) input.get("origin");
         String page = (String) input.get("page");
-        String urlProgetto = "progetto?key=" + KeyFactory.keyToString(progetto.getKey());
+        String urlProgetto = "progetto?key=" + KeyFactory.keyToString(progetto.getKey()) + "&origin=" + origin;
         String urlRisultati = urlProgetto + "&page=risultati";
         String urlDocumentazione = urlProgetto + "&page=doc";
         String urlEsplora = urlProgetto + "&page=esplora";
         String urlIndietro = null;
-        if (origin.equals("tP")){
-            urlIndietro = "tuttiProgetti";
-        }else if (origin.equals("aI")){
-            urlIndietro = "tuttiProgetti?page=perAnnoInizio";
-        }else if (origin.equals("aF")){
-            urlIndietro = "tuttiProgetti?page=perAnnoFine";
-        }else if (origin.equals("pT")){
-            urlIndietro = "tuttiProgetti?page=perTema";
+        if (origin != null){
+            if (origin.equals("tP")){
+                urlIndietro = "tuttiProgetti";
+            }else if (origin.equals("aI")){
+                urlIndietro = "tuttiProgetti?page=perAnnoInizio";
+            }else if (origin.equals("aF")){
+                urlIndietro = "tuttiProgetti?page=perAnnoFine";
+            }else if (origin.equals("pT")){
+                urlIndietro = "tuttiProgetti?page=perTema";
+            }else{
+                urlIndietro = "index";
+            }
         }else{
             urlIndietro = "index";
         }
