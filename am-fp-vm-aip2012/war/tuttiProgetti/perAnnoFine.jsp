@@ -19,7 +19,7 @@
 <h1>Tutti i progetti per anno di fine</h1>
 
 <c:forEach var="p" items="${projectList}">
-	<c:set var="projectLink" value="progetto?key=${f:h(p.key)}" />
+	<c:set var="projectLink" value="progetto?key=${f:h(p.key)}&origin=aF" />
 	<ul id="projectList">
 		<li>Anno ${f:h(p.annoFine)} - <a href="${f:url(projectLink)}">${f:h(p.titoloProgetto)}</a></li>
 	</ul>

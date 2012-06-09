@@ -27,14 +27,7 @@ ${f:h(p.presentazione)}
 	</div>
 <aside id="sideLeft">
 <!-- LEFT MENU START -->
-	<div id='jqxMenuLeft' style='visibility: hidden; margin-left:auto; margin-right:auto'>
-	<ul>
-		<li><a href="${f:h(urlProgetto)}">Presentazione</a></li>
-		<li><a href="${f:h(urlRisultati)}">Risultati</a></li>
-		<li><a href="${f:h(urlDocumentazione)}">Documentazione</a></li>
-		<li><a href="${f:h(urlEsplora)}">Esplora</a></li>
-	</ul>
-	</div>
+<jsp:include page="/common/leftMenu_progetto.jsp" />
 <!-- LEFT MENU END -->
 </aside>
 </section>

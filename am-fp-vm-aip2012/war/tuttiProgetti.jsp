@@ -19,7 +19,7 @@
 <h1>Tutti i progetti</h1>
 
 <c:forEach var="p" items="${projectList}">
-	<c:set var="projectLink" value="progetto?key=${f:h(p.key)}" />
+	<c:set var="projectLink" value="progetto?key=${f:h(p.key)}&origin=tP" />
 	<ul id="projectList">
 		<li><a href="${f:url(projectLink)}">${f:h(p.titoloProgetto)}</a></li>
 	</ul>
