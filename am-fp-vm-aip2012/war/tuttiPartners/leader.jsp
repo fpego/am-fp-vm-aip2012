@@ -18,9 +18,12 @@
 
 <h1>Elenco dei partners leader di progetto</h1>
 
-<%
-//TODO stampo l'elenco dei partners leader del progetto dato
-%>
+<c:forEach var="p" items="${partnerList}">
+	<c:set var="partnerLink" value="partner?key=${f:h(p.key)}&origin=pL" />
+	<ul id="projectList">
+		<li><a href="${f:url(partnerLink)}">${f:h(p.nome)}</a></li>
+	</ul>
+</c:forEach>
 
 <!-- CONTENT END -->
 		</div>

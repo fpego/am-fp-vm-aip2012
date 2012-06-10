@@ -2,10 +2,8 @@ package project.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.slim3.datastore.Datastore;
-import org.slim3.datastore.ModelQuery;
 
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;
@@ -70,9 +68,7 @@ public class PartnerService {
      * @return una classe List<Partner>
      */
     public List<Partner> getAllPartnersList(){
-        ModelQuery<Partner> query = Datastore.query(metaP);
-        query.sort(metaP.nome.asc);
-        return query.asList();
+        return Datastore.query(metaP).sort(metaP.nome.asc).asList();
     }
     
     /**
@@ -80,8 +76,16 @@ public class PartnerService {
      * @return
      */
     public List<Partner> getAllPartnersLeaderList() {
-        //TODO IMPLEMENT!
-        return null;
+        List<Partner> partner = new ArrayList<Partner>();
+        List<Progetto> progetti = Datastore.query(metaPro).asList();
+        Partner tmp = null;
+        for (Progetto p: progetti){
+            tmp = p.getLeaderRef().getModel();
+            if (tmp != null && !partner.contains(tmp)){
+                partner.add(tmp);
+            }
+        }
+        return partner;
     }
     
     /**
@@ -144,6 +148,12 @@ public class PartnerService {
     public void setLeader(Partner leader, Progetto progetto){
         progetto.getLeaderRef().setModel(leader);
         leader.getLeaderOfListRef().getModelList().add(progetto);
+        Transaction tx = Datastore.beginTransaction();
+        Datastore.put(progetto);
+        tx.commit();
+        tx = Datastore.beginTransaction();
+        Datastore.put(leader);
+        tx.commit();
     }
     
     /**
@@ -171,7 +181,9 @@ public class PartnerService {
             if(Datastore.get(metaP,k) == null)
                 return false;
         }
+        Transaction tx = Datastore.beginTransaction();
         Datastore.delete(pKeys);
+        tx.commit();
         return true;
     }
 
@@ -182,8 +194,10 @@ public class PartnerService {
      * @param pKey La Key del Partner da eliminare
      */
     public void elimina(Key pKey){
+        Transaction tx = Datastore.beginTransaction();
         if(Datastore.get(metaP,pKey) != null)
             Datastore.delete(pKey);
+        tx.commit();
     }
 
 
