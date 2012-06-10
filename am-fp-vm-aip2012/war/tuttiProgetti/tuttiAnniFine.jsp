@@ -16,14 +16,12 @@
 		<div id="content">
 <!-- CONTENT START -->
 
-<h1>Tutti i progetti per tema</h1>
+<h1>Tutti gli anni di fine di un progetto</h1>
 
-<h3>Tema: ${f:h(tema)}</h3>
-
-<c:forEach var="p" items="${projectList}">
-	<c:set var="projectLink" value="progetto?key=${f:h(p.key)}&origin=pT" />
-	<ul id="projectList">
-		<li>Tema: ${f:h(p.tema)} - <a href="${f:url(projectLink)}">${f:h(p.titoloProgetto)}</a></li>
+<c:forEach var="anno" items="${yearList}">
+	<c:set var="yearLink" value="tuttiProgetti?page=perAnnoFine&anno=${f:h(anno)}" />
+	<ul>
+		<li><a href="${f:url(yearLink)}">Anno ${f:h(anno)}</a></li>
 	</ul>
 </c:forEach>
 
@@ -32,11 +30,7 @@
 	</div>
 <aside id="sideLeft">
 <!-- LEFT MENU START -->
-<div id='jqxMenuLeft' style='visibility: hidden; margin-left:auto; margin-right:auto'>
-<ul>
-	<li><a href="${f:url(urlIndietro)}">Indietro</a></li>
-</ul>
-</div>
+
 <!-- LEFT MENU END -->
 </aside>
 </section>

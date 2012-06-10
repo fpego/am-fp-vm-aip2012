@@ -13,9 +13,9 @@
 		<li>Progetti
 			<ul>
 				<li><a href="${f:url('/tuttiProgetti')}">Tutti i progetti</a></li>
-				<li><a href="${f:url('/tuttiProgetti?page=perAnnoInizio')}">Per anno d'inizio</a></li>
-				<li><a href="${f:url('/tuttiProgetti?page=perAnnoFine')}">Per anno di fine</a></li>
-				<li><a href="${f:url('/tuttiProgetti?page=perTema')}">Progetti per tema</a></li>
+				<li><a href="${f:url('/tuttiProgetti?page=tuttiAnniInizio')}">Per anno d'inizio</a></li>
+				<li><a href="${f:url('/tuttiProgetti?page=tuttiAnniFine')}">Per anno di fine</a></li>
+				<li><a href="${f:url('/tuttiProgetti?page=tuttiTemi')}">Progetti per tema</a></li>
 			</ul>
 		</li>
 		<li>Partners

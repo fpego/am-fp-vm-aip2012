@@ -33,30 +33,59 @@ public class TuttiProgettiController extends Controller {
     
     @Override
     public Navigation run() throws Exception {
-        
         //insertProgettoTest();
-        
         RequestMap input = new RequestMap(request);
         String page = (String) input.get("page");
-        List<Progetto> projectList = service.getProgettoList();
-        requestScope("projectList", projectList);
-
+        List<Progetto> projectList = null;
         if (page != null){
-            if(page.equals("perAnnoInizio")){
-                projectList = service.getProgettoListOrderByStartYearAsc();
+            if (page.equals("tuttiAnniInizio")){
+                List<Integer> yearList = service.getAnniInizioList();
+                requestScope("yearList", yearList);
+                return forward("tuttiProgetti/tuttiAnniInizio.jsp");
+            }else if (page.equals("tuttiAnniFine")){
+                List<Integer> yearList = service.getAnniFineList();
+                requestScope("yearList", yearList);
+                return forward("tuttiProgetti/tuttiAnniFine.jsp");
+            }else if(page.equals("perAnnoInizio")){
+                int startYear = 0;
+                try{
+                    startYear = Integer.parseInt((String)input.get("anno"));
+                }catch (Exception e) {
+                    return redirect("tuttiProgetti?page=tuttiAnniInizio");
+                }
+                projectList = service.getProgettoFromStartYear(startYear);
                 requestScope("projectList", projectList);
+                requestScope("startYear", startYear);
+                requestScope("urlIndietro", "tuttiProgetti?page=tuttiAnniInizio");
                 return forward("tuttiProgetti/perAnnoInizio.jsp");
-            }
-            if(page.equals("perAnnoFine")){
-                projectList = service.getProgettoListOrderByEndYearAsc();
+            }else if(page.equals("perAnnoFine")){
+                int endYear = 0;
+                try{
+                    endYear = Integer.parseInt((String)input.get("anno"));
+                }catch (Exception e) {
+                    return redirect("tuttiProgetti?page=tuttiAnniFine");
+                }
+                projectList = service.getProgettoFromEndYear(endYear);
                 requestScope("projectList", projectList);
+                requestScope("endYear", endYear);
+                requestScope("urlIndietro", "tuttiProgetti?page=tuttiAnniFine");
                 return forward("tuttiProgetti/perAnnoFine.jsp");
-            }
-            if(page.equals("perTema")){
-                
+            }else if(page.equals("tuttiTemi")){
+                List<String> temi = service.getListOfTemaFromProjects();
+                requestScope("temiList", temi);
+                return forward("tuttiProgetti/tuttiTemi.jsp");
+            }else if(page.equals("perTema")){
+                String tema = (String) input.get("tema");
+                projectList = service.getProgettoListByTema(tema);
+                requestScope("projectList", projectList);
+                requestScope("tema", tema);
+                requestScope("urlIndietro", "tuttiProgetti?page=tuttiTemi");
                 return forward("tuttiProgetti/perTema.jsp");
             }
         }
+        
+        projectList = service.getProgettoList();
+        requestScope("projectList", projectList);
         return forward("tuttiProgetti.jsp");
     }
 }

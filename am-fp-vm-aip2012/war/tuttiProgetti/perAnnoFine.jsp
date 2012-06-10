@@ -18,10 +18,12 @@
 
 <h1>Tutti i progetti per anno di fine</h1>
 
+<h3>Anno di fine: ${f:h(endYear)}</h3>
+
 <c:forEach var="p" items="${projectList}">
 	<c:set var="projectLink" value="progetto?key=${f:h(p.key)}&origin=aF" />
 	<ul id="projectList">
-		<li>Anno ${f:h(p.annoFine)} - <a href="${f:url(projectLink)}">${f:h(p.titoloProgetto)}</a></li>
+		<li><a href="${f:url(projectLink)}">${f:h(p.titoloProgetto)}</a></li>
 	</ul>
 </c:forEach>
 <!-- CONTENT END -->
@@ -29,6 +31,11 @@
 	</div>
 <aside id="sideLeft">
 <!-- LEFT MENU START -->
+<div id='jqxMenuLeft' style='visibility: hidden; margin-left:auto; margin-right:auto'>
+<ul>
+	<li><a href="${f:url(urlIndietro)}">Indietro</a></li>
+</ul>
+</div>
 <!-- LEFT MENU END -->
 </aside>
 </section>

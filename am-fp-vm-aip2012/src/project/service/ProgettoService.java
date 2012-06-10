@@ -73,6 +73,40 @@ public class ProgettoService {
     }
     
     /**
+     * Ritorna la lista di anni nei quali è cominciato un progetto
+     * @return
+     */
+    public List<Integer> getAnniInizioList(){
+        List<Progetto> progetti = this.getProgettoListOrderByStartYearAsc();
+        List<Integer> anni = new ArrayList<Integer>();
+        int year;
+        for (Progetto p: progetti){
+            year = p.getAnnoInizio();
+            if (!anni.contains(year)){
+                anni.add(year);
+            }
+        }
+        return anni;
+    }
+    
+    /**
+     * Ritorna l'elenco degli anni nei quali è finito un progetto.
+     * @return
+     */
+    public List<Integer> getAnniFineList(){
+        List<Progetto> progetti = this.getProgettoListOrderByEndYearAsc();
+        List<Integer> anni = new ArrayList<Integer>();
+        int year;
+        for (Progetto p: progetti){
+            year = p.getAnnoFine();
+            if (!anni.contains(year)){
+                anni.add(year);
+            }
+        }
+        return anni;
+    }
+    
+    /**
      * Ritorna una lista di progetti ordinati in base all'anno di fine in ordine crescente
      */
     public List<Progetto> getProgettoListOrderByEndYearAsc() {
@@ -223,6 +257,38 @@ public class ProgettoService {
         }
         
         return v.validate() && partnerOk && durataOk;
+    }
+
+    /**
+     * Ritorna la lista di progetti che iniziano nell'anno specificato
+     * @param startYear - l'anno di inizio del progetto
+     * @return
+     */
+    public List<Progetto> getProgettoFromStartYear(int startYear) {
+        List<Progetto> progetti = Datastore.query(p).asList();
+        List<Progetto> progettiOk = new ArrayList<Progetto>();
+        for (Progetto p: progetti){
+            if (p.getAnnoInizio() == startYear){
+                progettiOk.add(p);
+            }
+        }
+        return progettiOk;
+    }
+
+    /**
+     * Ritorna la lista di progetti che finiscono nell'anno specificato
+     * @param endYear
+     * @return
+     */
+    public List<Progetto> getProgettoFromEndYear(int endYear) {
+        List<Progetto> progetti = Datastore.query(p).asList();
+        List<Progetto> progettiOk = new ArrayList<Progetto>();
+        for (Progetto p: progetti){
+            if (p.getAnnoFine() == endYear){
+                progettiOk.add(p);
+            }
+        }
+        return progettiOk;
     }
 
 }
