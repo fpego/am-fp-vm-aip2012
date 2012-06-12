@@ -9,6 +9,13 @@
 <title>admin Progetto</title>
 </head>
 <body>
-<p>Hello admin Progetto !!!</p>
+
+<h1>Progetto ${f:h(p.titoloProgetto)}</h1>
+
+<h3>Presentazione</h3>
+
+${f:h(p.presentazione)}
+
+<!-- edit, crea collegamenti, file upload -->
 </body>
 </html>
