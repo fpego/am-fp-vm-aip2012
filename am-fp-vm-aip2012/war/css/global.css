@@ -9,6 +9,7 @@ header, nav, section, article, aside, footer {
 }
 body {
 	font: 12px DejaVu Serif,Times New Roman,Arial, Tahoma, Verdana, sans-serif;
+	background:url(imgs/sfondo_paginone.png) bottom left repeat;
 }
 a {
 	color: blue;
@@ -84,7 +85,7 @@ h3{
 -----------------------------------------------------------------------------*/
 #header {
 	height: 130px;
-	background: #FFE680;
+	background-color: transparent;
 	background:url(imgs/header-bg.png) bottom left repeat-x;
 	width:90%;
 	margin-left:5%;
