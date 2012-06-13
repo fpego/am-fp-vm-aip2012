@@ -24,15 +24,17 @@ public class PartnerService {
 
     private PartnerMeta metaP = PartnerMeta.get();
     private ProgettoMeta metaPro = ProgettoMeta.get();
-    
+    private PartnerProgettoService ppService = new PartnerProgettoService();
     
     /**
      * Crea un nuovo Partner, col nome passato per parametro,
      * e lo inserisce nel Datastore tramite transazione.
+     * Controllo prima che non esista già un partner con quel nome.
      * @param nome Il nome del Partner
      * @return il partner appena creato
      */
     public Partner createPartner(String nome){
+        //TODO fare qui il controllo del nome
         Transaction tx = Datastore.beginTransaction();
         Partner p = new Partner();
         p.setNome(nome);
@@ -190,14 +192,27 @@ public class PartnerService {
     /**
      * Elimina il partner la cui chiave è passata
      * come paramentro.
+     * Elimino anche tutti i collegamenti eventuali con progetti
      * @see PartnerService#elimina(List)
      * @param pKey La Key del Partner da eliminare
      */
     public void elimina(Key pKey){
-        Transaction tx = Datastore.beginTransaction();
-        if(Datastore.get(metaP,pKey) != null)
+        Partner p = Datastore.get(metaP,pKey);
+        if (p != null){
+            //prima controllo che non sia un partner leader di un progetto
+            if (this.getLeaders().contains(p)){
+                return;
+            }
+            // poi elimino tutti i collegamenti con i partner
+            List<Progetto> progetti = ppService.getProgettoByPartner(p);
+            for (Progetto pr: progetti){
+                ppService.eliminaCollegamento(pr.getKey(), pKey);
+            }
+            //quindi lo elimino dal db
+            Transaction tx = Datastore.beginTransaction();
             Datastore.delete(pKey);
-        tx.commit();
+            tx.commit();
+        }
     }
 
 
