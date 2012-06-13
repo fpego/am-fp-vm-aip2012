@@ -104,8 +104,25 @@ public class PartnerService {
         return leaders;            
     }
 
+    /**
+     * Ritorna un partner, cercandolo per il suo nome
+     * 
+     * @param partnerName
+     * @return
+     */
     public Partner getPartnerByName(String partnerName) {
         return Datastore.query(metaP).filter(metaP.nome.equal(partnerName)).asSingle();
+    }
+    
+    /**
+     * Ritorna tutti i partner che hanno il nome che inizia con la stringa passata per parametro.
+     * Serve per il box di autocompletamento del partner
+     *  
+     * @param name
+     * @return
+     */
+    public List<Partner> getPartnersByStartName(String name){
+        return Datastore.query(metaP).filter(metaP.nome.startsWith(name)).asList();
     }
     
     /**

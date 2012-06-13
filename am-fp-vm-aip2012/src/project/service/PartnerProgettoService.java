@@ -8,7 +8,6 @@ import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;
 
 import project.meta.PartnerMeta;
-import project.meta.PartnerProgettoMeta;
 import project.meta.ProgettoMeta;
 import project.model.Partner;
 import project.model.PartnerProgetto;
@@ -22,8 +21,6 @@ import project.model.Progetto;
 public class PartnerProgettoService {
     private ProgettoMeta mProgetto = ProgettoMeta.get();
     private PartnerMeta mPartner = PartnerMeta.get();
-    private PartnerProgettoMeta mPartnerProgetto = PartnerProgettoMeta.get();
-    
     
     /**
      * Collega i progetti con i partner. Partner e Progetto devono

@@ -1,5 +1,7 @@
 package project.controller;
 
+import java.util.List;
+
 import org.slim3.controller.Controller;
 import org.slim3.controller.Navigation;
 import org.slim3.util.RequestMap;
@@ -24,6 +26,8 @@ public class PartnerController extends Controller {
         String page = (String) input.get("page");
         if (page != null && page.equals("ajax")){
             //TODO girare ad una pagina che mostra il json generato
+            String name = (String) input.get("name");
+            List<Partner> partnerList = service.getPartnersByStartName(name);
             
             return null;
         }

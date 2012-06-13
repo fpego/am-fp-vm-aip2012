@@ -53,7 +53,7 @@ function setAutocomplete(i){
 
         
         var options = {
-            serviceUrl: 'partner.jsp?page=ajax',
+            serviceUrl: 'partner?page=ajax',
             width: 384,
             // delimiter: /(,|;)\s*/,
             onSelect: onAutocompleteSelect,
