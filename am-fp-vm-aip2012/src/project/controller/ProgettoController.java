@@ -1,7 +1,5 @@
 package project.controller;
 
-import java.util.List;
-
 import org.slim3.controller.Controller;
 import org.slim3.controller.Navigation;
 import org.slim3.util.RequestMap;
@@ -9,8 +7,6 @@ import org.slim3.util.RequestMap;
 import com.google.appengine.api.datastore.KeyFactory;
 
 import project.meta.ProgettoMeta;
-import project.model.Documento;
-import project.model.Partner;
 import project.model.Progetto;
 import project.service.ProgettoService;
 
@@ -61,14 +57,12 @@ public class ProgettoController extends Controller {
                 return forward("progetto/risultati.jsp");
             }
             if (page.equals("doc")){
-                List<Documento> documenti = service.getProjectFiles(progetto.getKey());
-                requestScope("documenti", documenti);
+                requestScope("documenti", service.getProjectFiles(progetto.getKey()));
                 return forward("progetto/documentazione.jsp");
             }
             if (page.equals("esplora")){
-                
-                Partner partnerLeader = null; //TODO implement
-                requestScope("pLeader", partnerLeader);
+                requestScope("pLeader", service.getLeader(asKey(meta.key)));
+                requestScope("partners", service.getPartnerList(asKey(meta.key)));
                 return forward("progetto/esplora.jsp");
             }
         }

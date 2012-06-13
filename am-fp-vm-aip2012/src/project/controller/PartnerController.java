@@ -25,7 +25,6 @@ public class PartnerController extends Controller {
         RequestMap input = new RequestMap(request);
         String page = (String) input.get("page");
         if (page != null && page.equals("ajax")){
-            //TODO girare ad una pagina che mostra il json generato
             String name = (String) input.get("term");
             List<Partner> partnerList = service.getPartnersByStartName(name);
             String out = "[ ";
@@ -51,6 +50,9 @@ public class PartnerController extends Controller {
                 urlIndietro = "tuttiPartners";
             }else if (origin.equals("pL")){
                 urlIndietro = "tuttiPartners?page=leader";
+            }else if (origin.equals("project")){
+                //per tornare alla pagina del progetto uso js
+                urlIndietro = "javascript:history.go(-1);";
             }
         }
         
