@@ -113,6 +113,8 @@ public class PartnerProgettoService {
     public boolean eliminaCollegamento(Key partnerKey, Key progettoKey){
         Partner partner = Datastore.get(mPartner, partnerKey);
         Progetto progetto = Datastore.get(mProgetto, progettoKey);
+        if (partner == null || progetto == null)
+            return false;
         for(PartnerProgetto pp: partner.getPartnerProgettoListRef().getModelList())
             if(pp.getProgettoRef().getModel().equals(progetto)){
                 Transaction tx = Datastore.beginTransaction();
