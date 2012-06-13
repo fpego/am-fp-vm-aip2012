@@ -6,9 +6,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>admin AddPartner</title>
+<title>Admin AddPartner</title>
 </head>
 <body>
-<p>Hello admin AddPartner !!!</p>
+<a href="/admin">Back</a>
+
+
 </body>
 </html>

@@ -11,9 +11,9 @@
 <body>
 <h1>Pannello di amministrazione</h1>
 
-<h3><a>Crea un nuovo progetto</a></h3>
+<h3><a href="addProgetto">Crea un nuovo progetto</a></h3>
 <br/>
-<h3><a>Crea un nuovo partner</a></h3>
+<h3><a href="addPartner">Crea un nuovo partner</a></h3>
 <br/>
 <h3>Lista di progetti</h3>
 <h4>Selezionando un progetto, si entra nella pagina per modificarlo, aggiungere o rimuovere partner e uplodare file.</h4>
