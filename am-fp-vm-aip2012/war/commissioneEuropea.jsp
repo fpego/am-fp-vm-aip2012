@@ -19,7 +19,7 @@
 <h1>La Commissione Europea</h1>
 
 <h2>Chi siamo</h2>
-<img alt="img/commissione_europea.jpg" src="css/imgs/commissione_europea.jpg" id="presentazione">
+<img alt="Commissione Europea" src="css/imgs/commissione_europea.jpg" class="presentazione">
 <p>Siamo una delle principali istituzioni dell'Unione europea, l'organo esecutivo e promotrice del processo legislativo. 
 Siamo composti da un delegato per stato membro: a ciascun delegato è tuttavia richiesta la massima indipendenza dal governo 
 nazionale che lo ha indicato.</p>

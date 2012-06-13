@@ -8,7 +8,7 @@ header, nav, section, article, aside, footer {
 	display: block;
 }
 body {
-	font: 16px DejaVu Serif,Times New Roman,Arial, Tahoma, Verdana, sans-serif;
+	font: 12px DejaVu Serif,Times New Roman,Arial, Tahoma, Verdana, sans-serif;
 }
 a {
 	color: blue;
@@ -37,22 +37,43 @@ input {
 	min-width: 1000px;
 }
 
-
-#presentazione{
+.presentazione{
 	position: relative;
 	float:right;
 	margin:  0px 200px 20px 0px;
-	width: 350px;
-	height: 250px;
+	width: 300px;
+	height: 200px;
 	padding-left: 20px;
 }
 
+.lista{
+	position: relative;
+	margin: 0;
+	width: 700px;
+	height: 200px;
+	padding: 10px;
+	margin: 10px;
+}
+
+.lista li{
+	text-align: justify;
+	padding-bottom: 10px;
+	font-size: 12px;
+	font-weight: lighter;
+}
+
+.risalto{
+	font-family: Toledo;
+	font-style: italic;
+	font-weight: bold;
+	color: #113855;
+}
 .titoloPasso{
 	font-weight: bold;
 	margin-left: -10px
 }
 h1, h2, h3{
-	padding-top: 20px;
+	padding-top: 50px;
 }
 
 h3{
@@ -65,17 +86,23 @@ h3{
 	height: 130px;
 	background: #FFE680;
 	background:url(imgs/header-bg.png) bottom left repeat-x;
+	width:90%;
+	margin-left:5%;
+	margin-right:5%;
 }
 
 #headImage {
-	background:#FFF url(imgs/EU_header3.png) no-repeat center;
+	background:#FFF url(imgs/EU_header4.png) no-repeat left;
+	width:100%;
 	height:80px;
 }
 #headImage h1 {
 	text-align:center;
+	top:20px;
 	position:relative;
-	vertical-align: middle;
+	padding-top: 20px;
 }
+
 
 
 /* Middle
@@ -93,7 +120,9 @@ h3{
 	height: 0;
 }
 #container {
-	width: 100%;
+	width:90%;
+	margin-left:5%;
+	margin-right:5%;
 	float: left;
 	overflow: hidden;
 	background:url(imgs/content-bg-top.png) top left repeat-x;
@@ -101,18 +130,14 @@ h3{
 #content {
 	padding: 0 0 0 200px;
 	min-height:500px; /*temporaneo*/
+	border-left-color: #113855;
+	border-right-color: #113855;
+	border-left-style:solid;
+	border-right-style: solid; 
 }
 
 #addPartnersList{
 	list-style: none;
-}
-
-#partnerLeader{
-	font-weight: bold;
-}
-
-#partnerList{
-	list-style: lower-roman;
 }
 
 /* Sidebar Left
@@ -120,9 +145,9 @@ h3{
 #sideLeft {
 	float: left;
 	width: 200px;
-	margin-left: -100%;
+	margin-left: -95%;
 	position: relative;
-	margin-top:20px;
+	margin-top:50px;
 }
 #sideLeft ul {
 	text-align:left;
@@ -170,6 +195,9 @@ h3{
 	/*padding-top: 15px;
 	padding-bottom: 15px;*/
 	height:50px;
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 #footer p {
