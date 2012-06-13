@@ -38,33 +38,25 @@ function AddPartnerToList(){
 
 function Autocomplete(){
 	for (i = 1; i <= 5; i++){
-		setAutocomplete(i)
+		setAutocomplete(i);
 	}
 }
 
 function setAutocomplete(i){
-	
-	jQuery(function () {
-		var onAutocompleteSelect = function(value, data) {
-            //$('#selection').html('<img src="\/global\/flags\/small\/' + data + '.png" alt="" \/> ' + value);
-			alert(value);
-			alert(data);
-        };
-
-        
-        var options = {
-            serviceUrl: 'partner?page=ajax',
-            width: 384,
-            // delimiter: /(,|;)\s*/,
-            onSelect: onAutocompleteSelect,
-            deferRequestBy: 0, //miliseconds
-            params: { country: 'Yes' },
-            noCache: false //set to true, to disable caching
-        };
-
-
-        auto[1] = $('#').autocomplete(options);
-
-    });
-
+	var name = "#partner"+i;
+	$(document).ready(function () {
+		$(name).autocomplete({
+			minLength: 1,
+			source: 'partner?page=ajax',
+			focus: function( event, ui ) {
+				$( name ).val( ui.item );
+				return false;
+			},
+			select: function( event, ui ) {
+				$( name ).val( ui.item );
+				return false;
+			}
+		})
+	});
 }
+

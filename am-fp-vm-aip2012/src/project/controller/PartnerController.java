@@ -28,8 +28,14 @@ public class PartnerController extends Controller {
             //TODO girare ad una pagina che mostra il json generato
             String name = (String) input.get("name");
             List<Partner> partnerList = service.getPartnersByStartName(name);
-            
-            return null;
+            String out = "[ ";
+            for (Partner p: partnerList){
+                out += "{ \"name\": \""+p.getNome()+"\" },";
+            }
+            out = (String) out.subSequence(0, out.length()-1);
+            out += "]";
+            requestScope("ajax", out);
+            return forward("ajax.jsp");
         }
         
         Partner partner = service.getOrNull(asKey(meta.key));
