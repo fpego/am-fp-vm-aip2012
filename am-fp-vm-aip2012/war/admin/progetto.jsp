@@ -44,7 +44,7 @@ ${f:h(p.annoFine)}
 
 <h3>Elenco dei partner</h3>
 <table>
-<tr><th colspan="2">${f:h(partnerLeader.nome)}</th></tr>
+<tr><th colspan="2">Leader: '${f:h(partnerLeader.nome)}'</th></tr>
 <c:forEach var="pp" items="${partnerList}">
 <c:set var="deleteLinkUrl" value="removeLink?project=${f:h(p.key)}&partner=${f:h(pp.key)}"/>
 	<tr><td>${f:h(pp.nome)}</td> 

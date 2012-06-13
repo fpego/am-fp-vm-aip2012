@@ -18,8 +18,8 @@ public class RemoveLinkController extends Controller {
     @Override
     public Navigation run() throws Exception {
         RequestMap input = new RequestMap(request);
-        String key = (String) input.get("progetto");
-        service.eliminaCollegamento(asKey("partner"), asKey("progetto"));
+        String key = (String) input.get("project");
+        service.eliminaCollegamento(asKey("partner"), asKey("project"));
         return forward(basePath + "progetto?key="+key);
     }
 }
