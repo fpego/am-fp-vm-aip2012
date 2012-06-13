@@ -8,7 +8,7 @@
 	<li><a href="${f:h(urlProgetto)}">Presentazione</a></li>
 	<li><a href="${f:h(urlRisultati)}">Risultati</a></li>
 	<li><a href="${f:h(urlDocumentazione)}">Documentazione</a></li>
-	<li><a href="${f:h(urlEsplora)}">Esplora</a></li>
+	<li><a href="${f:h(urlEsplora)}">Esplora il consorzio</a></li>
 	<li><a href="${f:url(urlIndietro)}">Indietro</a></li>
 </ul>
 </div>

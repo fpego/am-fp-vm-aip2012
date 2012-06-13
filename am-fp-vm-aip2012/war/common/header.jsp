@@ -24,7 +24,7 @@
 				<li><a href="${f:url('/tuttiPartners?page=leader')}">Partners leader di progetto</a></li>
 			</ul>		
 		</li>
-		<li>Eventi
+		<li>Eventi Pubblici
 			<ul>
 				<li><a href="#">Tutti gli eventi</a></li>
 				<li><a href="#">Eventi per temi</a></li>
@@ -46,7 +46,6 @@
 				<li><a href="#">Attività per mese</a></li>
 			</ul>
 		</li>
-		<li><a href="#">Eventi Pubblici</a></li>
 		<li><a href="${f:url('/commissioneEuropea')}">La Commissione Europea</a>
 		<!-- 
 			<ul>
