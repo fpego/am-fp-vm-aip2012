@@ -83,10 +83,13 @@ public class PartnerService {
         List<Progetto> progetti = Datastore.query(metaPro).asList();
         Partner tmp = null;
         for (Progetto p: progetti){
-            tmp = p.getLeaderRef().getModel();
-            if (tmp != null && !partner.contains(tmp)){
-                partner.add(tmp);
-            }
+            // Inserisco in un blocco try-catch perché non sono sicuro di avere sempre il partner dall'altra parte - metti che qualcuno lo cancella direttamente da db...
+            try{
+                tmp = p.getLeaderRef().getModel();
+                if (tmp != null && !partner.contains(tmp)){
+                    partner.add(tmp);
+                }
+            }catch (Exception e) { }
         }
         return partner;
     }
