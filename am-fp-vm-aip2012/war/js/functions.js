@@ -51,3 +51,6 @@ function setAutocomplete(i){
 	});
 }
 
+function visualizza(id){
+	$("#"+id).toggle();
+}

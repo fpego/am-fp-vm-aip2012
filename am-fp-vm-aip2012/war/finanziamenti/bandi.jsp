@@ -1,5 +1,3 @@
-<%@page import="com.google.appengine.api.conversion.Document"%>
-<%@page import="com.sun.xml.internal.ws.wsdl.writer.document.OpenAtts"%>
 <%@page pageEncoding="UTF-8" isELIgnored="false" session="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -9,7 +7,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <jsp:include page="/common/meta-head.jsp" />
-<script type="text/javascript" src="js/mostra.js"></script>
 <title>Progetti UE - Regole d'iscrizione - Bandi</title> 
 </head>
 <body>
@@ -21,7 +18,7 @@
 
 <h1>Finanzimenti -> Bandi</h1>
  
-<h3><a href="#"  onclick="visualizza('bando1'); return false">Azioni di informazione riguardanti la politica agricola comune 
+<h3><a href="#" onclick="visualizza('bando1'); return false;">Azioni di informazione riguardanti la politica agricola comune 
 (linea di bilancio 05 08 06) - Scadenza: 30/09/2011</a></h3>
 <div id="bando1" style="display:none">
 	<p>La Commissione europea ha lanciato un invito a presentare proposte relative ad azioni d'informazione sulla politica agricola comune.</p>
