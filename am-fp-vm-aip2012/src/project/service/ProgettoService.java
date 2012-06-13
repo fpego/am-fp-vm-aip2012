@@ -241,17 +241,6 @@ public class ProgettoService {
         return d;
     }
     
-    /**
-     * Cancella un documento appartenente ad un progetto.
-     * La chiave del documento è obbligatoria, quella del progetto opzionale (la posso ricavare dal documento).
-     * 
-     * @param pKey - la chiave del progetto che contiene il documento (opzionale)
-     * @param dKey - la chiave del documento da eliminare
-     */
-    public void deleteDocumento(Key pKey, Key dKey){
-        //TODO implement
-    }
-    
     
     /**
      * Valida il form di upload di un nuovo progetto.
