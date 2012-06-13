@@ -7,8 +7,10 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slim3.controller.upload.FileItem;
 import org.slim3.controller.validator.Validators;
 import org.slim3.datastore.Datastore;
+import org.slim3.util.RequestMap;
 
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;
@@ -28,6 +30,7 @@ public class ProgettoService {
     private ProgettoMeta p = ProgettoMeta.get();
     private PartnerService pService = new PartnerService();
     private PartnerProgettoService ppService = new PartnerProgettoService();
+    private DocumentoService docService = new DocumentoService();
     
     /**
      *  Preleva il progetto
@@ -166,6 +169,7 @@ public class ProgettoService {
        
         progetto.setAnnoInizio(year);
         progetto.setAnnoFine(year + durata);
+        progetto.setDurata(durata);
         progetto.setTitoloProgetto((String) input.get("titoloProgetto"));
         progetto.setPresentazione((String) input.get("presentazione"));
         progetto.setTema((String) input.get("tema"));
@@ -215,6 +219,36 @@ public class ProgettoService {
         return p;
     }
 
+    
+    /**
+     * Data la chiave di un progetto già esistente, gli carico sopra un file.
+     * @param key
+     * @return
+     */
+    public Documento uploadFile(Key key, FileItem formFile){
+        Progetto p = this.getOrNull(key);
+        if (p == null){
+            return null;
+        }
+        Documento d = docService.upload(formFile);
+        Transaction tx = Datastore.beginTransaction();
+        d.getProgettoRef().setModel(p);
+        Datastore.put(p, d);
+        tx.commit();
+        return null;
+    }
+    
+    /**
+     * Cancella un documento appartenente ad un progetto.
+     * La chiave del documento è obbligatoria, quella del progetto opzionale (la posso ricavare dal documento).
+     * 
+     * @param pKey - la chiave del progetto che contiene il documento (opzionale)
+     * @param dKey - la chiave del documento da eliminare
+     */
+    public void deleteDocumento(Key pKey, Key dKey){
+        
+    }
+    
     
     /**
      * Valida il form di upload di un nuovo progetto.
@@ -289,6 +323,49 @@ public class ProgettoService {
             }
         }
         return progettiOk;
+    }
+
+    /**
+     * Data la chiave di un progetto, aggiorno i suoi campi.
+     * Non ci sono qui i campi dei partner! Solo quelli propri del progetto.
+     * 
+     * @param asKey - la chiave del progetto
+     * @param requestMap - mappa dell'input del form
+     * @throws Exception 
+     */
+    public Progetto updateProgetto(Key key, Map<String, Object> input) throws Exception {
+        Progetto progetto = this.getOrNull(key);
+        if (progetto == null){
+            throw new Exception("The project cannot be null!" + key);
+        }
+        // ogni modifica è dentro ad un blocco try diverso, così da poter aggiornare solamente i campi effettivamente presenti nel form
+        try{ 
+            int durata = Integer.parseInt((String) input.get("durata"));
+            // devo inserire qui il controllo della durata, non l'ho fatto precedentemente.
+            if (durata >= 2){
+                progetto.setDurata(durata);
+                progetto.setAnnoFine(progetto.getAnnoInizio() + durata);
+            }
+        }catch (Exception e) { }
+        try{
+            progetto.setTitoloProgetto((String) input.get("titoloProgetto"));
+        }catch (Exception e) { }
+        try{
+            progetto.setPresentazione((String) input.get("presentazione"));
+        }catch (Exception e) { }
+        try{
+            progetto.setTema((String) input.get("tema"));
+        }catch (Exception e) { }
+        try{
+            progetto.setRisultati((String) input.get("risultati"));
+        }catch (Exception e) { }
+        
+        
+        Transaction tx = Datastore.beginTransaction();
+        Datastore.put(progetto);
+        tx.commit();
+
+        return progetto;
     }
 
 }

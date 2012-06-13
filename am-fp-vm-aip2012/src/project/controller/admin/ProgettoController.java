@@ -5,7 +5,6 @@ import org.slim3.controller.Navigation;
 import org.slim3.util.RequestMap;
 
 import project.meta.ProgettoMeta;
-import project.model.Progetto;
 import project.service.ProgettoService;
 
 /**
@@ -22,11 +21,12 @@ public class ProgettoController extends Controller {
     
     @Override
     public Navigation run() throws Exception {
+        // passo il progetto e la lista di documenti legati al progetto.
         RequestMap input = new RequestMap(request);
-        Progetto progetto = service.getOrNull(asKey(meta.key));
-        
-        
-        requestScope("p", progetto);
+        String key = (String) input.get("key");
+        requestScope("p", service.getOrNull(asKey(meta.key)));
+        requestScope("docList", service.getProjectFiles(asKey(meta.key)));
+        requestScope("urlUpdate", "updateProgetto?key=" + key);
         return forward("progetto.jsp");
     }
 }

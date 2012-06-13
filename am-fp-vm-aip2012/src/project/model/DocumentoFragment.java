@@ -5,13 +5,14 @@ import java.io.Serializable;
 import com.google.appengine.api.datastore.Key;
 
 import org.slim3.datastore.Attribute;
-import org.slim3.datastore.InverseModelListRef;
 import org.slim3.datastore.Model;
+
 import org.slim3.datastore.ModelRef;
-import org.slim3.datastore.Sort;
+
+import com.google.appengine.api.datastore.ShortBlob;
 
 @Model(schemaVersion = 1)
-public class Documento implements Serializable {
+public class DocumentoFragment implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -21,26 +22,24 @@ public class Documento implements Serializable {
     @Attribute(version = true)
     private Long version;
     
-    /**
-     * Relazione con il progetto
-     */
-    private ModelRef<Progetto> progettoRef = 
-            new ModelRef<Progetto>(Progetto.class);
-    
-    private String fileName;
+    @Attribute(lob = true)
+    private byte[] bytes;
 
-    private int length;
+    private ShortBlob bytes2;
 
-    /**
-     * Relazione con i frammenti del documento
-     */
-    @Attribute(persistent = false)
-    private org.slim3.datastore.InverseModelListRef<DocumentoFragment, Documento> fragmentListRef =
-        new org.slim3.datastore.InverseModelListRef<DocumentoFragment, Documento>(
-                DocumentoFragment.class,
-            "uploadDataRef",
-            this,
-            new Sort("index"));
+    public ShortBlob getBytes2() {
+        return bytes2;
+    }
+
+    public void setBytes2(ShortBlob bytes2) {
+        this.bytes2 = bytes2;
+    }
+
+    private org.slim3.datastore.ModelRef<Documento> uploadDataRef =
+        new org.slim3.datastore.ModelRef<Documento>(
+                Documento.class);
+
+    private int index;
 
     public Key getKey() {
         return key;
@@ -57,27 +56,41 @@ public class Documento implements Serializable {
     public void setVersion(Long version) {
         this.version = version;
     }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
     
-    public int getLength() {
-        return length;
+    public byte[] getBytes() {
+        return bytes;
     }
 
-    public void setLength(int length) {
-        this.length = length;
+    /**
+     * @param bytes
+     *            the array of bytes
+     */
+    public void setBytes(byte[] bytes) {
+        this.bytes = bytes;
     }
-    
-    public InverseModelListRef<DocumentoFragment, Documento> getFragmentListRef() {
-        return fragmentListRef;
+
+    /**
+     * @param index
+     *            the index to set
+     */
+    public void setIndex(int index) {
+        this.index = index;
     }
-    
+
+    /**
+     * @return the index
+     */
+    public int getIndex() {
+        return index;
+    }
+
+    /**
+     * @return the uploadDataRef
+     */
+    public ModelRef<Documento> getUploadDataRef() {
+        return uploadDataRef;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -97,7 +110,7 @@ public class Documento implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        Documento other = (Documento) obj;
+        DocumentoFragment other = (DocumentoFragment) obj;
         if (key == null) {
             if (other.key != null) {
                 return false;
@@ -107,9 +120,4 @@ public class Documento implements Serializable {
         }
         return true;
     }
-
-    public ModelRef<Progetto> getProgettoRef() {
-        return progettoRef;
-    }
-
 }
