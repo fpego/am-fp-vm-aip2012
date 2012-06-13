@@ -19,7 +19,7 @@
 <h1>La Commissione Europea</h1>
 
 <h2>Contatti</h2>
-<img alt="img/europa.jpg" src="css/imgs/europa.jpg" id="presentazione">
+<img alt="img/europa.jpg" src="css/imgs/europa.jpg" class="presentazione">
 
 <p>ITALIA:</p>
 <p>Via IV Novembre, 149</p>

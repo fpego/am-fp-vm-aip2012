@@ -10,7 +10,7 @@
 function bootMenu(){
 $(document).ready(function () {
     // Create a jqxMenu
-    $("#jqxMenu").jqxMenu({ width: '1000', height: '30px', theme: 'base' });
+    $("#jqxMenu").jqxMenu({ width: '100%', height: '30px', theme: 'base'});
     $("#jqxMenu").css('visibility', 'visible');
     $("#jqxMenu").jqxMenu('disable', 'fin', true);
     
