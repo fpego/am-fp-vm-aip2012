@@ -46,17 +46,8 @@ function setAutocomplete(i){
 	var name = "#partner"+i;
 	$(document).ready(function () {
 		$(name).autocomplete({
-			minLength: 1,
-			source: 'partner?page=ajax',
-			focus: function( event, ui ) {
-				$( name ).val( ui.item );
-				return false;
-			},
-			select: function( event, ui ) {
-				$( name ).val( ui.item );
-				return false;
-			}
-		})
+			source: 'partner?page=ajax'
+		});
 	});
 }
 

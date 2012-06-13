@@ -62,8 +62,9 @@ La durata deve essere un numero di anni intero, compreso tra 2 e 10.<br/>
 </td></tr>
 </tfoot>
 </table>
-
 </form>
+
+
 <!-- CONTENT END -->
 		</div>
 	</div>
