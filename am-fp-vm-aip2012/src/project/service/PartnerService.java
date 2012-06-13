@@ -34,7 +34,8 @@ public class PartnerService {
      * @return il partner appena creato
      */
     public Partner createPartner(String nome){
-        //TODO fare qui il controllo del nome
+        if (this.getPartnerByName(nome) != null)
+            return this.getPartnerByName(nome);
         Transaction tx = Datastore.beginTransaction();
         Partner p = new Partner();
         p.setNome(nome);

@@ -213,6 +213,22 @@ public class ProgettoService {
     }
     
     /**
+     * Aggiunge al progetto passato per chiave il nuovo partner, del quale sappiamo il nome.
+     * Se il partner non esiste, viene creato, altrimenti si usa quello già esistente.
+     * @param progettoKey
+     * @param nomePartner
+     * @return
+     */
+    public Progetto addPartnerToProgetto(Key progettoKey, String nomePartner){
+        Progetto p = this.getOrNull(progettoKey);
+        if (p == null)
+            return null;
+        Partner partner = pService.createPartner(nomePartner);
+        ppService.creaCollegamento(partner.getKey(), p.getKey());
+        return p;
+    }
+    
+    /**
      * Inserisco il progetto passato per parametro nel db
      * @param il progetto da inserire
      * @return il progetto inserito
