@@ -233,9 +233,12 @@ public class ProgettoService {
         Documento d = docService.upload(formFile);
         Transaction tx = Datastore.beginTransaction();
         d.getProgettoRef().setModel(p);
-        Datastore.put(p, d);
+        Datastore.put(p);
         tx.commit();
-        return null;
+        tx = Datastore.beginTransaction();
+        Datastore.put(d);
+        tx.commit();
+        return d;
     }
     
     /**
@@ -246,7 +249,7 @@ public class ProgettoService {
      * @param dKey - la chiave del documento da eliminare
      */
     public void deleteDocumento(Key pKey, Key dKey){
-        
+        //TODO implement
     }
     
     

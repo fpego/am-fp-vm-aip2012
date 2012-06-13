@@ -42,14 +42,6 @@ ${f:h(p.annoFine)}
 <input type="submit" value="Salva"/>
 </form>
 
-<form action="${f:url(urlUpdate)}" method="post" enctype="multipart/form-data">
-<input type="hidden" name="a" value="2"/>
-<h3>Upload un nuovo file</h3>
-<input type="file" name="formFile" />
-<br/>
-<input type="submit" value="Upload"/>
-</form>
-
 <table>
 <c:if test="${fn:length(docList) > 0}">
 <thead>
@@ -61,15 +53,22 @@ ${f:h(p.annoFine)}
 <tr>
 <td>${f:h(e.fileName)}</td><td>${f:h(e.length)}</td>
 <c:set var="downloadUrl" value="download?key=${f:h(e.key)}&version=${e.version}"/>
-<c:set var="showUrl" value="show?key=${f:h(e.key)}&version=${e.version}"/>
 <c:set var="deleteUrl" value="delete?key=${f:h(e.key)}&version=${e.version}"/>
-<td><a href="${f:url(downloadUrl)}">Download</a></td>
-<td><a href="${f:url(showUrl)}">Show</a></td>
-<td><a href="${f:url(deleteUrl)}" onclick="return confirm('delete OK?')">Delete</a></td>
+<td><a href="${f:url(downloadUrl)}" target="_blank">Download</a></td>
+<td><a href="${f:url(deleteUrl)}" onclick="return confirm('Sei sicuro di cancellare il file?')">Delete</a></td>
 </tr>
 </c:forEach>
 </tbody>
 </table>
+
+<form action="${f:url(urlUpdate)}" method="post" enctype="multipart/form-data">
+<input type="hidden" name="key" value="${f:h(p.key)}"/>
+<input type="hidden" name="a" value="2"/>
+<h3>Upload un nuovo file</h3>
+<input type="file" name="formFile" />
+<br/>
+<input type="submit" value="Upload"/>
+</form>
 
 </body>
 </html>
