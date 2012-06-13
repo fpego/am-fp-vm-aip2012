@@ -25,7 +25,6 @@ public class PartnerController extends Controller {
         RequestMap input = new RequestMap(request);
         String page = (String) input.get("page");
         if (page != null && page.equals("ajax")){
-            //TODO girare ad una pagina che mostra il json generato
             String name = (String) input.get("term");
             List<Partner> partnerList = service.getPartnersByStartName(name);
             String out = "[ ";
