@@ -118,7 +118,7 @@ coordinatore di progetti, ecc.) eccetto gli istituti di ricerca</a></p>
 
 <h3><a href="#"  onclick="visualizza('passo3'); return false">Passo 3 - Come candidarsi al programma di finanziamento?</a></h3>
 <div id="passo3" style="display:none">
-	<p>Iscrive il tuo progetto, vai a <a href="${f:url('/creaProgetto')}">Crea un progetto</a>, scrivi i tuoi dati, poi noi ti cotattaremo.
+	<p>Iscrive il tuo progetto, vai a Crea un progetto, scrivi i tuoi dati, poi noi ti cotattaremo.
 	Ricorda che devi avere almeno 5 partners.</p>
 	<p>La durata deve essere un numero di anni intero, compreso tra 2 e 10.</p>
 </div>
