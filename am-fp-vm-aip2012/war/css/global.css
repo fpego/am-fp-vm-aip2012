@@ -52,7 +52,7 @@ input {
 	width: 700px;
 	height: 200px;
 	padding: 10px;
-	margin: 20px;
+	margin: 10px;
 }
 
 .lista li{
@@ -73,7 +73,7 @@ input {
 	margin-left: -10px
 }
 h1, h2, h3{
-	padding-top: 20px;
+	padding-top: 50px;
 }
 
 h3{
@@ -100,6 +100,7 @@ h3{
 	text-align:center;
 	top:20px;
 	position:relative;
+	padding-top: 20px;
 }
 
 
@@ -146,7 +147,7 @@ h3{
 	width: 200px;
 	margin-left: -95%;
 	position: relative;
-	margin-top:20px;
+	margin-top:50px;
 }
 #sideLeft ul {
 	text-align:left;
