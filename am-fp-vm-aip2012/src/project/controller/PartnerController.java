@@ -51,6 +51,9 @@ public class PartnerController extends Controller {
                 urlIndietro = "tuttiPartners";
             }else if (origin.equals("pL")){
                 urlIndietro = "tuttiPartners?page=leader";
+            }else if (origin.equals("project")){
+                //per tornare alla pagina del progetto uso js
+                urlIndietro = "javascript:history.go(-1);";
             }
         }
         

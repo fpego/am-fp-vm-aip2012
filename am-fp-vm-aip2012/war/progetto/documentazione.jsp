@@ -21,9 +21,9 @@
 <h3>Documentazione</h3>
 
 <c:forEach var="d" items="${documenti}">
-	<c:set var="docLink" value="downloadDoc?key=${f:h(d.key)}" />
+	<c:set var="docLink" value="admin/download?key=${f:h(d.key)}&version=${f:h(d.version)}" />
 	<ul id="docList">
-		<li><a href="${f:url(docLink)}">${f:h(d.file.filename)} (size: ${f:h(d.file.size)} bytes)</a></li>
+		<li><a href="${f:url(docLink)}">${f:h(d.fileName)} (size: ${f:h(d.length)} bytes)</a></li>
 	</ul>
 </c:forEach>
 

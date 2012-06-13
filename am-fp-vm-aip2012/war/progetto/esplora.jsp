@@ -19,29 +19,21 @@
 <h1>Progetto ${f:h(p.titoloProgetto)}</h1>
 
 <h3>Esplora</h3>
-
+<br />
 <h4>Elenco dei partners</h4>
-
 <ul id="partnerList">
 	<c:set var="partnerLeaderLink" value="partner?key=${f:h(pLeader.key)}" />
 	<li id="partnerLeader"><a href="${f:url(partnerLeaderLink)}">${f:h(pLeader.nome)} </a></li>
 	
 <c:forEach var="p" items="${partners}">
-	<c:set var="partnerLink" value="partner?key=${f:h(p.key)}" />
-		<li><a href="${f:url(partnerList)}">${f:h(p.nome)} </a></li>
+	<c:set var="partnerLink" value="partner?key=${f:h(p.key)}&origin=project" />
+		<li><a href="${f:url(partnerLink)}">${f:h(p.nome)} </a></li>
 </c:forEach>
 
 </ul>
 
-
-<h4>Elenco dei ricercatori coinvolti</h4>
-
-<c:forEach var="r" items="${ricercatori}">
-	<c:set var="ricercatoriLink" value="progetto?key=${f:h(r.key)}" />
-	<ul id="projectList">
-		<li><a href="${f:url(ricercatoriLink)}">${f:h(r.nome)}</a></li>
-	</ul>
-</c:forEach>
+<br/>
+<h4>Elenco dei ricercatori coinvolti (NOT IMPLEMENTED)</h4>
 
 <!-- CONTENT END -->
 		</div>

@@ -6,7 +6,7 @@
 
 <!-- HEADER START -->
 <div id="header">
-	<div id="headImage"><h1>European Project Funding</h1></div>
+	<div id="headImage"><h1>Progetti Europei Finanziati</h1></div>
 	<div id='jqxMenu' style='visibility: hidden;margin-left: auto;margin-right: auto;'>
 	<ul>
 		<li><a href="${f:url(index)}">Home</a></li>

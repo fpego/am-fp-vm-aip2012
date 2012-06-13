@@ -8,7 +8,7 @@ header, nav, section, article, aside, footer {
 	display: block;
 }
 body {
-	font: 12px DejaVu Serif,Times New Roman,Arial, Tahoma, Verdana, sans-serif;
+	font: 16px DejaVu Serif,Times New Roman,Arial, Tahoma, Verdana, sans-serif;
 }
 a {
 	color: blue;
@@ -73,8 +73,8 @@ h3{
 }
 #headImage h1 {
 	text-align:center;
-	top:20px;
 	position:relative;
+	vertical-align: middle;
 }
 
 
@@ -105,6 +105,14 @@ h3{
 
 #addPartnersList{
 	list-style: none;
+}
+
+#partnerLeader{
+	font-weight: bold;
+}
+
+#partnerList{
+	list-style: lower-roman;
 }
 
 /* Sidebar Left
