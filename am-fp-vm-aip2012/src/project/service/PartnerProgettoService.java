@@ -8,7 +8,6 @@ import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;
 
 import project.meta.PartnerMeta;
-import project.meta.PartnerProgettoMeta;
 import project.meta.ProgettoMeta;
 import project.model.Partner;
 import project.model.PartnerProgetto;
@@ -22,8 +21,6 @@ import project.model.Progetto;
 public class PartnerProgettoService {
     private ProgettoMeta mProgetto = ProgettoMeta.get();
     private PartnerMeta mPartner = PartnerMeta.get();
-    private PartnerProgettoMeta mPartnerProgetto = PartnerProgettoMeta.get();
-    
     
     /**
      * Collega i progetti con i partner. Partner e Progetto devono
@@ -113,6 +110,8 @@ public class PartnerProgettoService {
     public boolean eliminaCollegamento(Key partnerKey, Key progettoKey){
         Partner partner = Datastore.get(mPartner, partnerKey);
         Progetto progetto = Datastore.get(mProgetto, progettoKey);
+        if (partner == null || progetto == null)
+            return false;
         for(PartnerProgetto pp: partner.getPartnerProgettoListRef().getModelList())
             if(pp.getProgettoRef().getModel().equals(progetto)){
                 Transaction tx = Datastore.beginTransaction();

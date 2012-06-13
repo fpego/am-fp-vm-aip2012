@@ -46,11 +46,11 @@ La durata deve essere un numero di anni intero, compreso tra 2 e 10.<br/>
 <td><div id="partnersAdd">
 <input type="hidden" name="numPartner" value="5" id="numPartner" />
 <ul id="addPartnersList">
-	<li><input type="text" name="partner1" value=""/></li>
-	<li><input type="text" name="partner2" value=""/></li>
-	<li><input type="text" name="partner3" value=""/></li>
-	<li><input type="text" name="partner4" value=""/></li>
-	<li><input type="text" name="partner5" value=""/></li>
+	<li><input type="text" name="partner1" id="partner1" value=""/></li>
+	<li><input type="text" name="partner2" id="partner2" value=""/></li>
+	<li><input type="text" name="partner3" id="partner3" value=""/></li>
+	<li><input type="text" name="partner4" id="partner4" value=""/></li>
+	<li><input type="text" name="partner5" id="partner5" value=""/></li>
 </ul>
 <a id="AddSingleParnerButton" onclick="AddPartnerToList()">Aggiungi Partner</a>
 </div></td>
@@ -62,8 +62,9 @@ La durata deve essere un numero di anni intero, compreso tra 2 e 10.<br/>
 </td></tr>
 </tfoot>
 </table>
-
 </form>
+
+
 <!-- CONTENT END -->
 		</div>
 	</div>

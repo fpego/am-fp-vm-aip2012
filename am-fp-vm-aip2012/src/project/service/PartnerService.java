@@ -34,7 +34,8 @@ public class PartnerService {
      * @return il partner appena creato
      */
     public Partner createPartner(String nome){
-        //TODO fare qui il controllo del nome
+        if (this.getPartnerByName(nome) != null)
+            return this.getPartnerByName(nome);
         Transaction tx = Datastore.beginTransaction();
         Partner p = new Partner();
         p.setNome(nome);
@@ -103,8 +104,25 @@ public class PartnerService {
         return leaders;            
     }
 
+    /**
+     * Ritorna un partner, cercandolo per il suo nome
+     * 
+     * @param partnerName
+     * @return
+     */
     public Partner getPartnerByName(String partnerName) {
         return Datastore.query(metaP).filter(metaP.nome.equal(partnerName)).asSingle();
+    }
+    
+    /**
+     * Ritorna tutti i partner che hanno il nome che inizia con la stringa passata per parametro.
+     * Serve per il box di autocompletamento del partner
+     *  
+     * @param name
+     * @return
+     */
+    public List<Partner> getPartnersByStartName(String name){
+        return Datastore.query(metaP).filter(metaP.nome.startsWith(name)).asList();
     }
     
     /**
