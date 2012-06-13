@@ -50,7 +50,6 @@ public class PartnerProgettoService {
      * @deprecated Usare {@link PartnerService#setLeader(Key, Key)}
      */
     public PartnerProgetto creaCollegamentoLeader(Key partner, Key progetto){
-        
         Partner p = Datastore.get(mPartner, partner);
         Progetto pr = Datastore.get(mProgetto, progetto);
         PartnerProgetto collegamento = new PartnerProgetto();
@@ -116,7 +115,9 @@ public class PartnerProgettoService {
         Progetto progetto = Datastore.get(mProgetto, progettoKey);
         for(PartnerProgetto pp: partner.getPartnerProgettoListRef().getModelList())
             if(pp.getProgettoRef().getModel().equals(progetto)){
+                Transaction tx = Datastore.beginTransaction();
                 Datastore.delete(pp.getKey());
+                tx.commit();
                 return true;
             }
         return false;
@@ -135,7 +136,9 @@ public class PartnerProgettoService {
      */
     public boolean eliminaTutto(Key partnerKey, Key progettoKey){
         if(eliminaCollegamento(partnerKey, progettoKey)){
+            Transaction tx = Datastore.beginTransaction();
             Datastore.delete(progettoKey,partnerKey);
+            tx.commit();
             return true;
         }
         return false;

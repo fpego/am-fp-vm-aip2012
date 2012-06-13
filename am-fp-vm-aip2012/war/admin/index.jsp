@@ -13,10 +13,10 @@
 
 <h3><a href="addProgetto">Crea un nuovo progetto</a></h3>
 <br/>
-<h3><a href="addPartner">Crea un nuovo partner</a></h3>
+<h3><a href="addPartner">Crea un nuovo partner o cancella quelli già presenti</a></h3>
 <br/>
 <h3>Lista di progetti</h3>
-<h4>Selezionando un progetto, si entra nella pagina per modificarlo, aggiungere o rimuovere partner e uplodare file.</h4>
+<h4>Selezionando un progetto, si entra nella pagina per modificarlo, aggiungere o rimuovere partner e uplodare, scaricare o cancellare file.</h4>
 
 <c:forEach var="p" items="${projectList}">
 	<c:set var="projectLink" value="progetto?key=${f:h(p.key)}" />

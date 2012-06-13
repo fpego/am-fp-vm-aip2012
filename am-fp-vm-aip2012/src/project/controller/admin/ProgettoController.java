@@ -25,6 +25,8 @@ public class ProgettoController extends Controller {
         RequestMap input = new RequestMap(request);
         String key = (String) input.get("key");
         requestScope("p", service.getOrNull(asKey(meta.key)));
+        requestScope("partnerLeader", service.getLeader(asKey(meta.key)));
+        requestScope("partnerList", service.getPartnerList(asKey(meta.key)));
         requestScope("docList", service.getProjectFiles(asKey(meta.key)));
         requestScope("urlUpdate", "updateProgetto?key=" + key);
         return forward("progetto.jsp");

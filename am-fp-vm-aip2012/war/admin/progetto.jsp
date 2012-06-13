@@ -42,6 +42,16 @@ ${f:h(p.annoFine)}
 <input type="submit" value="Salva"/>
 </form>
 
+<h3>Elenco dei partner</h3>
+<table>
+<tr><th colspan="2">${f:h(partnerLeader.nome)}</th></tr>
+<c:forEach var="pp" items="${partnerList}">
+<c:set var="deleteLinkUrl" value="removeLink?project=${f:h(p.key)}&partner=${f:h(pp.key)}"/>
+	<tr><td>${f:h(pp.nome)}</td> 
+	<td><a href="${f:url(deleteLinkUrl)}" onclick="return confirm('Sei sicuro di rimuovere il collegamento con il partner?')">Rimuovi collegamento</a></td></tr>
+</c:forEach>
+</table>
+
 <table>
 <c:if test="${fn:length(docList) > 0}">
 <thead>

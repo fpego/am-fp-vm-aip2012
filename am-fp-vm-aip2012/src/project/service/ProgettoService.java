@@ -18,6 +18,7 @@ import com.google.appengine.api.datastore.Transaction;
 import project.meta.ProgettoMeta;
 import project.model.Documento;
 import project.model.Partner;
+import project.model.PartnerProgetto;
 import project.model.Progetto;
 
 
@@ -144,11 +145,15 @@ public class ProgettoService {
      * @return Il singolo Partner leader del progetto.
      * Restituisce null se non viene trovato il Partner.
      */
-    public Partner getLeaders(Key progettoKey){
+    public Partner getLeader(Key progettoKey){
         Progetto progetto = Datastore.get(p,progettoKey);
-        if(progetto != null)
-            return progetto.getLeaderRef().getModel();
-        return null;
+        Partner p = null;
+        try{
+            p = progetto.getLeaderRef().getModel();
+        }catch (Exception e) {
+            p = null;
+        }
+        return p;
     }
     
     /**
@@ -217,6 +222,26 @@ public class ProgettoService {
         Datastore.put(p);
         tx.commit();
         return p;
+    }
+    
+    /**
+     * Ritorna la lista di partner associati ad un progetto identificato da una chiave
+     * @param key - la chiave del progetto
+     * @return lista di partner associati
+     */
+    public List<Partner> getPartnerList(Key key){
+        Progetto p = Datastore.getOrNull(Progetto.class, key);
+        if (p == null){
+            return null;
+        }
+        List<Partner> partners = new ArrayList<Partner>();
+        for (PartnerProgetto pp: p.getPartnerProgettoListRef().getModelList()){
+            try{
+                partners.add(pp.getPartnerRef().getModel());
+            }catch (Exception e) {  }
+        }
+        
+        return partners;
     }
 
     
