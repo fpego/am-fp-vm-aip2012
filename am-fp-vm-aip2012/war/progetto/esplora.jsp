@@ -22,7 +22,7 @@
 <br />
 <h4>Elenco dei partners</h4>
 <ul id="partnerList">
-	<c:set var="partnerLeaderLink" value="partner?key=${f:h(pLeader.key)}" />
+	<c:set var="partnerLeaderLink" value="partner?key=${f:h(pLeader.key)}&origin=project" />
 	<li id="partnerLeader"><a href="${f:url(partnerLeaderLink)}">${f:h(pLeader.nome)} </a></li>
 	
 <c:forEach var="p" items="${partners}">

@@ -137,8 +137,28 @@ public class PartnerService {
      */
     public List<Progetto> getLeaded(Key partnerKey){
         Partner partner = Datastore.get(metaP, partnerKey);
-        if(partner != null)
+        if (partner != null)
             return partner.getLeaderOfListRef().getModelList();
+        return null;
+    }
+    
+    /**
+     * Ritorna la lista di tutti i progetti nei quali il partner passato per chiave partecipa
+     * NON come leader. 
+     * @param partnerKey - la chiave del partner
+     * @return lista di progetti
+     */
+    public List<Progetto> getProjectByPartner(Key partnerKey){
+        //TODO IMPLEMENT
+        Partner partner = Datastore.get(metaP, partnerKey);
+        if (partner != null){
+            List<Progetto> progetti = new ArrayList<Progetto>();
+            for (PartnerProgetto p: partner.getPartnerProgettoListRef().getModelList()){
+                if (!progetti.contains(p.getProgettoRef().getModel()))
+                    progetti.add(p.getProgettoRef().getModel());
+            }
+            return progetti;
+        }
         return null;
     }
 

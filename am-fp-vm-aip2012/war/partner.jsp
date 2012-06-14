@@ -18,9 +18,41 @@
 
 <h1>Partner "${f:h(partner.nome)}"</h1>
 
-<%
-//TODO scrivere info sul partner
-%>
+<c:choose>
+	<c:when test="${fn:length(leaderList) > 0}">
+		<h3>E' presente nei seguenti progetti come leader:</h3>
+	
+<c:forEach var="p" items="${leaderList}">
+	<c:set var="projectLink" value="progetto?key=${f:h(p.key)}&origin=pA" />
+	<ul id="projectList">
+		<li><a href="${f:url(projectLink)}">${f:h(p.titoloProgetto)}</a></li>
+	</ul>
+</c:forEach>
+	
+	</c:when>
+  	<c:otherwise>
+  	<h3>Il partner "${f:h(partner.nome)}" non è leader di alcun progetto.</h3>
+  	</c:otherwise>
+
+</c:choose>
+
+<c:choose>
+	<c:when test="${fn:length(projectList) > 0}">
+		<h3>E' presente nei seguenti progetti come partner non leader:</h3>
+	
+<c:forEach var="p" items="${projectList}">
+	<c:set var="projectLink" value="progetto?key=${f:h(p.key)}&origin=pA" />
+	<ul id="projectList">
+		<li><a href="${f:url(projectLink)}">${f:h(p.titoloProgetto)}</a></li>
+	</ul>
+</c:forEach>
+	
+	</c:when>
+  	<c:otherwise>
+  	<h3>Il partner "${f:h(partner.nome)}" non partecipa come partner non leader ad alcun progetto.</h3>
+  	</c:otherwise>
+
+</c:choose>
 <!-- CONTENT END -->
 		</div>
 	</div>

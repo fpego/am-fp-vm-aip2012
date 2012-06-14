@@ -38,6 +38,8 @@ public class ProgettoController extends Controller {
                 urlIndietro = "tuttiProgetti?page=perAnnoFine";
             }else if (origin.equals("pT")){
                 urlIndietro = "tuttiProgetti?page=perTema";
+            }else if (origin.equals("pA")){ //arrivo dai partner
+                urlIndietro = "javascript:history.go(-1);";
             }else{
                 urlIndietro = "index";
             }

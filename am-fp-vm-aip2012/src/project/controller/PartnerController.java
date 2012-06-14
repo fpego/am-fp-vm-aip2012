@@ -57,6 +57,8 @@ public class PartnerController extends Controller {
         }
         
         requestScope("partner", partner);
+        requestScope("leaderList", service.getLeaded(partner.getKey()));
+        requestScope("projectList", service.getProjectByPartner(partner.getKey()));
         requestScope("urlIndietro", urlIndietro);
         return forward("partner.jsp");
     }
