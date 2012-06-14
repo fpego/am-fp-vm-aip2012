@@ -26,7 +26,6 @@
 	<p class="risalto">Progetti</p> 
 	<p class="risalto">Posso ottenere sostegno alle mie idee?</p>
 		<ul>
-			<li>Siete un ricercatore con un'idea per un progetto di ricerca o di innovazione?</li>
 		   	<li>Desiderate migliorare le competenze o la capacità del vostro istituto di ricerca?</li>
 		   	<li>Siete un imprenditore che desidera intraprendere attività di ricerca e di innovazione?</li>
 		   	<li>Avete già avviato attività di innovazione a fini commerciali derivanti o non derivanti dalla ricerca e sviluppo?</li>

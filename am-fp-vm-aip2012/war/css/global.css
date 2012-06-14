@@ -8,7 +8,7 @@ header, nav, section, article, aside, footer {
 	display: block;
 }
 body {
-	font: 14px DejaVu Serif,Times New Roman,Arial, Tahoma, Verdana, sans-serif;
+	font: 16px Century,Times New Roman,Arial, Tahoma, Verdana, sans-serif;
 	background:url(imgs/sfondo_paginone.png) bottom left repeat;
 }
 a {
@@ -176,7 +176,7 @@ h3{
 #sideLeft li a {
 	text-decoration:none;
 	color:#000;
-	font-size:13px;
+	font-size:16px;
 }
 #sideLeft li a:hover {
 	text-decoration:underline;

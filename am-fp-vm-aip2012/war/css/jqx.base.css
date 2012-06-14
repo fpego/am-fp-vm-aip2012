@@ -125,7 +125,7 @@
     fill: #333333;
     color: #333333;
     font-size: 11px;
-    font-family: DejaVu Serif;
+    font-family: Century;
 }
 /*jqxChart Style*/
 .jqx-chart-axis-text,
@@ -136,14 +136,14 @@
     fill: #333333;
     color: #333333;
     font-size: 11px;
-    font-family: DejaVu Serif;
+    font-family: Century;
 }
 .jqx-chart-axis-description
 {
     fill: #555555;
     color: #555555;
     font-size: 11px;
-    font-family: DejaVu Serif;
+    font-family: Century;
 }
 .jqx-chart-title-text
 {
@@ -151,7 +151,7 @@
     color: #111111;
     font-size: 14px;
     font-weight: bold;
-    font-family: DejaVu Serif;
+    font-family: Century;
 }
 .jqx-chart-title-description
 {
@@ -159,7 +159,7 @@
     color: #111111;
     font-size: 12px;
     font-weight: normal;
-    font-family: DejaVu Serif;
+    font-family: Century;
 }
 /*applied to the Grid's element.*/
 .jqx-grid
@@ -2616,8 +2616,8 @@ of the horizontal scrollbar.*/
     cursor: pointer;
     padding-left: 5px;
     padding-right: 5px;
-    font-family: DejaVu Serif;
-    font-size: 13px;
+    font-family: Century;
+    font-size: 16px;
     border: 1px solid #6E0000;
     background-color: #942724;
     color: #fff;
@@ -2650,7 +2650,7 @@ of the horizontal scrollbar.*/
 .jqx-switchbutton-label
 {
     font-size: 15px;
-    font-family: DejaVu Serif,Sans-Serif;
+    font-family: Century,Sans-Serif;
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
@@ -2772,16 +2772,16 @@ of the horizontal scrollbar.*/
 .jqx-input{background-color: inherit; border-color: #c7c7c7;}
 
 /*applied to all widgets*/
-.jqx-widget{direction: ltr; -webkit-tap-highlight-color: rgba(0,0,0,0); font-family: DejaVu Serif,Verdana,Arial,sans-serif; font-style: normal; font-size: 13px;}
+.jqx-widget{direction: ltr; -webkit-tap-highlight-color: rgba(0,0,0,0); font-family: Century,Verdana,Arial,sans-serif; font-style: normal; font-size: 16px;}
 
 .jqx-item{ color: inherit; border: 1px solid transparent; background: transparent; }
 
 /*applied to containers to set a background and border color. Tabs, NavigationBar, Calendar content.*/
-.jqx-widget-content {-webkit-tap-highlight-color: rgba(0,0,0,0); font-family: DejaVu Serif,Verdana,Arial,sans-serif; font-style: normal; font-size: 13px; border-color: #c7c7c7; background: #fff; }
+.jqx-widget-content {-webkit-tap-highlight-color: rgba(0,0,0,0); font-family: Century,Verdana,Arial,sans-serif; font-style: normal; font-size: 16px; border-color: #c7c7c7; background: #fff; }
 /*applied to header areas. Tabs, Menu, Window, Calendar.*/
 .jqx-widget-header {-webkit-tap-highlight-color: rgba(0,0,0,0); border-color: #c5c5c5; background: #e8e8e8; }
 
-.jqx-fill-state-normal{ font-family: DejaVu Serif,Verdana,Arial,sans-serif; font-style: normal; font-size: 13px; border-color:#aaa; background: #efefef; }
+.jqx-fill-state-normal{ font-family: Century,Verdana,Arial,sans-serif; font-style: normal; font-size: 16px; border-color:#aaa; background: #efefef; }
 .jqx-fill-state-hover { border-color:#999;  background: #e8e8e8;}
 .jqx-fill-state-pressed{ border-color:#999; background: #d1d1d1;}
 .jqx-fill-state-focus { border-color: #555; }
