@@ -43,6 +43,8 @@ public class PartnerController extends Controller {
             return redirect("tuttiPartner.jsp");
         }
         
+        
+        
         String origin = (String) input.get("origin");
         String urlIndietro = "index";
         if (origin != null){

@@ -20,6 +20,8 @@ public class TuttiPartnersController extends Controller {
                 requestScope("partnerList", service.getAllPartnersLeaderList());
                 return forward("tuttiPartners/leader.jsp");
             }
+       
+          
         }
         
         requestScope("partnerList", service.getAllPartnersList());

@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <jsp:include page="/common/meta-head.jsp" />
-<title>Progetti UE - Progetto - Esplora</title>
+<title>Progetti UE - Progetto - Esplora il consorzio</title>
 </head>
 <body>
 <jsp:include page="/common/header.jsp" />
@@ -18,7 +18,7 @@
 
 <h1>Progetto ${f:h(p.titoloProgetto)}</h1>
 
-<h3>Esplora</h3>
+<h3>Esplora il consorzio</h3>
 <br />
 <h4>Elenco dei partners</h4>
 <ul id="partnerList">

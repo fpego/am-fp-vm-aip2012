@@ -74,15 +74,7 @@ la politica di sicurezza è ora un membro della Commissione e un suo vice-presid
 	</div>
 <aside id="sideLeft">
 <!-- LEFT MENU START -->
-	<div id='jqxMenuLeft' style='visibility: hidden; margin-left:auto; margin-right:auto'>
-	<ul>
-		<li><a href="${f:url('/commissioneEuropea')}">Chi siamo</a></li>
-		<li><a href="${f:url('/commissioneEuropea?page=visione')}">La nostra visione</a></li>
-		<li><a href="${f:url('/commissioneEuropea?page=storia')}">La nostra storia</a></li>
-		<li><a href="${f:url('/commissioneEuropea?page=contatti')}">Contatti</a></li>
-	</ul>
-	</div>
-	
+<jsp:include page="/common/leftMenu_commissione.jsp" />
 <!-- LEFT MENU END -->
 </aside>
 </section>

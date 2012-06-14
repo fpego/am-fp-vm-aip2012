@@ -16,7 +16,7 @@
 		<div id="content">
 <!-- CONTENT START -->
 
-<h1>Partner "${f:h(partner.nome)}"</h1>
+<h1>${f:h(partner.nome)} -> Partecipazione nei progetti</h1>
 
 <c:choose>
 	<c:when test="${fn:length(leaderList) > 0}">
@@ -61,6 +61,9 @@
 <div id='jqxMenuLeft' style='visibility: hidden; margin-left:auto; margin-right:auto'>
 <ul>
 	<li><a href="${f:url(urlIndietro)}">Indietro</a></li>
+	<li><a href="#')}">Chi siamo</a></li>
+	<li><a href="#">Contatti</a></li>
+	<li><a href="#">Eventi</a></li>
 </ul>
 </div>
 <!-- LEFT MENU END -->

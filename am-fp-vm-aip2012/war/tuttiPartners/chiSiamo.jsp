@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <jsp:include page="/common/meta-head.jsp" />
-<title>Progetti UE - Commissione Europea - Contatti</title>
+<title>Progetti UE - Partner</title>
 </head>
 <body>
 <jsp:include page="/common/header.jsp" />
@@ -16,22 +16,21 @@
 		<div id="content">
 <!-- CONTENT START -->
 
-<h1>La Commissione Europea</h1>
+<h1>${f:h(partner.nome)} -> Chi siamo?</h1>
 
-<h2>Contatti</h2>
-<img alt="img/europa.jpg" src="css/imgs/europa.jpg" class="presentazione">
-
-<p>ITALIA:</p>
-<p>Via IV Novembre, 149</p>
-<p>	00187 Roma</p>
-<p>	Tel.: 06 699991</p>
-<p>	Fax: 06 6791658 - 6793652</p>
 <!-- CONTENT END -->
 		</div>
 	</div>
 <aside id="sideLeft">
 <!-- LEFT MENU START -->
-<jsp:include page="/common/leftMenu_commissione.jsp" />
+<div id='jqxMenuLeft' style='visibility: hidden; margin-left:auto; margin-right:auto'>
+<ul>
+	<li><a href="${f:url(urlIndietro)}">Indietro</a></li>
+	<li><a href="#">Partecipazioni nei progetti</a></li>
+	<li><a href="#">Contatti</a></li>
+	<li><a href="#">Eventi</a></li>
+</ul>
+</div>
 <!-- LEFT MENU END -->
 </aside>
 </section>

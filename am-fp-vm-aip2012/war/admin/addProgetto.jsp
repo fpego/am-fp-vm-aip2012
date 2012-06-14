@@ -3,19 +3,24 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="f" uri="http://www.slim3.org/functions"%>
 
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="../js/jquery.autocomplete.min.js"></script>
 <script type="text/javascript" src="../js/functions.js"></script>
 <script type="text/javascript">Autocomplete();</script>
+<jsp:include page="/common/meta-head.jsp" />
 <title>Admin AddProgetto</title>
 </head>
 <body>
-<a href="/admin">Back</a>
-
-<h1>Crea un nuovo progetto</h1>
+<jsp:include page="/common/header.jsp" />
+<section id="middle">
+	<div id="container">
+		<div id="content">
+<!-- CONTENT START -->
+<h1>Pannello di amministrazione -> Crea un nuovo progetto</h1>
 <br/><br/>
 <p>Inserisci i dati per creare un nuovo progetto.<br/>
 Se i partner che devi inserire non sono presenti nel nostro database, basta scriverli e verranno automaticamente aggiunti. In ogni caso, i partner devono essere almeno 5.<br/>
@@ -63,6 +68,21 @@ La durata deve essere un numero di anni intero, compreso tra 2 e 10.<br/>
 </table>
 
 </form>
-
+<!-- CONTENT END -->
+		</div>
+	</div>
+<aside id="sideLeft">
+<!-- LEFT MENU START -->
+	<div id='jqxMenuLeft' style='visibility: hidden; margin-left:auto; margin-right:auto'>
+<ul>
+	<li><a href="${f:url('/admin')}">Back</a></li>
+	<li><a href="${f:url('addProgetto')}">Crea un nuovo progetto</a></li>
+	<li><a href="${f:url('addPartner')}">Crea un nuovo partner o cancella quelli già presenti</a></li>
+</ul>
+</div>
+<!-- LEFT MENU END -->
+</aside>
+</section>
+<jsp:include page="/common/footer.jsp" />
 </body>
 </html>
