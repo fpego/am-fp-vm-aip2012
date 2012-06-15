@@ -7,7 +7,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <jsp:include page="/common/meta-head.jsp" />
-<script type="text/javascript" src="js/mostra.js"></script>
 <title>Progetti UE - Regole d'iscrizione - Bandi</title>
 </head>
 <body>
