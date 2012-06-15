@@ -58,14 +58,7 @@
 	</div>
 <aside id="sideLeft">
 <!-- LEFT MENU START -->
-<div id='jqxMenuLeft' style='visibility: hidden; margin-left:auto; margin-right:auto'>
-<ul>
-	<li><a href="${f:url(urlIndietro)}">Indietro</a></li>
-	<li><a href="#')}">Chi siamo</a></li>
-	<li><a href="#">Contatti</a></li>
-	<li><a href="#">Eventi</a></li>
-</ul>
-</div>
+<jsp:include page="/common/leftMenu_partner.jsp" />
 <!-- LEFT MENU END -->
 </aside>
 </section>
