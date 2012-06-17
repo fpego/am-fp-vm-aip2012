@@ -26,24 +26,24 @@
 		</li>
 		<li>Eventi Pubblici_NA
 			<ul>
-				<li><a href="#">Tutti gli eventi_NA</a></li>
-				<li><a href="#">Eventi per temi_NA</a></li>
-				<li><a href="#">Eventi per tipo_NA</a></li>
-				<li><a href="#">Eventi per mese_NA</a></li>
+				<li><a href="#">Tutti gli eventi_NI</a></li>
+				<li><a href="#">Eventi per temi_NI</a></li>
+				<li><a href="#">Eventi per tipo_NI</a></li>
+				<li><a href="#">Eventi per mese_NI</a></li>
 			</ul>
 		</li>
 		<li>Ricercatori_NA
 			<ul>
-				<li><a href="#">Tutti i ricercatori_NA</a></li>
-				<li><a href="#">Ricercatori Accademici_NA</a></li>
-				<li><a href="#">Ricercatori Industriali_NA</a></li>
-				<li><a href="#">Aree di ricerca_NA</a></li>
+				<li><a href="#">Tutti i ricercatori_NI</a></li>
+				<li><a href="#">Ricercatori Accademici_NI</a></li>
+				<li><a href="#">Ricercatori Industriali_NI</a></li>
+				<li><a href="#">Aree di ricerca_NI</a></li>
 			</ul>
 		</li>
 		<li>Attività_NA
 			<ul>
-				<li><a href="#">Tutte le attività_NA</a></li>
-				<li><a href="#">Attività per mese_NA</a></li>
+				<li><a href="#">Tutte le attività_NI</a></li>
+				<li><a href="#">Attività per mese_NI</a></li>
 			</ul>
 		</li>
 		<li><a href="${f:url('/commissioneEuropea')}">La Commissione Europea</a></li>
