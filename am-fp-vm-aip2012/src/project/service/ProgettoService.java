@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.slim3.controller.upload.FileItem;
 import org.slim3.controller.validator.Validators;
 import org.slim3.datastore.Datastore;
-import org.slim3.util.RequestMap;
 
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;

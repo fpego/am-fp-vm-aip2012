@@ -24,47 +24,30 @@
 				<li><a href="${f:url('/tuttiPartners?page=leader')}">Partners leader di progetto</a></li>
 			</ul>		
 		</li>
-		<li>Eventi Pubblici
+		<li>Eventi Pubblici_NA
 			<ul>
-				<li><a href="#">Tutti gli eventi</a></li>
-				<li><a href="#">Eventi per temi</a></li>
-				<li><a href="#">Eventi per tipo</a></li>
-				<li><a href="#">Eventi per mese</a></li>
+				<li><a href="#">Tutti gli eventi_NA</a></li>
+				<li><a href="#">Eventi per temi_NA</a></li>
+				<li><a href="#">Eventi per tipo_NA</a></li>
+				<li><a href="#">Eventi per mese_NA</a></li>
 			</ul>
 		</li>
-		<li>Ricercatori
+		<li>Ricercatori_NA
 			<ul>
-				<li><a href="#">Tutti i ricercatori</a></li>
-				<li><a href="#">Ricercatori Accademici</a></li>
-				<li><a href="#">Ricercatori Industriali</a></li>
-				<li><a href="#">Aree di ricerca</a></li>
+				<li><a href="#">Tutti i ricercatori_NA</a></li>
+				<li><a href="#">Ricercatori Accademici_NA</a></li>
+				<li><a href="#">Ricercatori Industriali_NA</a></li>
+				<li><a href="#">Aree di ricerca_NA</a></li>
 			</ul>
 		</li>
-		<li>Attività
+		<li>Attività_NA
 			<ul>
-				<li><a href="#">Tutte le attività</a></li>
-				<li><a href="#">Attività per mese</a></li>
+				<li><a href="#">Tutte le attività_NA</a></li>
+				<li><a href="#">Attività per mese_NA</a></li>
 			</ul>
 		</li>
-		<li><a href="${f:url('/commissioneEuropea')}">La Commissione Europea</a>
-		<!-- 
-			<ul>
-				<li><a href="${f:url('commissioneEuropea')}">Chi siamo</a></li>
-				<li><a href="${f:url('commissioneEuropea?page=visione')}">La nostra visione</a></li>
-				<li><a href="${f:url('commissioneEuropea?page=storia')}">La nostra storia</a></li>
-				<li><a href="${f:url('commissioneEuropea?page=contatti')}">Contatti</a></li>
-			</ul>
-		 -->
-		</li>
-		<li><a href="${f:url('/finanziamenti')}">Finanziamenti</a>
-		<!-- 
-			<ul>
-				<li><a href="${f:url('finanziamenti?page=regoleIscrizione')}">Regole d'iscrizione</a></li>
-				<li><a href="${f:url('finanziamenti?page=bandi')}">Bandi</a></li>
-				<li><a href="${f:url('finanziamenti?page=faq')}">FAQ</a></li>
-			</ul>
-		 -->
-		</li>
+		<li><a href="${f:url('/commissioneEuropea')}">La Commissione Europea</a></li>
+		<li><a href="${f:url('/finanziamenti')}">Finanziamenti</a></li>
 		<li><a href="${f:url('/creaProgetto')}">Crea un progetto</a></li>
 	</ul>
 	</div>
