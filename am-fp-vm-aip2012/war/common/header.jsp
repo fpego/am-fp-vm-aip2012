@@ -24,7 +24,7 @@
 				<li><a href="${f:url('/tuttiPartners?page=leader')}">Partners leader di progetto</a></li>
 			</ul>		
 		</li>
-		<li>Eventi Pubblici_NA
+		<li>Eventi Pubblici_NI
 			<ul>
 				<li><a href="#">Tutti gli eventi_NI</a></li>
 				<li><a href="#">Eventi per temi_NI</a></li>
@@ -32,7 +32,7 @@
 				<li><a href="#">Eventi per mese_NI</a></li>
 			</ul>
 		</li>
-		<li>Ricercatori_NA
+		<li>Ricercatori_NI
 			<ul>
 				<li><a href="#">Tutti i ricercatori_NI</a></li>
 				<li><a href="#">Ricercatori Accademici_NI</a></li>
@@ -40,7 +40,7 @@
 				<li><a href="#">Aree di ricerca_NI</a></li>
 			</ul>
 		</li>
-		<li>Attività_NA
+		<li>Attività_NI
 			<ul>
 				<li><a href="#">Tutte le attività_NI</a></li>
 				<li><a href="#">Attività per mese_NI</a></li>

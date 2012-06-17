@@ -21,6 +21,8 @@ import project.model.Progetto;
  *
  */
 public class PartnerService {
+    
+    //TODO Controllare i serivizi che usano il partner identificandolo solo col nome!
 
     private PartnerMeta metaP = PartnerMeta.get();
     private ProgettoMeta metaPro = ProgettoMeta.get();
@@ -149,13 +151,16 @@ public class PartnerService {
      * @return lista di progetti
      */
     public List<Progetto> getProjectByPartner(Key partnerKey){
-        //TODO IMPLEMENT
         Partner partner = Datastore.get(metaP, partnerKey);
+        Progetto tmp = null;
         if (partner != null){
             List<Progetto> progetti = new ArrayList<Progetto>();
             for (PartnerProgetto p: partner.getPartnerProgettoListRef().getModelList()){
-                if (!progetti.contains(p.getProgettoRef().getModel()))
-                    progetti.add(p.getProgettoRef().getModel());
+                try{
+                    tmp = p.getProgettoRef().getModel();
+                    if (!progetti.contains(tmp))
+                        progetti.add(tmp);
+                }catch (Exception e) { }
             }
             return progetti;
         }
@@ -170,6 +175,8 @@ public class PartnerService {
      * @param progetto L'entità progetto da associare al partner
      */
     public void setProject(Partner partner, Progetto progetto){
+        if (partner == null || progetto == null) 
+            return;
         Transaction tx = Datastore.beginTransaction();
         PartnerProgetto pp = new PartnerProgetto();
         pp.getPartnerRef().setModel(partner);

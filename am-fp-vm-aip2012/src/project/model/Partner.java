@@ -25,6 +25,8 @@ public class Partner implements Serializable {
     
     private String nome;
     
+    //TODO aggiungere qui altri campi!
+    
     @Attribute(persistent=false)
     private InverseModelListRef<PartnerProgetto, Partner> partnerProgettoListRef
     = new InverseModelListRef<PartnerProgetto, Partner>
