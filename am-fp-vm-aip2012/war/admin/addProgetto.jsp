@@ -6,16 +6,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="../js/jquery.autocomplete.min.js"></script>
-<script type="text/javascript" src="../js/functions.js"></script>
-<script type="text/javascript">Autocomplete();</script>
 <jsp:include page="/common/meta-head.jsp" />
+<script type="text/javascript">Autocomplete();</script>
 <title>Admin AddProgetto</title>
 </head>
 <body>
-<jsp:include page="/common/header.jsp" />
+<jsp:include page="/common/header_admin.jsp" />
 <section id="middle">
 	<div id="container">
 		<div id="content">
@@ -50,11 +46,11 @@ La durata deve essere un numero di anni intero, compreso tra 2 e 10.<br/>
 <td><div id="partnersAdd">
 <input type="hidden" name="numPartner" value="5" id="numPartner" />
 <ul id="addPartnersList" style="list-style: none;">
-	<li><input type="text" name="partner1" value=""/></li>
-	<li><input type="text" name="partner2" value=""/></li>
-	<li><input type="text" name="partner3" value=""/></li>
-	<li><input type="text" name="partner4" value=""/></li>
-	<li><input type="text" name="partner5" value=""/></li>
+	<li><input type="text" name="partner1" id="partner1" value=""/></li>
+	<li><input type="text" name="partner2" id="partner2" value=""/></li>
+	<li><input type="text" name="partner3" id="partner3" value=""/></li>
+	<li><input type="text" name="partner4" id="partner4" value=""/></li>
+	<li><input type="text" name="partner5" id="partner5" value=""/></li>
 </ul>
 <a id="AddSingleParnerButton" onclick="AddPartnerToList()">Aggiungi Partner</a>
 </div></td>
@@ -73,13 +69,7 @@ La durata deve essere un numero di anni intero, compreso tra 2 e 10.<br/>
 	</div>
 <aside id="sideLeft">
 <!-- LEFT MENU START -->
-	<div id='jqxMenuLeft' style='visibility: hidden; margin-left:auto; margin-right:auto'>
-<ul>
-	<li><a href="${f:url('/admin')}">Back</a></li>
-	<li><a href="${f:url('addProgetto')}">Crea un nuovo progetto</a></li>
-	<li><a href="${f:url('addPartner')}">Crea un nuovo partner o cancella quelli già presenti</a></li>
-</ul>
-</div>
+<jsp:include page="/common/leftMenu_admin.jsp" />
 <!-- LEFT MENU END -->
 </aside>
 </section>

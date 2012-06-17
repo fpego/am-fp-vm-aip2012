@@ -5,12 +5,12 @@
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
 <jsp:include page="/common/meta-head.jsp" />
 <title>Admin</title>
 </head>
 <body>
-<jsp:include page="/common/header.jsp" />
+<jsp:include page="/common/header_admin.jsp" />
 <section id="middle">
 	<div id="container">
 		<div id="content">
@@ -30,12 +30,7 @@
 	</div>
 <aside id="sideLeft">
 <!-- LEFT MENU START -->
-	<div id='jqxMenuLeft' style='visibility: hidden; margin-left:auto; margin-right:auto'>
-<ul>
-	<li><a href="${f:url('addProgetto')}">Crea un nuovo progetto</a></li>
-	<li><a href="${f:url('addPartner')}">Crea un nuovo partner o cancella quelli già presenti</a></li>
-</ul>
-</div>
+<jsp:include page="/common/leftMenu_admin.jsp" />
 <!-- LEFT MENU END -->
 </aside>
 </section>

@@ -6,40 +6,32 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<jsp:include page="/common/meta-head.jsp" />
 <title>Admin Progetto</title>
 </head>
 <body>
-<!-- edit, crea collegamenti, file upload -->
-
-<a href="/admin">Back</a>
-
+<jsp:include page="/common/header_admin.jsp" />
+<section id="middle">
+	<div id="container">
+		<div id="content">
+<!-- CONTENT START -->
 <h1>Progetto '${f:h(p.titoloProgetto)}'</h1>
 
 <form action="${f:url(urlUpdate)}" method="post">
 <input type="hidden" name="a" value="1"/>
 <input type="hidden" name="key" value="${f:h(p.key)}"/>
-<h3>Titolo</h3>
-<input type="text" name="titoloProgetto" value="${f:h(p.titoloProgetto)}"/>
-<br/>
-<h3>Tema</h3>
-<input type="text" name="tema" value="${f:h(p.tema)}"/>
-<br/>
-<h3>Anno d'inizio</h3>
-${f:h(p.annoInizio)}
-<br/>
-<h3>Anno di fine</h3>
-${f:h(p.annoFine)}
-<br/>
-<h3>Durata</h3>
-<input type="text" name="durata" value="${f:h(p.durata)}"/>
-<h3>Presentazione</h3>
-<textarea ${f:text("presentazione")}>${f:h(p.presentazione)}</textarea>
-<br/>
-<h3>Risultati</h3>
-<textarea ${f:text("risultati")}>${f:h(p.risultati)}</textarea>
-<br/>
-<input type="submit" value="Salva"/>
+<table>
+<tr><td>Titolo</td><td>
+<input type="text" name="titoloProgetto" value="${f:h(p.titoloProgetto)}"/></td></tr>
+<tr><td>Tema</td><td>
+<input type="text" name="tema" value="${f:h(p.tema)}"/></td></tr>
+<tr><td>Anno d'inizio</td><td>${f:h(p.annoInizio)}</td></tr>
+<tr><td>Anno di fine</td><td>${f:h(p.annoFine)}</td></tr>
+<tr><td>Durata</td><td><input type="text" name="durata" value="${f:h(p.durata)}" maxlength="2" max="10" size="2"/></td></tr>
+<tr><td>Presentazione</td><td><textarea ${f:text("presentazione")} cols="40" rows="5">${f:h(p.presentazione)}</textarea></td></tr>
+<tr><td>Risultati</td><td><textarea ${f:text("risultati")} cols="40" rows="5">${f:h(p.risultati)}</textarea></td></tr>
+<tr><td colspan="2"><input type="submit" value="Salva"/></td></tr>
+</table>
 </form>
 
 <h3>Elenco dei partner</h3>
@@ -86,6 +78,15 @@ ${f:h(p.annoFine)}
 <br/>
 <input type="submit" value="Upload"/>
 </form>
-
+<!-- CONTENT END -->
+		</div>
+	</div>
+<aside id="sideLeft">
+<!-- LEFT MENU START -->
+<jsp:include page="/common/leftMenu_admin.jsp" />
+<!-- LEFT MENU END -->
+</aside>
+</section>
+<jsp:include page="/common/footer.jsp" />
 </body>
 </html>
