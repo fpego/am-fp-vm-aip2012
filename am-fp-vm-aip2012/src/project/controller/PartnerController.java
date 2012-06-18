@@ -67,15 +67,11 @@ public class PartnerController extends Controller {
             }
         }
         String urlPresentazione = "partner?key=" + KeyFactory.keyToString(partner.getKey());
-        String urlChiSiamo = urlPresentazione + "&page=chiSiamo";
         String urlContatti = urlPresentazione + "&page=contatti";
-        String urlEventi = urlPresentazione + "&page=eventi";
         
         requestScope("urlIndietro", urlIndietro);
         requestScope("urlPresentazione", urlPresentazione);
-        requestScope("urlChiSiamo", urlChiSiamo);
         requestScope("urlContatti", urlContatti);
-        requestScope("urlEventi", urlEventi);
         requestScope("partner", partner);
         requestScope("leaderList", service.getLeaded(partner.getKey()));
         requestScope("projectList", service.getProjectByPartner(partner.getKey()));

@@ -22,8 +22,6 @@
 <p>Lo scopo primario di questo sito è divulgare i risultati dei progetti e promuovere lo scambio di informazioni tra i diversi consorzi.</p>
 
 <div class="lista">
-	
-	<p class="risalto">Progetti</p> 
 	<p class="risalto">Posso ottenere sostegno alle mie idee?</p>
 		<ul>
 		   	<li>Desiderate migliorare le competenze o la capacità del vostro istituto di ricerca?</li>

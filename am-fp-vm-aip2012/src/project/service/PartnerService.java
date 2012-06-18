@@ -3,6 +3,9 @@ package project.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.slim3.controller.validator.Validators;
 import org.slim3.datastore.Datastore;
 
 import com.google.appengine.api.datastore.Key;
@@ -33,14 +36,25 @@ public class PartnerService {
      * e lo inserisce nel Datastore tramite transazione.
      * Controllo prima che non esista già un partner con quel nome.
      * @param nome Il nome del Partner
+     * @param chiSiamo La informazione generica sul partner
+     * @param email la email del partner
+     * @param indirizzo l'indirizzo del partner
+     * @param telefono il telefono del partner
+     * @param sitoWeb Il sito web del partner
      * @return il partner appena creato
      */
-    public Partner createPartner(String nome){
+    public Partner createPartner(String nome, String chiSiamo, String email, 
+            String indirizzo, String telefono, String sitoWeb){
         if (this.getPartnerByName(nome) != null)
             return this.getPartnerByName(nome);
         Transaction tx = Datastore.beginTransaction();
         Partner p = new Partner();
         p.setNome(nome);
+        p.setChiSiamo(chiSiamo);
+        p.setEmail(email);
+        p.setIndirizzo(indirizzo);
+        p.setTelefono(telefono);
+        p.setSitoWeb(sitoWeb);
         Datastore.put(tx,p);
         tx.commit(); 
         return p;
@@ -264,5 +278,30 @@ public class PartnerService {
     }
 
 
+    public boolean validate(HttpServletRequest request, PartnerMeta meta) {
+        boolean emailOk = false;
+        boolean telfOk = true;
+        String email;
+        String telefono;
+                                                                                                                                                                                                                                                         
+       
+       email = (String) request.getParameter("emailPartner");
+       telefono = (String) request.getParameter("telefonoPartner");
+       
+       //Controllo che la email sia valida
+       if (email.indexOf("@")!= -1 && email.indexOf(".")!=-1){
+          emailOk = true; 
+          }
+    
+       try {
+           Integer.parseInt(telefono);
+           telfOk = true;
+           } catch (NumberFormatException nfe){
+           telfOk = false;
+           }
+      
+        
+       return emailOk && telfOk;
+    }
 
 }

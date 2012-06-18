@@ -16,7 +16,9 @@
 		<div id="content">
 <!-- CONTENT START -->
 
-<h1>${f:h(partner.nome)} -> Partecipazione nei progetti</h1>
+<h1>${f:h(partner.nome)} -> Chi siamo?</h1>
+
+<p>${f:h(partner.chiSiamo)}</p>
 
 <c:choose>
 	<c:when test="${fn:length(leaderList) > 0}">

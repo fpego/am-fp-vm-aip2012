@@ -30,9 +30,33 @@ $(document).ready(function () {
 <form action="${f:url('addPartner')}" method="post">
 <input type="hidden" name="a" value="1" />
 <h3>Inserisci il nome del nuovo partner:</h3>
-<input type="text" ${f:text("nomePartner")} id="nomePartner"/>
-<br/>
-<input type="submit" value="Crea"/>
+
+<table style="margin-left:auto;margin-right:auto;">
+<thead></thead>
+<tbody>
+<tr><td>Nome</td>
+	<td><input type="text" ${f:text("nomePartner")} id="nomePartner"/></td>
+</tr>
+<tr><td>Informazione di voi</td>
+	<td><textarea name="chiSiamoPartner" class=""></textarea></td>
+</tr>
+<tr><td>Telefono</td>
+	<td><input  type="text"  ${f:text("telefonoPartner")} id="telefonoPartner"></td>
+</tr>
+<tr><td>Indirizzo</td>
+	<td><input  type="text"  ${f:text("indirizzoPartner")} id="indirizzoPartner"></td>
+</tr>
+<tr><td>Email</td>
+	<td><input  type="text"  ${f:text("emailPartner")} id="emailPartner"></td>
+</tr>
+<tr><td>Sito Web (opzionale)</td>
+	<td><input  type="text"  ${f:text("sitoWebPartner")} id="sitoWebPartner"></td>
+</tr>
+<tr>
+	<td colspan="2"><input type="submit" value="Crea"/></td>
+</tr>
+</tbody>
+</table>
 </form>
 
 <br/>
