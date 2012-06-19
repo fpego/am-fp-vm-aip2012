@@ -44,11 +44,8 @@ public class PartnerController extends Controller {
                 fwdPage = "partner/contatti.jsp";
             }
         }
-        Partner partner = null;
-        try{
-            partner = service.getOrNull(asKey(meta.key));
-        }catch (Exception e) {     }
         
+        Partner partner = service.getOrNull(asKey(meta.key));
         if (partner == null){
             return redirect("tuttiPartner.jsp");
         }
