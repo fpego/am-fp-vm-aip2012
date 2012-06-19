@@ -25,6 +25,16 @@
 		<li><a href="${f:url(projectLink)}">${f:h(p.titoloProgetto)}</a></li>
 	</ul>
 </c:forEach>
+
+<h3>Lista di partner</h3>
+<h4>Selezionando un partner, si entra nella pagina per modificarlo.</h4>
+
+<c:forEach var="p" items="${partnerList}">
+	<c:set var="partnerLink" value="partner?key=${f:h(p.key)}" />
+	<ul id="partnerLink">
+		<li><a href="${f:url(partnerLink)}">${f:h(p.nome)}</a></li>
+	</ul>
+</c:forEach>
 <!-- CONTENT END -->
 		</div>
 	</div>

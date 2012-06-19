@@ -21,7 +21,7 @@
 <p>Indirizzo: ${f:h(partner.indirizzo)}</p>
 <p>Telefono: ${f:h(partner.telefono)}</p>
 <p>Email: <a href="mailto:${partner.email}">${f:h(partner.email)}</a></p>
-<p>SitoWeb: <a href="${f:url(partner.sitoWeb)}">${f:h(partner.sitoWeb)}</a></p>
+<p>SitoWeb: <a href="${partner.sitoWeb}" target="_blank">${f:h(partner.sitoWeb)}</a></p>
 
 <!-- CONTENT END -->
 		</div>

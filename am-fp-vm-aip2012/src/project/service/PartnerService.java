@@ -48,7 +48,7 @@ public class PartnerService {
         p.setEmail((String) request.getParameter("email"));
         p.setIndirizzo((String) request.getParameter("indirizzo"));
         p.setTelefono((String) request.getParameter("telefono"));
-        p.setSitoWeb((String) request.getParameter("sitoWeb"));
+        p.setSitoWeb(this.getPrettyUrl((String) request.getParameter("sitoWeb")));
         Transaction tx = Datastore.beginTransaction();
         Datastore.put(tx,p);
         tx.commit(); 
@@ -311,6 +311,47 @@ public class PartnerService {
         v.add(meta.email, v.regexp(".+@.+\\.[a-z]+")); // controllo la mail con un pattern di una regex
         
        return v.validate();
+    }
+
+    /**
+     * Aggiorna il partner identificato dalla chiave, con i dati contenuti nel form passato per parametro.
+     * Controllo che non mi abbia messo il nome di un altro partner già esistente!
+     * @param key 
+     * @param request
+     */
+    public Partner updatePartner(Key key, HttpServletRequest request) {
+        Partner p = this.getOrNull(key);
+        if (p == null)
+            return null;
+        String nome = (String) request.getParameter("nome");
+        Partner p2 = this.getPartnerByName(nome);
+        //va bene se p2 è NULL oppure se è uguale a p: vuol dire che ha tenuto lo stesso nome o il nome nuovo non c'è ancora.
+        if (p2 == null || p.equals(p2)){
+            p.setNome(nome);
+            p.setChiSiamo((String) request.getParameter("chiSiamo"));
+            p.setEmail((String) request.getParameter("email"));
+            p.setIndirizzo((String) request.getParameter("indirizzo"));
+            p.setTelefono((String) request.getParameter("telefono"));
+            p.setSitoWeb(this.getPrettyUrl((String) request.getParameter("sitoWeb")));
+            Transaction tx = Datastore.beginTransaction();
+            Datastore.put(tx,p);
+            tx.commit(); 
+            return p;
+        }else{
+            return null;
+        }
+    }
+    
+    /**
+     * Stupidissimo controllo per fare gli url un pochino più carini. 
+     * @param url
+     * @return
+     */
+    private String getPrettyUrl(String url){
+        if (!url.startsWith("http://")){
+            return "http://" + url;
+        }
+        return url;
     }
 
 }
