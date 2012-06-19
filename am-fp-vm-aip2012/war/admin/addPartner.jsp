@@ -38,19 +38,19 @@ $(document).ready(function () {
 	<td><input type="text" ${f:text("nomePartner")} id="nomePartner"/></td>
 </tr>
 <tr><td>Informazione di voi</td>
-	<td><textarea name="chiSiamoPartner" class=""></textarea></td>
+	<td><textarea name="chiSiamo" class=""></textarea></td>
 </tr>
 <tr><td>Telefono</td>
-	<td><input  type="text"  ${f:text("telefonoPartner")} id="telefonoPartner"></td>
+	<td><input  type="text"  ${f:text("telefono")} pattern="[0-9]{4}\-[0-9]{10}" id="telefono">formato 0000-0000000000</td>
 </tr>
 <tr><td>Indirizzo</td>
-	<td><input  type="text"  ${f:text("indirizzoPartner")} id="indirizzoPartner"></td>
-</tr>
+	<td><input  type="text"  ${f:text("indirizzo")} id="indirizzo"></td>
+</tr> 
 <tr><td>Email</td>
-	<td><input  type="text"  ${f:text("emailPartner")} id="emailPartner"></td>
+	<td><input  type="text"  ${f:text("email")} pattern="[a-zA-Z0-9_\.]+@[a-zA-Z0-9_\.]+\.[A-z]{2,6}" id="email"></td>
 </tr>
 <tr><td>Sito Web (opzionale)</td>
-	<td><input  type="text"  ${f:text("sitoWebPartner")} id="sitoWebPartner"></td>
+	<td><input  type="text"  ${f:text("sitoWeb")} pattern="[WWW.,www.]+[a-zA-Z0-9_\.]+\.[a-zA-Z0-9_\.]+\.[A-z]{2,5}" id="sitoWeb"></td>
 </tr>
 <tr>
 	<td colspan="2"><input type="submit" value="Crea"/></td>
@@ -62,7 +62,7 @@ $(document).ready(function () {
 <br/>
 <h3>Elenco dei partner presenti nel sistema:</h3>
 
-<table>
+<table style="margin-left:auto;margin-right:auto;">
 <tbody>
 <c:forEach var="p" items="${pList}">
 <c:set var="deleteUrl" value="addPartner?key=${f:h(p.key)}&a=2"/>

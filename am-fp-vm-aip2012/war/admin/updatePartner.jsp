@@ -36,22 +36,22 @@ $(document).ready(function () {
 <thead></thead>
 <tbody>
 <tr><td>Nome</td>
-	<td><input type="text" value="${f:h(p.nome)}" id="nomePartner" READONLY/></td>
+	<td><input type="text" value="${f:h(p.nome)}" id="nome" READONLY/></td>
 </tr>
 <tr><td>Informazione di voi</td>
-	<td><textarea name="chiSiamoPartner" class="">${f:h(p.chiSiamo)}</textarea></td>
+	<td><textarea name="chiSiamo" class="chiSiamo">${f:h(p.chiSiamo)}</textarea></td>
 </tr>
 <tr><td>Telefono</td>
-	<td><input  type="text"  value="${f:h(p.telefono)}" id="telefonoPartner" name="telefonoPartner"></td>
+	<td><input  type="text"  pattern="[0-9]{4}\-[0-9]{10}" value="${f:h(p.telefono)}" id="telefono" name="telefono">formato 0000-0000000000</td>
 </tr>
 <tr><td>Indirizzo</td>
-	<td><input  type="text" value="${f:h(p.indirizzo)}" id="indirizzoPartner" name="indirizzoPartner"></td>
+	<td><input  type="text" value="${f:h(p.indirizzo)}" id="indirizzo" name="indirizzo"></td>
 </tr>
 <tr><td>Email</td>
-	<td><input  type="text" value="${f:h(p.email)}" id="emailPartner" name="emailPartner"></td>
+	<td><input  type="text" value="${f:h(p.email)}" pattern="[a-zA-Z0-9_\.]+@[a-zA-Z0-9_\.]+\.[A-z]{2,6}" id="email" name="email"></td>
 </tr>
 <tr><td>Sito Web (opzionale)</td>
-	<td><input  type="text" value="${f:h(p.sitoWeb)}" id="sitoWebPartner" name="sitoWebPartner"></td>
+	<td><input  type="text" value="${f:h(p.sitoWeb)}" pattern="[WWW.,www.]+[a-zA-Z0-9_\.]+\.[a-zA-Z0-9_\.]+\.[A-z]{2,5}" id="sitoWeb" name="sitoWeb"></td>
 </tr>
 <tr>
 	<td><input type="reset" value="Anulla" onclick="javascript:history.go(-1);"/></td>

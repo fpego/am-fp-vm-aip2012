@@ -45,7 +45,11 @@ public class PartnerController extends Controller {
             }
         }
         
-        Partner partner = service.getOrNull(asKey(meta.key));
+        Partner partner = null;
+        try{
+            partner = service.getOrNull(asKey(meta.key));
+        }catch (Exception e) {     }
+
         if (partner == null){
             return redirect("tuttiPartner.jsp");
         }

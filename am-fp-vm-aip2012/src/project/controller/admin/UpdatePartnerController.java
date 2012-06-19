@@ -18,16 +18,16 @@ public class UpdatePartnerController extends Controller{
         String a = (String) input.get("a");
                 
         if (a != null && a.equals("1")){
-            String chiSiamo = (String) input.get("chiSiamoPartner");
-            String indirizzo = (String) input.get("indirizzoPartner");
-            String telefono = (String) input.get("telefonoPartner");
-            String email = (String) input.get("emailPartner");
-            String sitoWeb = (String) input.get("sitoWebPartner");
+            String chiSiamo = (String) input.get("chiSiamo");
+            String indirizzo = (String) input.get("indirizzo");
+            String telefono = (String) input.get("telefono");
+            String email = (String) input.get("email");
+            String sitoWeb = (String) input.get("sitoWeb");
             
-            if(service.validate(request, meta)){        
+            
                 service.updatePartner(asKey(meta.key), chiSiamo, indirizzo, telefono,
                 email, sitoWeb);
-            }
+      
         }
         return redirect(basePath + "addPartner");
     }

@@ -19,16 +19,10 @@ public class AddPartnerController extends Controller {
         
         if (a != null){
             if (a.equals("1")){
-                String nome = (String) input.get("nomePartner");
-                String chiSiamo = (String) input.get("chiSiamoPartner");
-                String indirizzo = (String) input.get("indirizzoPartner");
-                String telefono = (String) input.get("telefonoPartner");
-                String email = (String) input.get("emailPartner");
-                String sitoWeb = (String) input.get("sitoWebPartner");
-                if(service.validate(request, meta)){
+             
                     // si aggiunge il partner!
-                    service.createPartner(nome, chiSiamo, email, indirizzo, telefono, sitoWeb);
-                }
+                    service.createPartner(request);
+              
             }else if (a.equals("2")){
                 // si cancella il partner!
                 service.elimina(asKey(meta.key));
