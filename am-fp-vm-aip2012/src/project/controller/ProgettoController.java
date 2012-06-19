@@ -18,7 +18,11 @@ public class ProgettoController extends Controller {
     @Override
     public Navigation run() throws Exception {
         RequestMap input = new RequestMap(request);
-        Progetto progetto = service.getOrNull(asKey(meta.key));
+        Progetto progetto = null;
+        try{
+            progetto = service.getOrNull(asKey(meta.key));
+        }catch (Exception e) { }
+        
         if (progetto == null){
             return redirect("tuttiProgetti.jsp");
         }
