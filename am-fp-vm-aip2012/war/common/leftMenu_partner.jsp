@@ -5,11 +5,8 @@
 
 <div id='jqxMenuLeft' style='visibility: hidden; margin-left:auto; margin-right:auto'>
 	<ul>
-		<li><a href="${f:url(urlIndietro)}">Indietro</a></li>
 		<li><a href="${f:url(urlPresentazione)}">Chi siamo</a></li>
 		<li><a href="${f:url(urlContatti)}">Contatti</a></li>
-		<li><a href="#">Eventi_NI</a></li>
-		<li><a href="#">Attività_NI</a></li>
-		<li><a href="#">Ricercatori Associati_NI</a></li>
+		<li><a href="${f:url(urlIndietro)}">Indietro</a></li>
 	</ul>
 </div>

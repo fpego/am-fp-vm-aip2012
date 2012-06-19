@@ -16,6 +16,7 @@ public class AddPartnerController extends Controller {
     public Navigation run() throws Exception {
         RequestMap input = new RequestMap(request);
         String a = (String) input.get("a");
+        
         if (a != null){
             if (a.equals("1")){
                 String nome = (String) input.get("nomePartner");
@@ -31,6 +32,10 @@ public class AddPartnerController extends Controller {
             }else if (a.equals("2")){
                 // si cancella il partner!
                 service.elimina(asKey(meta.key));
+            }else if (a.equals("3")){
+                //si modifica il partner
+                requestScope("p", service.getOrNull(asKey(meta.key)));
+                return forward("updatePartner.jsp");
             }
             //redirigo a questa stessa pagina per rimuovere il reference al key dall'url
             return redirect("addPartner");

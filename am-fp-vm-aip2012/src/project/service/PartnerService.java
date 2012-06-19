@@ -2,15 +2,10 @@ package project.service;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-
-import org.slim3.controller.validator.Validators;
 import org.slim3.datastore.Datastore;
-
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;
-
 import project.meta.PartnerMeta;
 import project.meta.ProgettoMeta;
 import project.model.Partner;
@@ -303,5 +298,29 @@ public class PartnerService {
         
        return emailOk && telfOk;
     }
+
+    public void updatePartner(Key key, String chiSiamo, String indirizzo,
+            String telefono, String email, String sitoWeb) {
+
+        Partner partner = this.getOrNull(key);
+        
+        try {
+            partner.setChiSiamo(chiSiamo);
+            partner.setIndirizzo(indirizzo);
+            partner.setTelefono(telefono);
+            partner.setEmail(email);
+            partner.setSitoWeb(sitoWeb);
+            Transaction tx = Datastore.beginTransaction();
+            Datastore.put(partner);
+            tx.commit();
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        
+
+        
+    }
+
+  
 
 }

@@ -55,6 +55,8 @@
   	</c:otherwise>
 
 </c:choose>
+
+<p class="risalto">Scopri più di noi: <a>Attività</a>, <a>Eventi</a>, <a>Ricercatori</a> (links NI)</p>
 <!-- CONTENT END -->
 		</div>
 	</div>

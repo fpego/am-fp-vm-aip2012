@@ -40,12 +40,8 @@ public class PartnerController extends Controller {
                 out += "]";
                 requestScope("ajax", out);
                 return forward("ajax.jsp");
-            }else if (page.equals("chiSiamo")){
-                fwdPage = "partner/chiSiamo.jsp";
             }else if (page.equals("contatti")){
                 fwdPage = "partner/contatti.jsp";
-            }else if (page.equals("eventi")){
-                fwdPage = "partner/eventi.jsp";
             }
         }
         
@@ -66,7 +62,7 @@ public class PartnerController extends Controller {
                 urlIndietro = "javascript:history.go(-1);";
             }
         }
-        String urlPresentazione = "partner?key=" + KeyFactory.keyToString(partner.getKey());
+        String urlPresentazione = "partner?key=" + KeyFactory.keyToString(partner.getKey()) + "&origin=" + origin;
         String urlContatti = urlPresentazione + "&page=contatti";
         
         requestScope("urlIndietro", urlIndietro);
