@@ -20,7 +20,7 @@
 <form action="${f:url(urlUpdate)}" method="post">
 <input type="hidden" name="a" value="1"/>
 <input type="hidden" name="key" value="${f:h(p.key)}"/>
-<table style="margin-left:auto;margin-right:auto;">
+<table>
 <tr><td>Titolo</td><td>
 <input type="text" name="titoloProgetto" value="${f:h(p.titoloProgetto)}"/></td></tr>
 <tr><td>Tema</td><td>
@@ -35,7 +35,7 @@
 </form>
 
 <h3>Elenco dei partner</h3>
-<table style="margin-left:auto;margin-right:auto;">
+<table>
 <tr><th colspan="2">Leader: '${f:h(partnerLeader.nome)}'</th></tr>
 <c:forEach var="pp" items="${partnerList}">
 <c:set var="deleteLinkUrl" value="removeLink?project=${f:h(p.key)}&partner=${f:h(pp.key)}"/>
@@ -44,8 +44,7 @@
 </c:forEach>
 </table>
 
-<h3>Elenco dei documenti</h3>
-<table style="margin-left:auto;margin-right:auto;">
+<table>
 <c:if test="${fn:length(docList) > 0}">
 <thead>
 <tr><th>FileName</th><th>Bytes</th></tr>
@@ -67,20 +66,17 @@
 <form action="${f:url(urlUpdate)}" method="post">
 <input type="hidden" name="key" value="${f:h(p.key)}"/>
 <input type="hidden" name="a" value="3"/>
-<table style="margin-left:auto;margin-right:auto;">
-<tr><th>Aggiungi un nuovo partner</th><td>
-<input type="text" name="nomePartner" value="" id="newPartner" /></td></tr>
-<tr><td colspan="2"><input type="submit" value="Aggiungi" /></td></tr>
-</table>
+<h3>Aggiungi un nuovo partner</h3>
+<input type="text" name="nomePartner" value="" id="newPartner" />
+<input type="submit" value="Aggiungi" />
 </form>
-
 <form action="${f:url(urlUpdate)}" method="post" enctype="multipart/form-data">
 <input type="hidden" name="key" value="${f:h(p.key)}"/>
 <input type="hidden" name="a" value="2"/>
-<table style="margin-left:auto;margin-right:auto;">
-<tr><th>Upload un nuovo file</th><td><input type="file" name="formFile" /></td></tr>
-<tr><td colspan="2"><input type="submit" value="Upload"/></td></tr>
-</table>
+<h3>Upload un nuovo file</h3>
+<input type="file" name="formFile" />
+<br/>
+<input type="submit" value="Upload"/>
 </form>
 <!-- CONTENT END -->
 		</div>

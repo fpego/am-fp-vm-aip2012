@@ -29,7 +29,7 @@ public class UpdateProgettoController extends Controller {
             } else if (a.equals("3")){
                 // aggiunta di un nuovo partner
                 String nomePartner = (String) input.get("nomePartner");
-                service.addPartnerToProgetto(asKey(meta.key), nomePartner);
+                service.addPartnerToProgetto(asKey(meta.key), nomePartner, null, null, null, null, null);
             }
         }
         return redirect(basePath + "progetto?key=" + key);

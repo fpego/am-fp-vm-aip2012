@@ -190,7 +190,7 @@ public class ProgettoService {
         
         partner = pService.getPartnerByName(partnerName);
         if (partner == null){
-            partner = pService.createPartner(partnerName);
+            partner = pService.createPartner(partnerName,null,null,null,null, null);
         }
         // crea il collegamento tra partner e progetto e lo setta anche come leader.
         pService.setLeader(partner, progetto);
@@ -205,7 +205,7 @@ public class ProgettoService {
             partner = pService.getPartnerByName(partnerName);
             if (partner == null){
                 //devo prima aggiungere questo nuovo partner
-                partner =pService.createPartner(partnerName);
+                partner =pService.createPartner(partnerName,null,null,null,null, null);
                 }
             ppService.creaCollegamento(partner.getKey(), progetto.getKey());
         }
@@ -219,11 +219,14 @@ public class ProgettoService {
      * @param nomePartner
      * @return
      */
-    public Progetto addPartnerToProgetto(Key progettoKey, String nomePartner){
+    public Progetto addPartnerToProgetto(Key progettoKey, String nomePartner,
+            String chiSiamoPartner, String emailPartner, String indirizzoPartner, 
+            String telefonoPartner, String sitoWebPartner){
         Progetto p = this.getOrNull(progettoKey);
         if (p == null)
             return null;
-        Partner partner = pService.createPartner(nomePartner);
+        Partner partner = pService.createPartner(nomePartner,chiSiamoPartner,emailPartner,
+            indirizzoPartner,telefonoPartner,sitoWebPartner);
         ppService.creaCollegamento(partner.getKey(), p.getKey());
         return p;
     }
@@ -298,10 +301,10 @@ public class ProgettoService {
         String partner = null;
         Validators v = new Validators(request);
         
-        v.add(meta.tema, v.required());
-        v.add(meta.titoloProgetto, v.required());
-        v.add(meta.durata, v.integerType());
-        v.add(meta.durata, v.required());
+        v.add(p.tema, v.required());
+        v.add(p.titoloProgetto, v.required());
+        v.add(p.durata, v.integerType());
+        v.add(p.durata, v.required());
         
         try{ 
             durata = Integer.parseInt((String) request.getParameter("durata"));

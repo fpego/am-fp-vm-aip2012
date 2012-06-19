@@ -25,12 +25,17 @@ public class Partner implements Serializable {
     
     private String nome;
     
-    @Attribute(lob = true)
     private String chiSiamo;
+    
     private String telefono;
+    
     private String indirizzo;
+    
     private String email;
+    
     private String sitoWeb;
+    
+    //TODO aggiungere qui altri campi!
     
     @Attribute(persistent=false)
     private InverseModelListRef<PartnerProgetto, Partner> partnerProgettoListRef

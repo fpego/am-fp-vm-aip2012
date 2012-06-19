@@ -20,50 +20,36 @@ import project.model.Progetto;
  */
 public class PartnerService {
     
+    //TODO Controllare i serivizi che usano il partner identificandolo solo col nome!
+
     private PartnerMeta metaP = PartnerMeta.get();
     private ProgettoMeta metaPro = ProgettoMeta.get();
     private PartnerProgettoService ppService = new PartnerProgettoService();
     
     /**
-     * Crea un nuovo Partner, data la Request con tutti i parametri del form settati,
+     * Crea un nuovo Partner, col nome passato per parametro,
      * e lo inserisce nel Datastore tramite transazione.
      * Controllo prima che non esista già un partner con quel nome.
-     * Non eseguo qui alcun controllo sulla validità dei campi!
-     * 
-     * @param request - La request che contiene il form compilato
+     * @param nome Il nome del Partner
+     * @param chiSiamo La informazione generica sul partner
+     * @param email la email del partner
+     * @param indirizzo l'indirizzo del partner
+     * @param telefono il telefono del partner
+     * @param sitoWeb Il sito web del partner
      * @return il partner appena creato
      */
-    public Partner createPartner(HttpServletRequest request){
-        String nome = (String) request.getParameter("nome");
+    public Partner createPartner(String nome, String chiSiamo, String email, 
+            String indirizzo, String telefono, String sitoWeb){
         if (this.getPartnerByName(nome) != null)
             return this.getPartnerByName(nome);
+        Transaction tx = Datastore.beginTransaction();
         Partner p = new Partner();
         p.setNome(nome);
-        p.setChiSiamo((String) request.getParameter("chiSiamo"));
-        p.setEmail((String) request.getParameter("email"));
-        p.setIndirizzo((String) request.getParameter("indirizzo"));
-        p.setTelefono((String) request.getParameter("telefono"));
-        p.setSitoWeb((String) request.getParameter("sitoWeb"));
-        Transaction tx = Datastore.beginTransaction();
-        Datastore.put(tx,p);
-        tx.commit(); 
-        return p;
-    }
-    
-    /**
-     * Crea un nuovo Partner, dato solamente il nome
-     * e lo inserisce nel Datastore tramite transazione.
-     * Controllo prima che non esista già un partner con quel nome.
-     * 
-     * @param il nome del partner
-     * @return il partner appena creato
-     */
-    public Partner createPartner(String nome){
-        if (this.getPartnerByName(nome) != null)
-            return this.getPartnerByName(nome);
-        Partner p = new Partner();
-        p.setNome(nome);
-        Transaction tx = Datastore.beginTransaction();
+        p.setChiSiamo(chiSiamo);
+        p.setEmail(email);
+        p.setIndirizzo(indirizzo);
+        p.setTelefono(telefono);
+        p.setSitoWeb(sitoWeb);
         Datastore.put(tx,p);
         tx.commit(); 
         return p;
@@ -139,8 +125,6 @@ public class PartnerService {
      * @return
      */
     public Partner getPartnerByName(String partnerName) {
-        if (partnerName == null)
-            return null;
         return Datastore.query(metaP).filter(metaP.nome.equal(partnerName)).asSingle();
     }
     
@@ -152,8 +136,6 @@ public class PartnerService {
      * @return
      */
     public List<Partner> getPartnersByStartName(String name){
-        if (name == null)
-            return null;
         return Datastore.query(metaP).filter(metaP.nome.startsWith(name)).asList();
     }
     
@@ -291,21 +273,30 @@ public class PartnerService {
     }
 
 
-    /**
-     * Valida i dati inseriti nel pannello di amministrazione per l'inserimento di un nuovo partner.
-     * Sono RICHIESTI: nome, mail
-     * Sono OPZIONALI tutti gli altri parametri
-     * @param request
-     * @param meta
-     * @return true se i campi sono OK, false altrimenti.
-     */
     public boolean validate(HttpServletRequest request, PartnerMeta meta) {
-        Validators v = new Validators(request);
-        v.add(meta.nome, v.required());
-        v.add(meta.email, v.required());
-        v.add(meta.email, v.regexp(".+@.+\\.[a-z]+")); // controllo la mail con un pattern di una regex
+        boolean emailOk = false;
+        boolean telfOk = true;
+        String email;
+        String telefono;
+                                                                                                                                                                                                                                                         
+       
+       email = (String) request.getParameter("emailPartner");
+       telefono = (String) request.getParameter("telefonoPartner");
+       
+       //Controllo che la email sia valida
+       if (email.indexOf("@")!= -1 && email.indexOf(".")!=-1){
+          emailOk = true; 
+          }
+    
+       try {
+           Integer.parseInt(telefono);
+           telfOk = true;
+           } catch (NumberFormatException nfe){
+           telfOk = false;
+           }
+      
         
-       return v.validate();
+       return emailOk && telfOk;
     }
 
     public void updatePartner(Key key, String chiSiamo, String indirizzo,
