@@ -15,7 +15,7 @@
 				<li><a href="${f:url('/tuttiProgetti')}">Tutti i progetti</a></li>
 				<li><a href="${f:url('/tuttiProgetti?page=tuttiAnniInizio')}">Per anno d'inizio</a></li>
 				<li><a href="${f:url('/tuttiProgetti?page=tuttiAnniFine')}">Per anno di fine</a></li>
-				<li><a href="${f:url('/tuttiProgetti?page=tuttiTemi')}">Tutti i temi</a></li>
+				<li><a href="${f:url('/tuttiProgetti?page=tuttiTemi')}">Tutti i temi di progetti</a></li>
 			</ul>
 		</li>
 		<li>Partners
@@ -27,9 +27,9 @@
 		<li>Eventi Pubblici_NI
 			<ul>
 				<li><a href="#">Tutti gli eventi_NI</a></li>
-				<li><a href="#">Eventi per temi_NI</a></li>
-				<li><a href="#">Eventi per tipo_NI</a></li>
-				<li><a href="#">Eventi per mese_NI</a></li>
+				<li><a href="#">Tutti temi di eventi_NI</a></li>
+				<li><a href="#">Tutti tipi di eventi_NI</a></li>
+				<li><a href="#">Tutti mesi_NI</a></li>
 			</ul>
 		</li>
 		<li>Ricercatori_NI
@@ -43,7 +43,7 @@
 		<li>Attività_NI
 			<ul>
 				<li><a href="#">Tutte le attività_NI</a></li>
-				<li><a href="#">Attività per mese_NI</a></li>
+				<li><a href="#">Tutti i mesi_NI</a></li>
 			</ul>
 		</li>
 		<li><a href="${f:url('/commissioneEuropea')}">La Commissione Europea</a></li>
