@@ -287,7 +287,7 @@ public class PartnerService {
             // poi elimino tutti i collegamenti con i partner
             List<Progetto> progetti = ppService.getProgettoByPartner(p);
             for (Progetto pr: progetti){
-                ppService.eliminaCollegamento(pr.getKey(), pKey);
+                ppService.eliminaCollegamento(pKey, pr.getKey());
             }
             //quindi lo elimino dal db
             Transaction tx = Datastore.beginTransaction();
