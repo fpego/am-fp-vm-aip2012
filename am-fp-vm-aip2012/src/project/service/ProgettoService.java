@@ -375,7 +375,7 @@ public class ProgettoService {
         try{ 
             int durata = Integer.parseInt((String) input.get("durata"));
             // devo inserire qui il controllo della durata, non l'ho fatto precedentemente.
-            if (durata >= 2){
+            if (durata >= 2 && durata <= 10){
                 progetto.setDurata(durata);
                 progetto.setAnnoFine(progetto.getAnnoInizio() + durata);
             }
@@ -399,6 +399,28 @@ public class ProgettoService {
         tx.commit();
 
         return progetto;
+    }
+
+    /**
+     * Elimina il progetto passato per chiave
+     * @param asKey - chiave del progetto
+     */
+    public void removeProgetto(Key key) {
+        Progetto p = null;
+        try{
+            p = this.getOrNull(key);
+        }catch (Exception e) {
+            p = null;
+        }
+        if (p == null)
+            return;
+        // Devo rimuovere tutti i collegamenti
+        for (Partner pa: this.getPartnerList(key)){
+            ppService.eliminaCollegamento(pa.getKey(), p.getKey());
+        }
+        Transaction tx = Datastore.beginTransaction();
+        Datastore.delete(p.getKey());
+        tx.commit();
     }
 
 }

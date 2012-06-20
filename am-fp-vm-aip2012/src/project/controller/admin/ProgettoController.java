@@ -29,6 +29,7 @@ public class ProgettoController extends Controller {
         requestScope("partnerList", service.getPartnerList(asKey(meta.key)));
         requestScope("docList", service.getProjectFiles(asKey(meta.key)));
         requestScope("urlUpdate", "updateProgetto?key=" + key);
+        requestScope("urlDelete", "updateProgetto?key=" + key + "&a=4");
         return forward("progetto.jsp");
     }
 }

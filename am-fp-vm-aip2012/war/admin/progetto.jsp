@@ -81,6 +81,8 @@
 <tr><td colspan="2"><input type="submit" value="Upload"/></td></tr>
 </table>
 </form>
+
+<h3><a href="${f:url(urlDelete)}" onclick="return confirm('Sei sicuro di cancellare il progetto? E\' una operazione irreversibile!')">Elimina il progetto</a></h3>
 <!-- CONTENT END -->
 		</div>
 	</div>

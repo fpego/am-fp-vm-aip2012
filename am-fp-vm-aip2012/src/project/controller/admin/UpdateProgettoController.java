@@ -26,10 +26,15 @@ public class UpdateProgettoController extends Controller {
                 // upload di un file
                 FileItem formFile = requestScope("formFile");
                 service.uploadFile(asKey(meta.key), formFile);
-            } else if (a.equals("3")){
+            }else if (a.equals("3")){
                 // aggiunta di un nuovo partner
                 String nomePartner = (String) input.get("nomePartner");
                 service.addPartnerToProgetto(asKey(meta.key), nomePartner);
+            }else if (a.equals("4")){
+                // elimino il progetto
+                service.removeProgetto(asKey(meta.key));
+                // devo redirigere alla home, non ho più il progetto al quale tornare
+                return redirect(basePath);
             }
         }
         return redirect(basePath + "progetto?key=" + key);
