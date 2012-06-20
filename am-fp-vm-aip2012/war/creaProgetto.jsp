@@ -22,7 +22,7 @@
 Inserisci i dati per creare un nuovo progetto.<br/>
 Se i partner che devi inserire non sono presenti nel nostro database, basta scriverli e verranno automaticamente aggiunti. In ogni caso, i partner devono essere almeno 5.<br/>
 Il primo partner della lista diventa automaticamente il leader del progetto.<br/>
-La durata deve essere un numero di anni intero, compreso tra 2 e 10.<br/>
+La durata deve essere un numero di anni intero, compreso tra 2 e 5.<br/>
 </p>
 <br/><br/>
 <form action="${f:url('progettoInsert')}" method="post" id="creaProgetto">
@@ -36,7 +36,7 @@ La durata deve essere un numero di anni intero, compreso tra 2 e 10.<br/>
 <input type="text" ${f:text("tema")} class="${f:errorClass('tema', 'err')}"/>${f:h(errors.tema)}
 </td></tr>
 <tr><td>Durata (anni)</td><td>
-<input type="text" ${f:text("durata")} class="${f:errorClass('durata', 'err')}"/>${f:h(durata.durata)}
+<input type="text" ${f:text("durata")} class="${f:errorClass('durata', 'err')}" pattern="[2-5]"/>${f:h(durata.durata)}
 </td></tr>
 <tr><td>Presentazione</td><td>
 <textarea name="presentazione" class="${f:errorClass('presentazione', 'err')}">${f:h(presentazione)}</textarea>${f:h(errors.presentazione)}
