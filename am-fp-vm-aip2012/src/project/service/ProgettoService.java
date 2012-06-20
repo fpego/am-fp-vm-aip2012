@@ -305,7 +305,7 @@ public class ProgettoService {
         
         try{ 
             durata = Integer.parseInt((String) request.getParameter("durata"));
-            if (durata >= 2 && durata <= 10)
+            if (durata >= Progetto.DURATA_MIN && durata <= Progetto.DURATA_MAX)
                 durataOk = true;
         }catch (Exception e) { 
             durataOk = false; 
@@ -374,10 +374,12 @@ public class ProgettoService {
         // ogni modifica è dentro ad un blocco try diverso, così da poter aggiornare solamente i campi effettivamente presenti nel form
         try{ 
             int durata = Integer.parseInt((String) input.get("durata"));
+            int annoInizio = Integer.parseInt((String) input.get("annoInizio"));
             // devo inserire qui il controllo della durata, non l'ho fatto precedentemente.
-            if (durata >= 2 && durata <= 10){
+            if (durata >= Progetto.DURATA_MIN && durata <= Progetto.DURATA_MAX){
                 progetto.setDurata(durata);
-                progetto.setAnnoFine(progetto.getAnnoInizio() + durata);
+                progetto.setAnnoInizio(annoInizio);
+                progetto.setAnnoFine(annoInizio + durata);
             }
         }catch (Exception e) { }
         try{

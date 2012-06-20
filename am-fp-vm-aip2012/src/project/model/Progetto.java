@@ -17,6 +17,8 @@ import project.meta.RicercatoreProgettoMeta;
 public class Progetto implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    public static final int DURATA_MIN = 2;
+    public static final int DURATA_MAX = 5;
 
     @Attribute(primaryKey = true)
     private Key key;

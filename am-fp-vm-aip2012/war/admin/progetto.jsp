@@ -25,9 +25,9 @@
 <input type="text" name="titoloProgetto" value="${f:h(p.titoloProgetto)}"/></td></tr>
 <tr><td>Tema</td><td>
 <input type="text" name="tema" value="${f:h(p.tema)}"/></td></tr>
-<tr><td>Anno d'inizio</td><td>${f:h(p.annoInizio)}</td></tr>
+<tr><td>Anno d'inizio</td><td><input type="text" name="annoInizio" value="${f:h(p.annoInizio)}" size="4"/></td></tr>
 <tr><td>Anno di fine</td><td>${f:h(p.annoFine)}</td></tr>
-<tr><td>Durata</td><td><input type="text" name="durata" value="${f:h(p.durata)}" maxlength="2" max="10" size="2"/></td></tr>
+<tr><td>Durata</td><td><input type="text" name="durata" value="${f:h(p.durata)}" maxlength="2" size="2" max="5" min="2"/></td></tr>
 <tr><td>Presentazione</td><td><textarea ${f:text("presentazione")} cols="40" rows="5">${f:h(p.presentazione)}</textarea></td></tr>
 <tr><td>Risultati</td><td><textarea ${f:text("risultati")} cols="40" rows="5">${f:h(p.risultati)}</textarea></td></tr>
 <tr><td colspan="2"><input type="submit" value="Salva"/></td></tr>
