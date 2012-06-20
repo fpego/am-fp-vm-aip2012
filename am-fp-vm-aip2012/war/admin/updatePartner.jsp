@@ -26,7 +26,9 @@ $(document).ready(function () {
 	<div id="container">
 		<div id="content">
 <!-- CONTENT START -->
-<h1>Pannello di amministrazione -> Modifica un partnerr</h1>
+<h1>Pannello di amministrazione -> Modifica un partner</h1>
+
+<h3><a href="${f:url(urlIndietro)}">Torna indietro</a></h3>
 
 <form action="${f:url('updatePartner')}" method="post">
 <input type="hidden" name="a" value="1"/>
@@ -36,26 +38,25 @@ $(document).ready(function () {
 <thead></thead>
 <tbody>
 <tr><td>Nome</td>
-	<td><input type="text" value="${f:h(p.nome)}" id="nome" READONLY/></td>
+	<td><input type="text" value="${f:h(p.nome)}" name="nome" id="nome" /></td>
 </tr>
-<tr><td>Informazione di voi</td>
+<tr><td>Informazioni (opz)</td>
 	<td><textarea name="chiSiamo" class="chiSiamo">${f:h(p.chiSiamo)}</textarea></td>
 </tr>
-<tr><td>Telefono</td>
-	<td><input  type="text"  pattern="[0-9]{4}\-[0-9]{10}" value="${f:h(p.telefono)}" id="telefono" name="telefono">formato 0000-0000000000</td>
+<tr><td>Telefono (opz)</td>
+	<td><input  type="text" value="${f:h(p.telefono)}" id="telefono" name="telefono"></td>
 </tr>
-<tr><td>Indirizzo</td>
+<tr><td>Indirizzo (opz)</td>
 	<td><input  type="text" value="${f:h(p.indirizzo)}" id="indirizzo" name="indirizzo"></td>
 </tr>
 <tr><td>Email</td>
 	<td><input  type="text" value="${f:h(p.email)}" pattern="[a-zA-Z0-9_\.]+@[a-zA-Z0-9_\.]+\.[A-z]{2,6}" id="email" name="email"></td>
 </tr>
-<tr><td>Sito Web (opzionale)</td>
-	<td><input  type="text" value="${f:h(p.sitoWeb)}" pattern="[WWW.,www.]+[a-zA-Z0-9_\.]+\.[a-zA-Z0-9_\.]+\.[A-z]{2,5}" id="sitoWeb" name="sitoWeb"></td>
+<tr><td>Sito Web (opz)</td>
+	<td><input  type="text" value="${f:h(p.sitoWeb)}" id="sitoWeb" name="sitoWeb"></td>
 </tr>
 <tr>
-	<td><input type="reset" value="Anulla" onclick="javascript:history.go(-1);"/></td>
-	<td><input type="submit" value="Salva le Modifiche"/></td>
+	<td colspan="2"><input type="submit" value="Salva le Modifiche"/></td>
 </tr>
 </tbody>
 </table>

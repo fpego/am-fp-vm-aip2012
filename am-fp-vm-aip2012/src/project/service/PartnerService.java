@@ -306,36 +306,41 @@ public class PartnerService {
     * @return true se i campi sono OK, false altrimenti.
     */
     public boolean validate(HttpServletRequest request, PartnerMeta meta) {
-                    
         Validators v = new Validators(request);
-        v.add(meta.nome, v.required());
-        v.add(meta.email, v.required());
-        v.add(meta.email, v.regexp(".+@.+\\.[a-z]+")); // controllo la mail con un pattern di una regex
- 
-       
+        v.add("nome", v.required());
+        v.add("email", v.required());
+        v.add("email", v.regexp(".+@.+\\.[a-z]+")); // controllo la mail con un pattern di una regex
+        
        return v.validate();
     }
 
-    public void updatePartner(Key key, String chiSiamo, String indirizzo,
-            String telefono, String email, String sitoWeb) {
-
-        Partner partner = this.getOrNull(key);
-        
+    /**
+     * Aggiorna il partner
+     * @param key
+     * @param chiSiamo
+     * @param indirizzo
+     * @param telefono
+     * @param email
+     * @param sitoWeb
+     */
+    public void updatePartner(Key key, String nome, String chiSiamo, String indirizzo, String telefono, String email, String sitoWeb) {
+        Partner partner = null;
         try {
-            partner.setChiSiamo(chiSiamo);
-            partner.setIndirizzo(indirizzo);
-            partner.setTelefono(telefono);
-            partner.setEmail(email);
-            partner.setSitoWeb(sitoWeb);
-            Transaction tx = Datastore.beginTransaction();
-            Datastore.put(partner);
-            tx.commit();
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
+            partner = this.getOrNull(key);
+        } catch (Exception e) { }
         
-
+        if (partner == null)
+            return;
         
+        partner.setNome(nome);
+        partner.setChiSiamo(chiSiamo);
+        partner.setIndirizzo(indirizzo);
+        partner.setTelefono(telefono);
+        partner.setEmail(email);
+        partner.setSitoWeb(sitoWeb);
+        Transaction tx = Datastore.beginTransaction();
+        Datastore.put(partner);
+        tx.commit();
     }
 
   

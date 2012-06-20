@@ -37,20 +37,20 @@ $(document).ready(function () {
 <tr><td>Nome</td>
 	<td><input type="text" ${f:text("nomePartner")} id="nomePartner"/></td>
 </tr>
-<tr><td>Informazione di voi</td>
+<tr><td>Informazioni (opz)</td>
 	<td><textarea name="chiSiamo" class=""></textarea></td>
 </tr>
-<tr><td>Telefono</td>
-	<td><input  type="text"  ${f:text("telefono")} pattern="[0-9]{4}\-[0-9]{10}" id="telefono">formato 0000-0000000000</td>
+<tr><td>Telefono (opz)</td>
+	<td><input  type="text"  ${f:text("telefono")} id="telefono"></td>
 </tr>
-<tr><td>Indirizzo</td>
+<tr><td>Indirizzo (opz)</td>
 	<td><input  type="text"  ${f:text("indirizzo")} id="indirizzo"></td>
 </tr> 
 <tr><td>Email</td>
 	<td><input  type="text"  ${f:text("email")} pattern="[a-zA-Z0-9_\.]+@[a-zA-Z0-9_\.]+\.[A-z]{2,6}" id="email"></td>
 </tr>
-<tr><td>Sito Web (opzionale)</td>
-	<td><input  type="text"  ${f:text("sitoWeb")} pattern="[WWW.,www.]+[a-zA-Z0-9_\.]+\.[a-zA-Z0-9_\.]+\.[A-z]{2,5}" id="sitoWeb"></td>
+<tr><td>Sito Web (opz)</td>
+	<td><input  type="text"  ${f:text("sitoWeb")} id="sitoWeb"></td>
 </tr>
 <tr>
 	<td colspan="2"><input type="submit" value="Crea"/></td>

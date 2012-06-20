@@ -4,6 +4,8 @@ import org.slim3.controller.Controller;
 import org.slim3.controller.Navigation;
 import org.slim3.util.RequestMap;
 
+import com.google.appengine.api.datastore.KeyFactory;
+
 import project.meta.PartnerMeta;
 import project.service.PartnerService;
 
@@ -19,16 +21,15 @@ public class AddPartnerController extends Controller {
         
         if (a != null){
             if (a.equals("1")){
-             
-                    // si aggiunge il partner!
-                    service.createPartner(request);
-              
+                // si aggiunge il partner!
+                service.createPartner(request);
             }else if (a.equals("2")){
                 // si cancella il partner!
                 service.elimina(asKey(meta.key));
             }else if (a.equals("3")){
                 //si modifica il partner
                 requestScope("p", service.getOrNull(asKey(meta.key)));
+                requestScope("urlIndietro","addPartner?key="+KeyFactory.keyToString(asKey(meta.key)));
                 return forward("updatePartner.jsp");
             }
             //redirigo a questa stessa pagina per rimuovere il reference al key dall'url
