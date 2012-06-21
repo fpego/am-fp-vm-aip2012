@@ -20,6 +20,10 @@
 
 <h3>Esplora il consorzio</h3>
 <br />
+<h4>Due parole sul consorzio</h4>
+<br />
+<p>${f:h(p.consorzio)}</p>
+<br />
 <h4>Elenco dei partners</h4>
 <ul id="partnerList">
 	<c:set var="partnerLeaderLink" value="partner?key=${f:h(pLeader.key)}&origin=project" />

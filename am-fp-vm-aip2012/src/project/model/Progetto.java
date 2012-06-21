@@ -36,6 +36,9 @@ public class Progetto implements Serializable {
     private String presentazione;
     @Attribute(lob=true)
     private String risultati;
+    @Attribute(lob=true)
+    private String consorzio;
+    
     
     @Attribute(persistent=false)
     private InverseModelListRef<PartnerProgetto, Progetto> partnerProgettoListRef =
@@ -192,6 +195,14 @@ public class Progetto implements Serializable {
 
     public ModelRef<Partner> getLeaderRef() {
         return leaderRef;
+    }
+
+    public String getConsorzio() {
+        return consorzio;
+    }
+
+    public void setConsorzio(String consorzio) {
+        this.consorzio = consorzio;
     }
 
 

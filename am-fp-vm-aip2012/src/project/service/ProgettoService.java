@@ -177,6 +177,7 @@ public class ProgettoService {
         progetto.setTitoloProgetto((String) input.get("titoloProgetto"));
         progetto.setPresentazione((String) input.get("presentazione"));
         progetto.setTema((String) input.get("tema"));
+        progetto.setConsorzio((String) input.get("consorzio"));
         
         Transaction tx = Datastore.beginTransaction();
         Datastore.put(progetto);
@@ -393,6 +394,9 @@ public class ProgettoService {
         }catch (Exception e) { }
         try{
             progetto.setRisultati((String) input.get("risultati"));
+        }catch (Exception e) { }
+        try{
+            progetto.setConsorzio((String) input.get("consorzio"));
         }catch (Exception e) { }
         
         
