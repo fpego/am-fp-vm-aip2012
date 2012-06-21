@@ -22,6 +22,7 @@
 
 ${f:h(p.presentazione)}
 
+<p class="risalto">Scopri più di noi: <a>Attività</a>, <a>Eventi pubblici</a> (links NI)</p>
 <!-- CONTENT END -->
 		</div>
 	</div>
