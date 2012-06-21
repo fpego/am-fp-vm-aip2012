@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <jsp:include page="/common/meta-head.jsp" />
-<title>Progetti UE - Regole d'iscrizione - Bandi</title> 
+<title>Progetti UE - Finanziamenti - Bandi</title> 
 </head>
 <body>
 <jsp:include page="/common/header.jsp" />
