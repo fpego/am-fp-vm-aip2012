@@ -40,12 +40,6 @@
 				<li><a href="#">Aree di ricerca_NI</a></li>
 			</ul>
 		</li>
-		<li>Attività_NI
-			<ul>
-				<li><a href="#">Tutte le attività_NI</a></li>
-				<li><a href="#">Tutti i mesi_NI</a></li>
-			</ul>
-		</li>
 		<li><a href="${f:url('/commissioneEuropea')}">La Commissione Europea</a></li>
 		<li><a href="${f:url('/finanziamenti')}">Finanziamenti</a></li>
 		<li><a href="${f:url('/creaProgetto')}">Crea un progetto</a></li>
